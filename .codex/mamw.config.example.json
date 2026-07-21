@@ -1,0 +1,84 @@
+{
+  "mamw_version": "0.13",
+  "project": {
+    "organization_id": "org-example",
+    "brand_id": "brand-example",
+    "markets": [
+      "CO"
+    ],
+    "locales": [
+      "es-CO"
+    ],
+    "timezone": "America/Bogota"
+  },
+  "marketing_models": [
+    "b2c"
+  ],
+  "packs": [],
+  "channel_profiles": [],
+  "providers": [
+    {
+      "id": "openai-images",
+      "provider": "openai",
+      "kind": "creative-api",
+      "mode": "disabled",
+      "capabilities": [
+        "generate_image",
+        "edit_image"
+      ],
+      "effect_ceiling": "R2",
+      "auth": {
+        "type": "api_key",
+        "auth_env": "OPENAI_API_KEY",
+        "secret_location": "server_only"
+      },
+      "config": {
+        "image_model_env": "MAMW_OPENAI_IMAGE_MODEL",
+        "quality_env": "MAMW_OPENAI_IMAGE_QUALITY",
+        "size_env": "MAMW_OPENAI_IMAGE_SIZE",
+        "max_images_env": "MAMW_OPENAI_MAX_IMAGES_PER_RUN",
+        "max_cost_env": "MAMW_OPENAI_MAX_COST_USD_PER_RUN"
+      }
+    }
+  ],
+  "tracker": {
+    "type": "azure-devops",
+    "org": "${AZURE_DEVOPS_ORG}",
+    "project": "${AZURE_DEVOPS_PROJECT}",
+    "area_path": "",
+    "iteration_path": "",
+    "parent_ref": null,
+    "pat_env": "AZURE_DEVOPS_PAT"
+  },
+  "budget": {
+    "authority_ref": "unknown",
+    "currency": "COP",
+    "total_ceiling": null
+  },
+  "approval_gates": {
+    "plan_ack": {
+      "codex": "typed_ok",
+      "claude": "exit_plan_mode"
+    },
+    "persistent_effect_approvals": "available"
+  },
+  "engram": {
+    "knowledge": {
+      "repo": null,
+      "local_path": ".mamw/kb"
+    },
+    "logs": {
+      "repo": null,
+      "local_path": ".mamw/logs-kb"
+    },
+    "federation": {
+      "pamw": "read_only",
+      "damw": "read_only",
+      "oaw": "read_only"
+    }
+  },
+  "effects": {
+    "default": "deny",
+    "available_ceiling": "R1"
+  }
+}

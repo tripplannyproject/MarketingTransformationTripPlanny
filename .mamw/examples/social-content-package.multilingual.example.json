@@ -1,0 +1,194 @@
+{
+  "schema_version": "content-package-v1",
+  "package_id": "launch-summer-story-001",
+  "package_version": 1,
+  "status": "in_review",
+  "intent": "publish",
+  "content_type": "story",
+  "base_locale": "es-CO",
+  "lineage": {
+    "brand_id": "brand-example",
+    "campaign_ref": "campaign:summer-launch",
+    "brand_dna_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "storytelling_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "brief_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "design_hash": "sha256:5555555555555555555555555555555555555555555555555555555555555555",
+    "reference_manifest_hash": "sha256:6666666666666666666666666666666666666666666666666666666666666666",
+    "prompt_hashes": [
+      "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+    ]
+  },
+  "variants": [
+    {
+      "variant_id": "story-es-co",
+      "locale": "es-CO",
+      "market": "CO",
+      "adaptation_mode": "native",
+      "locale_profile_ref": "locale-profile:es-CO:v2",
+      "market_dna_hash": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "placement": {
+        "platform": "instagram",
+        "surface": "story",
+        "width": 1080,
+        "height": 1920,
+        "duration_seconds": 15,
+        "safe_zones_ref": "platform-spec:instagram-story:2026-07-17"
+      },
+      "copy": {
+        "headline": "El verano se vive a tu manera",
+        "caption": "Una historia corta, una nueva forma de disfrutar el verano. Descúbrela hoy.",
+        "cta": "Conoce más",
+        "hashtags": ["#VeranoATuManera", "#MarcaEjemplo"],
+        "overlay_text": ["El verano se vive a tu manera", "Conoce más"],
+        "alt_text": "Persona disfrutando una tarde luminosa al aire libre con los colores de la marca."
+      },
+      "media": [
+        {
+          "asset_id": "image-es-co-001",
+          "kind": "image",
+          "uri": "mamw://assets/launch-summer-story-001/image-es-co-001.png",
+          "mime_type": "image/png",
+          "checksum": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+          "width": 1080,
+          "height": 1920,
+          "generated": true,
+          "provider_receipt_ref": "receipt:openai-image:request-001",
+          "rights_ref": "rights:generated-asset-policy:v1"
+        }
+      ],
+      "music": {
+        "mode": "platform_native",
+        "track_ref": "platform-track:example-001",
+        "title": "Summer Pulse",
+        "source_provider": "instagram-music-library",
+        "render_mode": "platform_attachment",
+        "start_seconds": 12,
+        "duration_seconds": 15,
+        "rights": {
+          "status": "platform_cleared",
+          "territories": ["CO"],
+          "channels": ["instagram-story"],
+          "commercial_use": true,
+          "evidence_ref": "rights-check:instagram:example-001:CO"
+        }
+      },
+      "tracking": {
+        "destination": "https://example.com/co/verano",
+        "utm_ref": "utm:summer-launch:instagram-story:es-CO"
+      },
+      "qa": {
+        "brand": "pass",
+        "linguistic": "pass",
+        "cultural": "pass",
+        "accessibility": "pass",
+        "rights": "pass",
+        "platform": "pending",
+        "native_market_review_ref": "review:es-CO:001"
+      }
+    },
+    {
+      "variant_id": "story-en-us",
+      "locale": "en-US",
+      "market": "US",
+      "adaptation_mode": "transcreation",
+      "locale_profile_ref": "locale-profile:en-US:v3",
+      "market_dna_hash": "sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "placement": {
+        "platform": "instagram",
+        "surface": "story",
+        "width": 1080,
+        "height": 1920,
+        "duration_seconds": 15,
+        "safe_zones_ref": "platform-spec:instagram-story:2026-07-17"
+      },
+      "copy": {
+        "headline": "Make summer yours",
+        "caption": "A small moment can change the whole mood. Make this summer unmistakably yours.",
+        "cta": "Explore now",
+        "hashtags": ["#MakeSummerYours", "#ExampleBrand"],
+        "overlay_text": ["Make summer yours", "Explore now"],
+        "alt_text": "A person enjoying a bright outdoor afternoon framed by the brand's signature colors.",
+        "transcreation_rationale": "Reframed the literal invitation as an ownership-led hook that sounds natural for the US market."
+      },
+      "media": [
+        {
+          "asset_id": "image-en-us-001",
+          "kind": "image",
+          "uri": "mamw://assets/launch-summer-story-001/image-en-us-001.png",
+          "mime_type": "image/png",
+          "checksum": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+          "width": 1080,
+          "height": 1920,
+          "generated": true,
+          "provider_receipt_ref": "receipt:openai-image:request-002",
+          "rights_ref": "rights:generated-asset-policy:v1"
+        }
+      ],
+      "music": {
+        "mode": "platform_native",
+        "track_ref": "platform-track:example-002",
+        "title": "Golden Hour Beat",
+        "source_provider": "instagram-music-library",
+        "render_mode": "platform_attachment",
+        "start_seconds": 8,
+        "duration_seconds": 15,
+        "rights": {
+          "status": "platform_cleared",
+          "territories": ["US"],
+          "channels": ["instagram-story"],
+          "commercial_use": true,
+          "evidence_ref": "rights-check:instagram:example-002:US"
+        }
+      },
+      "tracking": {
+        "destination": "https://example.com/us/summer",
+        "utm_ref": "utm:summer-launch:instagram-story:en-US"
+      },
+      "qa": {
+        "brand": "pass",
+        "linguistic": "pass",
+        "cultural": "pass",
+        "accessibility": "pass",
+        "rights": "pass",
+        "platform": "pending",
+        "native_market_review_ref": "review:en-US:001"
+      }
+    }
+  ],
+  "generation": {
+    "providers": [
+      {
+        "provider_ref": "openai-images",
+        "capability": "generate_image",
+        "model_ref": "env:MAMW_OPENAI_IMAGE_MODEL",
+        "request_hash": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+        "receipt_ref": "receipt:openai-image:batch-001",
+        "state": "generated",
+        "estimated_cost": 0.5,
+        "actual_cost": 0.46
+      }
+    ],
+    "budget": {
+      "currency": "USD",
+      "run_ceiling": 10,
+      "estimated_total": 0.5,
+      "actual_total": 0.46,
+      "authority_ref": "budget-envelope:summer-launch:v1"
+    }
+  },
+  "approvals": {
+    "creative": { "state": "pending" },
+    "rights": { "state": "pending" },
+    "activation": { "state": "unavailable" }
+  },
+  "publication": {
+    "provider_ref": "social-instagram-primary",
+    "account_ref": "social-account:brand-example:instagram",
+    "scheduled_at": "2026-08-03T14:00:00Z",
+    "timezone": "America/Bogota",
+    "payload_hash": "sha256:4444444444444444444444444444444444444444444444444444444444444444",
+    "capability_snapshot_ref": "capabilities:instagram-primary:2026-07-17",
+    "idempotency_key": "launch-summer-story-001-v1",
+    "preflight_status": "blocked"
+  }
+}

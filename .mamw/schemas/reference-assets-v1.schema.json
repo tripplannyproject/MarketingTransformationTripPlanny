@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tripplanny.dev/mamw/schemas/reference-assets-v1.schema.json",
+  "title": "MAMW reference asset manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "manifest_id", "manifest_version", "design_ref", "assets"],
+  "properties": {
+    "schema_version": { "const": "reference-assets-v1" },
+    "manifest_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,127}$" },
+    "manifest_version": { "type": "integer", "minimum": 1 },
+    "design_ref": { "type": "string", "minLength": 1 },
+    "assets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["asset_id", "media_type", "checksum", "source", "prompt_role", "instruction", "locale_scope", "allowed_transformations", "rights"],
+        "properties": {
+          "asset_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,127}$" },
+          "media_type": { "type": "string", "pattern": "^(image|application)/[A-Za-z0-9.+-]+$" },
+          "checksum": { "$ref": "#/$defs/hash" },
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["kind", "ref", "transport_policy"],
+            "properties": {
+              "kind": { "enum": ["local_path", "public_url", "openai_file_id", "dam_ref", "secret_resolved_url"] },
+              "ref": { "type": "string", "minLength": 1 },
+              "transport_policy": { "enum": ["upload_at_execution", "provider_file", "public_fetch", "resolve_from_secret_store"] }
+            }
+          },
+          "prompt_role": { "enum": ["subject", "product", "character", "composition", "palette", "texture", "style_boundary", "logo_for_composition_only"] },
+          "instruction": { "type": "string", "minLength": 1 },
+          "influence": { "enum": ["low", "medium", "high", "exact_where_supported"] },
+          "locale_scope": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "anyOf": [{ "const": "*" }, { "$ref": "#/$defs/locale" }] }
+          },
+          "allowed_transformations": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "enum": ["crop", "resize", "recolor", "background_replace", "style_adapt", "pose_adapt", "none"] }
+          },
+          "rights": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["status", "owner_ref", "evidence_ref", "territories", "channels", "commercial_use", "third_party_brand"],
+            "properties": {
+              "status": { "enum": ["owned", "licensed", "partner_authorized", "consented", "generated"] },
+              "owner_ref": { "type": "string", "minLength": 1 },
+              "evidence_ref": { "type": "string", "minLength": 1 },
+              "territories": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 2 } },
+              "channels": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+              "commercial_use": { "type": "boolean" },
+              "third_party_brand": { "type": "boolean" },
+              "expires_at": { "type": "string", "format": "date-time" },
+              "attribution": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "hash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "locale": { "type": "string", "pattern": "^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$" }
+  }
+}

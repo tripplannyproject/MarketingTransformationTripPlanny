@@ -1,0 +1,4 @@
+interface:
+  display_name: "MAMW Issue"
+  short_description: "Draft a governed MAMW framework issue"
+  default_prompt: "Use $mm-issue to prepare a reproducible MAMW bug or improvement report."

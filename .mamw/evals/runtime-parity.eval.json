@@ -1,0 +1,18 @@
+{
+  "version": "0.1",
+  "framework": "MAMW",
+  "cases": [
+    {
+      "id": "dual-start-skill",
+      "assert": "Codex $mm-start and Claude /mm-start install byte-identical canonical SKILL.md files"
+    },
+    {
+      "id": "claude-legacy-alias",
+      "assert": "Claude /mm:start delegates to /mm-start and contains no independent workflow"
+    },
+    {
+      "id": "oaw-role",
+      "assert": "Both runtime hooks fail closed and require the mamw framework role"
+    }
+  ]
+}

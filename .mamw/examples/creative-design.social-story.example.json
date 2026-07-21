@@ -1,0 +1,101 @@
+{
+  "schema_version": "creative-design-v1",
+  "design_id": "summer-story-design-001",
+  "design_version": 1,
+  "status": "draft",
+  "scope": {
+    "organization_id": "org-example",
+    "brand_id": "brand-example",
+    "market_ids": ["CO", "US"],
+    "account_scope": "social-account:brand-example:instagram"
+  },
+  "lineage": {
+    "campaign_ref": "campaign:summer-launch",
+    "work_item_ref": "azure:HU-101",
+    "brand_dna_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "storytelling_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "brief_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  },
+  "objective": {
+    "audience": "Adultos jóvenes que quieren apropiarse de pequeños momentos de verano.",
+    "desired_change": "Pasar de ver el verano como una temporada genérica a sentirlo personal y alcanzable.",
+    "single_minded_proposition": "El verano se vive a tu manera.",
+    "proof": ["La experiencia puede disfrutarse en momentos cotidianos y no exige un viaje aspiracional."],
+    "claims_allowed": ["Experiencia flexible y personal."],
+    "claims_forbidden": ["Resultados garantizados o superioridad no demostrada."]
+  },
+  "concept": {
+    "insight": "Un momento sencillo se vuelve memorable cuando se siente propio.",
+    "central_idea": "Un encuadre íntimo convierte una tarde común en el inicio del verano personal.",
+    "story_spine": "Rutina reconocible, irrupción de color, decisión personal y cierre abierto a la acción.",
+    "distinctive_elements": ["Arco cálido de luz", "Bloque coral de marca", "Encuadre cercano y humano"],
+    "avoid": ["Postales turísticas genéricas", "Sonrisas de stock", "Saturación tropical cliché"]
+  },
+  "visual_system": {
+    "subject": "Una persona adulta joven disfrutando una pausa al aire libre, con el producto visible y natural.",
+    "scene": "Terraza urbana al final de la tarde con profundidad realista y pocos elementos.",
+    "composition": "Plano vertical, sujeto en el tercio inferior derecho y espacio negativo limpio arriba a la izquierda.",
+    "palette": ["coral #F05A5B", "azul noche #183153", "crema #FFF4DE"],
+    "style": "Fotografía editorial contemporánea, textura natural y detalle realista del producto.",
+    "lighting": "Golden hour lateral suave, sin halos artificiales.",
+    "continuity": ["Mantener forma y color del producto de referencia", "Mantener el bloque coral como acento, no como fondo total"],
+    "deterministic_layers": ["logo", "overlay_text", "cta", "legal"]
+  },
+  "copy_system": {
+    "voice_tone": "Cercano, específico y seguro; sin hipérboles ni frases de IA.",
+    "text_render_policy": "deterministic_only",
+    "locale_copy_refs": ["copy:summer-story:es-CO:v1", "copy:summer-story:en-US:v1"]
+  },
+  "placements": [
+    {
+      "placement_id": "instagram-story",
+      "platform": "instagram",
+      "surface": "story",
+      "width": 1080,
+      "height": 1920,
+      "duration_seconds": 15,
+      "safe_zones_ref": "platform-spec:instagram-story:2026-07-17"
+    }
+  ],
+  "locales": [
+    {
+      "locale": "es-CO",
+      "market": "CO",
+      "adaptation_mode": "native",
+      "locale_profile_ref": "locale-profile:es-CO:v2",
+      "market_dna_hash": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "native_review_required": true,
+      "visual_adaptation": "Usar contexto urbano colombiano sin símbolos nacionales ni estereotipos."
+    },
+    {
+      "locale": "en-US",
+      "market": "US",
+      "adaptation_mode": "transcreation",
+      "locale_profile_ref": "locale-profile:en-US:v3",
+      "market_dna_hash": "sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "native_review_required": true,
+      "visual_adaptation": "Conservar intimidad y apropiación personal; evitar códigos visuales de vacaciones de lujo."
+    }
+  ],
+  "reference_manifest_ref": "reference-manifest:summer-story-design-001:v1",
+  "generation_policy": {
+    "provider_profile": "openai-images",
+    "capability": "edit_image",
+    "max_attempts": 3,
+    "max_assets": 2,
+    "currency": "USD",
+    "run_ceiling": 10,
+    "authority_ref": "budget-envelope:summer-launch:v1",
+    "fallback": "deny"
+  },
+  "qa_rubric": {
+    "brand": "Paleta, producto, composición y personalidad coinciden con el DNA vigente.",
+    "storytelling": "La imagen expresa un momento propio, no una escena veraniega genérica.",
+    "originality": "No replica piezas históricas ni campañas externas por encima del umbral permitido.",
+    "reference_fidelity": "Producto consistente; referencia de composición solo guía jerarquía.",
+    "rights": "Todo asset enviado al proveedor tiene evidencia y alcance comercial vigentes.",
+    "locale": "El contexto es natural para el mercado y cualquier adaptación sensible tiene revisión nativa.",
+    "accessibility": "Contraste, safe zones y alt text permiten comprender el mensaje sin audio.",
+    "platform": "Dimensiones, peso, duración y zonas de UI cumplen el snapshot del placement."
+  }
+}

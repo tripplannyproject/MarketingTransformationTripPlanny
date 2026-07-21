@@ -1,0 +1,387 @@
+{
+  "schema_version": "1.0",
+  "catalog_version": "0.13.0",
+  "framework": "MAMW",
+  "total": 72,
+  "canonical_source": "templates/skills",
+  "runtime_invocation": {
+    "codex": "$<skill-name>",
+    "claude": "/<skill-name>",
+    "shared_mirror": ".agents/skills/<skill-name>/SKILL.md"
+  },
+  "contract": {
+    "trigger_source": "SKILL.md frontmatter.description",
+    "required_frontmatter": [
+      "name",
+      "description"
+    ],
+    "required_sections": [
+      "Inputs obligatorios",
+      "Procedimiento",
+      "Salida auditable",
+      "Límites y gates"
+    ],
+    "default_effect_ceiling": "R1",
+    "default_unknown_capability": "deny"
+  },
+  "families": {
+    "bootstrap": [
+      "mm-design",
+      "mm-engram",
+      "mm-issue",
+      "mm-quick",
+      "mm-resume",
+      "mm-review",
+      "mm-run",
+      "mm-start"
+    ],
+    "governance": [
+      "mamw-governance",
+      "mamw-engram",
+      "mamw-issue-report",
+      "mamw-pamw-handoff",
+      "mamw-damw-feedback",
+      "mamw-azure-work-item",
+      "mamw-fast-path",
+      "mamw-tenant-scope",
+      "mamw-scheduling-safety",
+      "mamw-claims-compliance"
+    ],
+    "foundation-research": [
+      "mamw-channel-audit",
+      "mamw-brand-dna",
+      "mamw-storytelling",
+      "mamw-market-research",
+      "mamw-competitive-intelligence",
+      "mamw-trend-intelligence"
+    ],
+    "audience-strategy": [
+      "mamw-audience-segmentation",
+      "mamw-audience-privacy",
+      "mamw-customer-journey",
+      "mamw-campaign-planning",
+      "mamw-growth-strategy"
+    ],
+    "editorial-creative": [
+      "mamw-editorial-operations",
+      "mamw-content-collection",
+      "mamw-creative-strategy",
+      "mamw-visual-design",
+      "mamw-creative-prompting",
+      "mamw-copywriting",
+      "mamw-longform-content",
+      "mamw-social-content",
+      "mamw-video-production",
+      "mamw-podcast-production",
+      "mamw-content-atomization",
+      "mamw-originality",
+      "mamw-brand-rights",
+      "mamw-accessibility"
+    ],
+    "localization": [
+      "mamw-locale-profile",
+      "mamw-transcreation",
+      "mamw-multilingual-seo",
+      "mamw-multilingual-media"
+    ],
+    "business-models": [
+      "mamw-b2c-lifecycle",
+      "mamw-b2b-demand-abm",
+      "mamw-b2b2c-partner",
+      "mamw-ecommerce-growth",
+      "mamw-sales-enablement",
+      "mamw-ugc-creator",
+      "mamw-lead-operations"
+    ],
+    "paid-growth": [
+      "mamw-media-planning",
+      "mamw-ad-operations",
+      "mamw-budget-governance",
+      "mamw-conversion-tracking",
+      "mamw-experimentation",
+      "mamw-cro-optimization"
+    ],
+    "channels": [
+      "mamw-email-outbound",
+      "mamw-community-crisis",
+      "mamw-social-publishing",
+      "mamw-push-notification"
+    ],
+    "providers": [
+      "mamw-provider-onboarding",
+      "mamw-connector-policy",
+      "mamw-openai-creative",
+      "mamw-activation-preflight",
+      "mamw-canva-instagram",
+      "mamw-calendar-scheduling"
+    ],
+    "measurement": [
+      "mamw-marketing-measurement",
+      "mamw-attribution-incrementality"
+    ]
+  },
+  "effect_policy": {
+    "foundation_stage_effect_ceiling": "R1",
+    "no_external_effects_until_governance_core": true,
+    "effect_levels": {
+      "R0": "read-only",
+      "R1": "local analysis or draft",
+      "R2": "reversible remote write",
+      "R3": "sensitive data or credit operation",
+      "R4": "publish, send or spend",
+      "R5": "destructive or high-impact operation"
+    },
+    "preflight_or_adapter_skills": [
+      "mamw-ad-operations",
+      "mamw-lead-operations",
+      "mamw-email-outbound",
+      "mamw-provider-onboarding",
+      "mamw-connector-policy",
+      "mamw-openai-creative",
+      "mamw-activation-preflight",
+      "mamw-social-publishing",
+      "mamw-azure-work-item",
+      "mamw-scheduling-safety"
+    ],
+    "required_controls_for_R2_to_R5": [
+      "mamw-governance",
+      "mamw-tenant-scope",
+      "mamw-connector-policy",
+      "mamw-activation-preflight",
+      "OAW active session or service identity",
+      "approval bound to exact payload hash",
+      "idempotency and receipt storage",
+      "rollback or compensating action"
+    ]
+  },
+  "workflow_compositions": {
+    "feature-launch": [
+      "mamw-engram",
+      "mamw-pamw-handoff",
+      "mamw-brand-dna",
+      "mamw-audience-segmentation",
+      "mamw-campaign-planning",
+      "mamw-content-collection",
+      "mamw-budget-governance",
+      "mamw-marketing-measurement",
+      "mamw-damw-feedback"
+    ],
+    "weekly-content-system": [
+      "mamw-channel-audit",
+      "mamw-trend-intelligence",
+      "mamw-editorial-operations",
+      "mamw-content-collection",
+      "mamw-content-atomization",
+      "mamw-originality",
+      "mamw-brand-rights"
+    ],
+    "multilingual-campaign": [
+      "mamw-locale-profile",
+      "mamw-transcreation",
+      "mamw-multilingual-seo",
+      "mamw-multilingual-media",
+      "mamw-claims-compliance",
+      "mamw-accessibility"
+    ],
+    "paid-campaign": [
+      "mamw-media-planning",
+      "mamw-budget-governance",
+      "mamw-ad-operations",
+      "mamw-conversion-tracking",
+      "mamw-experimentation",
+      "mamw-activation-preflight"
+    ],
+    "provider-connection": [
+      "mamw-provider-onboarding",
+      "mamw-tenant-scope",
+      "mamw-audience-privacy",
+      "mamw-connector-policy",
+      "mamw-activation-preflight"
+    ],
+    "social-image-with-caption": [
+      "mamw-brand-dna",
+      "mamw-storytelling",
+      "mamw-visual-design",
+      "mamw-creative-prompting",
+      "mamw-social-content",
+      "mamw-openai-creative",
+      "mamw-originality",
+      "mamw-accessibility",
+      "mamw-brand-rights"
+    ],
+    "social-publish": [
+      "mamw-social-content",
+      "mamw-multilingual-media",
+      "mamw-brand-rights",
+      "mamw-activation-preflight",
+      "mamw-social-publishing"
+    ],
+    "crisis-response": [
+      "mamw-community-crisis",
+      "mamw-claims-compliance",
+      "mamw-governance"
+    ]
+  },
+  "use_case_coverage": {
+    "UC-1": [
+      "mamw-engram",
+      "mamw-pamw-handoff",
+      "mamw-azure-work-item",
+      "mamw-campaign-planning"
+    ],
+    "UC-2": [
+      "mamw-provider-onboarding",
+      "mamw-connector-policy"
+    ],
+    "UC-3": [
+      "mamw-audience-privacy",
+      "mamw-connector-policy"
+    ],
+    "UC-4": [
+      "mamw-activation-preflight",
+      "mamw-social-publishing",
+      "mamw-governance"
+    ],
+    "UC-5": [
+      "mamw-connector-policy",
+      "mamw-activation-preflight"
+    ],
+    "UC-6": [
+      "mamw-budget-governance"
+    ],
+    "UC-7": [
+      "mamw-connector-policy",
+      "mamw-activation-preflight",
+      "mamw-social-publishing"
+    ],
+    "UC-8": [
+      "mamw-audience-privacy",
+      "mamw-email-outbound",
+      "mamw-lead-operations"
+    ],
+    "UC-9": [
+      "mamw-engram",
+      "mamw-marketing-measurement",
+      "mamw-damw-feedback",
+      "mamw-pamw-handoff",
+      "mamw-attribution-incrementality"
+    ],
+    "UC-10": [
+      "mamw-governance"
+    ],
+    "UC-11": [
+      "mamw-storytelling",
+      "mamw-visual-design",
+      "mamw-creative-prompting",
+      "mamw-social-content",
+      "mamw-openai-creative",
+      "mamw-accessibility"
+    ],
+    "UC-12": [
+      "mamw-brand-dna",
+      "mamw-creative-strategy",
+      "mamw-visual-design"
+    ],
+    "UC-13": [
+      "mamw-b2c-lifecycle",
+      "mamw-b2b-demand-abm",
+      "mamw-b2b2c-partner",
+      "mamw-campaign-planning",
+      "mamw-push-notification"
+    ],
+    "UC-14": [
+      "mamw-creative-prompting",
+      "mamw-openai-creative",
+      "mamw-connector-policy"
+    ],
+    "UC-15": [
+      "mamw-social-content",
+      "mamw-multilingual-media",
+      "mamw-accessibility"
+    ],
+    "UC-16": [
+      "mamw-channel-audit"
+    ],
+    "UC-17": [
+      "mamw-engram",
+      "mamw-editorial-operations",
+      "mamw-pamw-handoff"
+    ],
+    "UC-18": [
+      "mamw-content-collection",
+      "mamw-content-atomization",
+      "mamw-longform-content",
+      "mamw-video-production",
+      "mamw-podcast-production",
+      "mamw-social-content"
+    ],
+    "UC-19": [
+      "mamw-trend-intelligence"
+    ],
+    "UC-20": [
+      "mamw-brand-rights",
+      "mamw-claims-compliance"
+    ],
+    "UC-21": [
+      "mamw-originality",
+      "mamw-copywriting"
+    ],
+    "UC-22": [
+      "mamw-channel-audit",
+      "mamw-ad-operations"
+    ],
+    "UC-23": [
+      "mamw-media-planning"
+    ],
+    "UC-24": [
+      "mamw-ad-operations",
+      "mamw-activation-preflight"
+    ],
+    "UC-25": [
+      "mamw-budget-governance"
+    ],
+    "UC-26": [
+      "mamw-budget-governance"
+    ],
+    "UC-27": [
+      "mamw-transcreation",
+      "mamw-locale-profile"
+    ],
+    "UC-28": [
+      "mamw-locale-profile"
+    ],
+    "UC-29": [
+      "mamw-transcreation",
+      "mamw-locale-profile"
+    ],
+    "UC-30": [
+      "mamw-multilingual-media",
+      "mamw-accessibility"
+    ],
+    "UC-31": [
+      "mamw-claims-compliance",
+      "mamw-transcreation"
+    ],
+    "UC-32": [
+      "mamw-engram",
+      "mamw-marketing-measurement",
+      "mamw-damw-feedback"
+    ],
+    "UC-33": [
+      "mamw-tenant-scope"
+    ],
+    "UC-34": [
+      "mamw-scheduling-safety",
+      "mamw-social-publishing"
+    ],
+    "UC-35": [
+      "mamw-fast-path"
+    ],
+    "UC-36": [
+      "mamw-budget-governance"
+    ],
+    "UC-37": [
+      "mamw-community-crisis"
+    ]
+  }
+}

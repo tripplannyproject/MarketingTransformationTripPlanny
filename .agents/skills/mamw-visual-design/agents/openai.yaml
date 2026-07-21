@@ -1,0 +1,4 @@
+interface:
+  display_name: "MAMW Visual Design"
+  short_description: "Define governed visual direction and Design.md"
+  default_prompt: "Use $mamw-visual-design to create a governed Design.md for this marketing asset."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "MAMW Design"
+  short_description: "Run the governed creative design workflow"
+  default_prompt: "Use $mm-design to prepare Design.md, references, prompts, and creative QA for this asset."

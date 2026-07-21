@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "mode": "apply",
+  "changed": true,
+  "from_version": "0.12.3",
+  "to_version": "0.13.0",
+  "applied_at": "2026-07-21T20:30:05.781Z",
+  "backup": ".mamw/backups/update-2026-07-21T20-30-05-492Z",
+  "backed_up": [
+    ".mamw/project.json",
+    ".mamw/installed-files.json",
+    ".mamw/schemas",
+    ".mamw/examples",
+    ".mamw/evals",
+    ".mamw/scripts",
+    ".mamw/templates",
+    ".codex/hooks",
+    ".codex/agents",
+    ".codex/skills",
+    ".codex/hooks.json",
+    ".codex/rules",
+    ".claude/hooks",
+    ".claude/agents",
+    ".claude/skills",
+    ".claude/settings.json",
+    ".claude/rules",
+    ".claude/commands",
+    ".agents/skills"
+  ],
+  "pruned": [],
+  "actions": [
+    "refresh framework-owned hooks, agents, rules, skills, schemas, examples, scripts and templates",
+    "merge Codex/Claude runtime JSON while preserving non-MAMW hooks and user settings",
+    "preserve root AGENTS.md and existing project identity",
+    "create a recoverable backup before replacing managed files"
+  ],
+  "oaw": {
+    "linked": true,
+    "skipped": false,
+    "code": "LINKED"
+  }
+}

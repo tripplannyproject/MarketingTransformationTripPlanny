@@ -1,0 +1,15 @@
+# MAMW
+.env
+.env.local
+.mamw/backups/
+.mamw/issues/
+.mamw/state/
+.mamw/receipts/
+.mamw/approvals/
+.mamw/update-stage/
+.mamw/kb/
+.mamw/logs-kb/
+.mm-run.json
+.mamw/.mm-plan-ack.json
+.mamw/.mm-plan-pending.json
+.mamw/.mm-turn.json

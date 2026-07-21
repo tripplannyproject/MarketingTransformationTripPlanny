@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tripplanny.dev/mamw/schemas/runtime-config.schema.json",
+  "title": "MAMW runtime onboarding config",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["mamw_version", "project", "marketing_models", "packs", "channel_profiles", "providers", "tracker", "budget", "approval_gates", "engram", "effects"],
+  "properties": {
+    "mamw_version": { "const": "0.13" },
+    "project": {
+      "type": "object",
+      "required": ["organization_id", "brand_id", "markets", "locales", "timezone"],
+      "properties": {
+        "organization_id": { "type": "string", "minLength": 1 },
+        "brand_id": { "type": "string", "minLength": 1 },
+        "markets": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 2 } },
+        "locales": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "pattern": "^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$" }
+        },
+        "app_locales": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$" }
+        },
+        "timezone": { "type": "string", "minLength": 1 }
+      }
+    },
+    "marketing_models": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["b2c", "b2b", "b2b2c"] }
+    },
+    "packs": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+    "channel_profiles": { "type": "array", "items": { "type": "object" } },
+    "providers": { "type": "array", "items": { "$ref": "#/$defs/provider" } },
+    "tracker": { "$ref": "#/$defs/tracker" },
+    "budget": {
+      "type": "object",
+      "required": ["authority_ref", "currency", "total_ceiling"],
+      "properties": {
+        "authority_ref": { "type": "string", "minLength": 1 },
+        "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+        "total_ceiling": { "type": ["number", "null"], "minimum": 0 }
+      }
+    },
+    "approval_gates": {
+      "type": "object",
+      "required": ["plan_ack", "persistent_effect_approvals"],
+      "properties": {
+        "plan_ack": {
+          "type": "object",
+          "required": ["codex", "claude"],
+          "properties": {
+            "codex": { "const": "typed_ok" },
+            "claude": { "const": "exit_plan_mode" }
+          }
+        },
+        "persistent_effect_approvals": { "enum": ["unavailable", "available"] }
+      }
+    },
+    "engram": {
+      "type": "object",
+      "required": ["knowledge", "logs", "federation"],
+      "properties": {
+        "knowledge": { "type": "object", "required": ["repo", "local_path"] },
+        "logs": { "type": "object", "required": ["repo", "local_path"] },
+        "federation": { "type": "object", "required": ["pamw", "damw", "oaw"] }
+      }
+    },
+    "effects": {
+      "type": "object",
+      "required": ["default", "available_ceiling"],
+      "properties": {
+        "default": { "const": "deny" },
+        "available_ceiling": { "const": "R1" }
+      }
+    }
+  },
+  "$defs": {
+    "tracker": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "enum": ["local", "azure-devops", "github-issues", "jira"] },
+        "org": { "type": "string" },
+        "project": { "type": "string" },
+        "area_path": { "type": "string" },
+        "iteration_path": { "type": "string" },
+        "parent_ref": { "type": ["string", "null"] },
+        "pat_env": { "type": "string" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "type": { "const": "azure-devops" } } },
+          "then": { "required": ["org", "project", "pat_env"] }
+        }
+      ]
+    },
+    "provider": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "provider", "kind", "mode", "capabilities", "effect_ceiling", "auth"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,63}$" },
+        "provider": { "type": "string", "minLength": 1 },
+        "kind": { "enum": ["creative-api", "mcp", "rest-api", "sdk", "webhook", "human"] },
+        "mode": { "enum": ["disabled", "read_only", "active"] },
+        "capabilities": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[a-z][a-z0-9._-]+$" }
+        },
+        "effect_ceiling": { "enum": ["R0", "R1", "R2", "R3", "R4", "R5"] },
+        "auth": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "secret_location"],
+          "properties": {
+            "type": { "enum": ["api_key", "oauth2", "workload_identity", "none"] },
+            "auth_env": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]+$" },
+            "secret_location": { "enum": ["server_only", "secret_manager", "manual_only", "not_applicable"] }
+          },
+          "allOf": [
+            {
+              "if": { "properties": { "type": { "const": "api_key" } }, "required": ["type"] },
+              "then": { "required": ["auth_env"] }
+            }
+          ]
+        },
+        "config": {
+          "type": "object",
+          "additionalProperties": { "type": ["string", "number", "boolean"] }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "MAMW Engram"
+  short_description: "Inspect and maintain MAMW project memory"
+  default_prompt: "Use $mm-engram to inspect or update the current MAMW work-item memory safely."

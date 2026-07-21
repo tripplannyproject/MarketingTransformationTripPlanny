@@ -1,0 +1,56 @@
+{
+  "schema_version": "reference-assets-v1",
+  "manifest_id": "summer-story-references-001",
+  "manifest_version": 1,
+  "design_ref": "design:summer-story-design-001:v1",
+  "assets": [
+    {
+      "asset_id": "product-packshot-001",
+      "media_type": "image/png",
+      "checksum": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+      "source": {
+        "kind": "dam_ref",
+        "ref": "dam:brand-example:product-packshot-001:v3",
+        "transport_policy": "upload_at_execution"
+      },
+      "prompt_role": "product",
+      "instruction": "Conservar geometría, colores, material y proporciones del empaque; adaptar únicamente perspectiva y luz.",
+      "influence": "exact_where_supported",
+      "locale_scope": ["*"],
+      "allowed_transformations": ["resize", "pose_adapt"],
+      "rights": {
+        "status": "owned",
+        "owner_ref": "brand-owner:brand-example",
+        "evidence_ref": "rights:product-packshot-001:v3",
+        "territories": ["CO", "US"],
+        "channels": ["instagram-story"],
+        "commercial_use": true,
+        "third_party_brand": false
+      }
+    },
+    {
+      "asset_id": "brand-logo-001",
+      "media_type": "image/svg+xml",
+      "checksum": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+      "source": {
+        "kind": "dam_ref",
+        "ref": "dam:brand-example:logo-primary:v5",
+        "transport_policy": "upload_at_execution"
+      },
+      "prompt_role": "logo_for_composition_only",
+      "instruction": "No enviar al generador; componer después con el asset original y sus clear-space rules.",
+      "influence": "exact_where_supported",
+      "locale_scope": ["*"],
+      "allowed_transformations": ["resize"],
+      "rights": {
+        "status": "owned",
+        "owner_ref": "brand-owner:brand-example",
+        "evidence_ref": "rights:logo-primary:v5",
+        "territories": ["CO", "US"],
+        "channels": ["instagram-story"],
+        "commercial_use": true,
+        "third_party_brand": false
+      }
+    }
+  ]
+}

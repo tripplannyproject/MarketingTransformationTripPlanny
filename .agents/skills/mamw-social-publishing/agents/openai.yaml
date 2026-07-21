@@ -1,0 +1,4 @@
+interface:
+  display_name: "Publicar contenido social"
+  short_description: "Programar y publicar paquetes sociales aprobados"
+  default_prompt: "Usa $mamw-social-publishing para preparar una publicación social gobernada y auditable."

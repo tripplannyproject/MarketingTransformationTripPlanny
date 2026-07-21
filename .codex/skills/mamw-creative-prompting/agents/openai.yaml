@@ -1,0 +1,4 @@
+interface:
+  display_name: "MAMW Creative Prompting"
+  short_description: "Compile approved designs into provider prompts"
+  default_prompt: "Use $mamw-creative-prompting to compile this approved design into a traceable provider request."

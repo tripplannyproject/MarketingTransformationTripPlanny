@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tripplanny.dev/mamw/schemas/creative-provider-request-v1.schema.json",
+  "title": "MAMW creative provider request v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "design_ref",
+    "design_hash",
+    "reference_manifest_hash",
+    "locale",
+    "provider_profile",
+    "capability",
+    "budget",
+    "prompt",
+    "negative_constraints",
+    "parameters",
+    "references",
+    "request_hash"
+  ],
+  "properties": {
+    "schema_version": { "const": "creative-provider-request-v1" },
+    "request_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,159}$" },
+    "design_ref": { "type": "string", "minLength": 1 },
+    "design_hash": { "$ref": "#/$defs/hash" },
+    "reference_manifest_hash": { "$ref": "#/$defs/hash" },
+    "locale": { "$ref": "#/$defs/locale" },
+    "provider_profile": { "type": "string", "minLength": 1 },
+    "capability": { "enum": ["generate_image", "edit_image"] },
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["currency", "run_ceiling", "authority_ref"],
+      "properties": {
+        "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+        "run_ceiling": { "type": "number", "minimum": 0 },
+        "authority_ref": { "type": "string", "minLength": 1 }
+      }
+    },
+    "prompt": { "type": "string", "minLength": 80 },
+    "negative_constraints": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["placement_id", "width", "height", "max_attempts", "max_assets"],
+      "properties": {
+        "placement_id": { "type": "string", "minLength": 1 },
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 },
+        "quality_ref": { "type": "string", "minLength": 1 },
+        "output_format": { "enum": ["png", "jpeg", "webp"] },
+        "max_attempts": { "type": "integer", "minimum": 1, "maximum": 20 },
+        "max_assets": { "type": "integer", "minimum": 1, "maximum": 100 }
+      }
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["asset_id", "checksum", "source_kind", "source_ref", "transport_policy", "prompt_role", "instruction"],
+        "properties": {
+          "asset_id": { "type": "string", "minLength": 1 },
+          "checksum": { "$ref": "#/$defs/hash" },
+          "source_kind": { "type": "string", "minLength": 1 },
+          "source_ref": { "type": "string", "minLength": 1 },
+          "transport_policy": { "type": "string", "minLength": 1 },
+          "prompt_role": { "type": "string", "minLength": 1 },
+          "instruction": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "request_hash": {
+      "description": "SHA-256 of the canonical provider request before request_hash is attached.",
+      "$ref": "#/$defs/hash"
+    }
+  },
+  "$defs": {
+    "hash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "locale": { "type": "string", "pattern": "^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$" }
+  }
+}

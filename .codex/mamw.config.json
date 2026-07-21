@@ -1,0 +1,115 @@
+{
+  "mamw_version": "0.10",
+  "project": {
+    "organization_id": "tripplanny",
+    "brand_id": "tripplanny",
+    "markets": ["global"],
+    "locales": ["en", "es", "pt-BR", "pt-PT", "fr", "de", "it", "nb"],
+    "app_locales": ["en", "es", "pt-BR", "pt-PT", "fr", "de", "it", "nb"],
+    "timezone": "America/Bogota"
+  },
+  "marketing_models": ["b2c"],
+  "packs": ["organic-social", "longform-seo", "paid-media", "lifecycle-crm"],
+  "channel_profiles": [
+    {
+      "network": "instagram",
+      "handle": "@tripplannyappen",
+      "kind": "organic",
+      "status": "active",
+      "cadence": "pending",
+      "baseline": "pending"
+    },
+    {
+      "network": "tiktok",
+      "handle": "pending",
+      "kind": "paid",
+      "status": "active",
+      "cadence": "pending",
+      "baseline": "pending"
+    },
+    {
+      "network": "facebook",
+      "handle": "TripPlanny App",
+      "kind": "organic",
+      "status": "active",
+      "cadence": "pending",
+      "baseline": "pending"
+    },
+    {
+      "network": "web",
+      "handle": "tripplanny.com",
+      "kind": "owned",
+      "status": "active",
+      "cadence": "pending",
+      "baseline": "pending"
+    }
+  ],
+  "providers": [
+    {
+      "id": "openai",
+      "provider": "OpenAI",
+      "kind": "creative-api",
+      "mode": "disabled",
+      "capabilities": ["text.generate", "image.generate"],
+      "effect_ceiling": "R1",
+      "auth": {
+        "type": "api_key",
+        "auth_env": "OPENAI_API_KEY",
+        "secret_location": "manual_only"
+      }
+    },
+    {
+      "id": "azure-devops",
+      "provider": "Azure DevOps",
+      "kind": "rest-api",
+      "mode": "read_only",
+      "capabilities": ["workitem.read"],
+      "effect_ceiling": "R1",
+      "auth": {
+        "type": "api_key",
+        "auth_env": "AZURE_DEVOPS_PAT",
+        "secret_location": "manual_only"
+      }
+    }
+  ],
+  "tracker": {
+    "type": "azure-devops",
+    "org": "tripplanny",
+    "project": "TripPlanny Marketing",
+    "area_path": "pending",
+    "iteration_path": "pending",
+    "parent_ref": null,
+    "pat_env": "AZURE_DEVOPS_PAT"
+  },
+  "budget": {
+    "authority_ref": "owner (founder)",
+    "currency": "USD",
+    "total_ceiling": 50
+  },
+  "approval_gates": {
+    "plan_ack": {
+      "codex": "typed_ok",
+      "claude": "exit_plan_mode"
+    },
+    "persistent_effect_approvals": "unavailable"
+  },
+  "engram": {
+    "knowledge": {
+      "repo": "https://github.com/TripPlanny/TPMarketingDocs",
+      "local_path": ".mamw/kb"
+    },
+    "logs": {
+      "repo": "https://github.com/TripPlanny/TPMarketingLogs",
+      "local_path": ".mamw/logs-kb"
+    },
+    "federation": {
+      "pamw": "read_only",
+      "damw": "read_only",
+      "oaw": "read_only"
+    }
+  },
+  "effects": {
+    "default": "deny",
+    "available_ceiling": "R1"
+  }
+}

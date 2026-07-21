@@ -1,0 +1,352 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tripplanny.dev/mamw/schemas/content-package-v1.schema.json",
+  "title": "MAMW content package v1",
+  "description": "Paquete creativo trazable. Puede entregarse como archivos o declarar intención de programación/publicación, pero no constituye autorización de activación.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "package_id",
+    "package_version",
+    "status",
+    "intent",
+    "content_type",
+    "base_locale",
+    "lineage",
+    "variants",
+    "generation",
+    "approvals"
+  ],
+  "properties": {
+    "schema_version": { "const": "content-package-v1" },
+    "package_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,127}$" },
+    "package_version": { "type": "integer", "minimum": 1 },
+    "status": {
+      "enum": ["draft", "in_review", "approved", "activation_ready", "scheduled", "published", "failed"]
+    },
+    "intent": { "enum": ["deliver_only", "schedule", "publish"] },
+    "content_type": { "enum": ["post", "story", "carousel", "reel", "short", "thread"] },
+    "base_locale": { "$ref": "#/$defs/locale" },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["brand_id", "campaign_ref", "brand_dna_hash", "storytelling_hash", "brief_hash", "design_hash", "reference_manifest_hash", "prompt_hashes"],
+      "properties": {
+        "brand_id": { "type": "string", "minLength": 1 },
+        "campaign_ref": { "type": "string", "minLength": 1 },
+        "brand_dna_hash": { "$ref": "#/$defs/hash" },
+        "storytelling_hash": { "$ref": "#/$defs/hash" },
+        "brief_hash": { "$ref": "#/$defs/hash" },
+        "design_hash": { "$ref": "#/$defs/hash" },
+        "reference_manifest_hash": { "$ref": "#/$defs/hash" },
+        "source_package_ref": { "type": "string", "minLength": 1 },
+        "prompt_hashes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/hash" }
+        }
+      }
+    },
+    "variants": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/variant" }
+    },
+    "generation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["providers", "budget"],
+      "properties": {
+        "providers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["provider_ref", "capability", "model_ref", "request_hash", "state"],
+            "properties": {
+              "provider_ref": { "type": "string", "minLength": 1 },
+              "capability": { "enum": ["structured_content", "generate_image", "edit_image", "generate_video", "generate_audio", "compose_media"] },
+              "model_ref": { "type": "string", "minLength": 1 },
+              "request_hash": { "$ref": "#/$defs/hash" },
+              "receipt_ref": { "type": "string", "minLength": 1 },
+              "state": { "enum": ["planned", "generated", "refused", "failed"] },
+              "estimated_cost": { "type": "number", "minimum": 0 },
+              "actual_cost": { "type": "number", "minimum": 0 }
+            }
+          }
+        },
+        "budget": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["currency", "run_ceiling", "estimated_total", "authority_ref"],
+          "properties": {
+            "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+            "run_ceiling": { "type": "number", "minimum": 0 },
+            "estimated_total": { "type": "number", "minimum": 0 },
+            "actual_total": { "type": "number", "minimum": 0 },
+            "authority_ref": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    },
+    "approvals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["creative", "rights", "activation"],
+      "properties": {
+        "creative": { "$ref": "#/$defs/approval" },
+        "rights": { "$ref": "#/$defs/approval" },
+        "activation": { "$ref": "#/$defs/approval" }
+      }
+    },
+    "publication": { "$ref": "#/$defs/publication" },
+    "extensions": { "type": "object", "additionalProperties": true }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "intent": { "enum": ["schedule", "publish"] } }, "required": ["intent"] },
+      "then": { "required": ["publication"] }
+    },
+    {
+      "if": { "properties": { "intent": { "const": "schedule" } }, "required": ["intent"] },
+      "then": { "properties": { "publication": { "required": ["scheduled_at"] } } }
+    },
+    {
+      "if": { "properties": { "status": { "enum": ["scheduled", "published"] } }, "required": ["status"] },
+      "then": {
+        "properties": {
+          "approvals": {
+            "properties": {
+              "creative": { "properties": { "state": { "const": "approved" } } },
+              "rights": { "properties": { "state": { "const": "approved" } } },
+              "activation": { "properties": { "state": { "const": "approved" } } }
+            }
+          },
+          "publication": {
+            "required": ["receipt_ref"],
+            "properties": { "preflight_status": { "const": "ready" } }
+          },
+          "variants": {
+            "items": {
+              "properties": {
+                "qa": {
+                  "properties": {
+                    "brand": { "const": "pass" },
+                    "linguistic": { "const": "pass" },
+                    "cultural": { "const": "pass" },
+                    "accessibility": { "const": "pass" },
+                    "rights": { "const": "pass" },
+                    "platform": { "const": "pass" }
+                  }
+                },
+                "music": {
+                  "properties": {
+                    "rights": {
+                      "properties": { "commercial_use": { "const": true } }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "status": { "const": "published" } }, "required": ["status"] },
+      "then": { "properties": { "publication": { "required": ["provider_post_ref"] } } }
+    }
+  ],
+  "$defs": {
+    "locale": {
+      "type": "string",
+      "pattern": "^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state"],
+      "properties": {
+        "state": { "enum": ["not_requested", "pending", "approved", "rejected", "expired", "unavailable"] },
+        "approval_ref": { "type": "string", "minLength": 1 },
+        "approved_payload_hash": { "$ref": "#/$defs/hash" },
+        "expires_at": { "type": "string", "format": "date-time" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "state": { "const": "approved" } }, "required": ["state"] },
+          "then": { "required": ["approval_ref", "approved_payload_hash", "expires_at"] }
+        }
+      ]
+    },
+    "qa": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["brand", "linguistic", "cultural", "accessibility", "rights", "platform"],
+      "properties": {
+        "brand": { "$ref": "#/$defs/checkState" },
+        "linguistic": { "$ref": "#/$defs/checkState" },
+        "cultural": { "$ref": "#/$defs/checkState" },
+        "accessibility": { "$ref": "#/$defs/checkState" },
+        "rights": { "$ref": "#/$defs/checkState" },
+        "platform": { "$ref": "#/$defs/checkState" },
+        "native_market_review_ref": { "type": "string", "minLength": 1 }
+      }
+    },
+    "checkState": {
+      "enum": ["pending", "pass", "fail", "not_applicable"]
+    },
+    "copy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["caption", "alt_text"],
+      "properties": {
+        "headline": { "type": "string" },
+        "caption": { "type": "string", "minLength": 1 },
+        "cta": { "type": "string" },
+        "hashtags": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^#[^\\s#]+$" } },
+        "overlay_text": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "alt_text": { "type": "string", "minLength": 1 },
+        "subtitles_ref": { "type": "string", "minLength": 1 },
+        "transcreation_rationale": { "type": "string", "minLength": 1 }
+      }
+    },
+    "placement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["platform", "surface", "width", "height", "safe_zones_ref"],
+      "properties": {
+        "platform": { "type": "string", "minLength": 1 },
+        "surface": { "enum": ["feed", "story", "reel", "short", "carousel", "thread", "other"] },
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 },
+        "duration_seconds": { "type": "number", "exclusiveMinimum": 0 },
+        "safe_zones_ref": { "type": "string", "minLength": 1 },
+        "platform_spec_snapshot": { "type": "string", "minLength": 1 }
+      }
+    },
+    "media": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["asset_id", "kind", "uri", "mime_type", "checksum", "rights_ref"],
+      "properties": {
+        "asset_id": { "type": "string", "minLength": 1 },
+        "kind": { "enum": ["image", "video", "audio", "document", "thumbnail"] },
+        "uri": { "type": "string", "minLength": 1 },
+        "mime_type": { "type": "string", "minLength": 3 },
+        "checksum": { "$ref": "#/$defs/hash" },
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 },
+        "duration_seconds": { "type": "number", "exclusiveMinimum": 0 },
+        "generated": { "type": "boolean" },
+        "provider_receipt_ref": { "type": "string", "minLength": 1 },
+        "rights_ref": { "type": "string", "minLength": 1 }
+      }
+    },
+    "musicRights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "territories", "channels", "commercial_use", "evidence_ref"],
+      "properties": {
+        "status": { "enum": ["owned", "licensed", "platform_cleared", "partner_authorized"] },
+        "territories": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 2 } },
+        "channels": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "commercial_use": { "type": "boolean" },
+        "evidence_ref": { "type": "string", "minLength": 1 },
+        "expires_at": { "type": "string", "format": "date-time" },
+        "attribution": { "type": "string" }
+      }
+    },
+    "music": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode"],
+      "properties": {
+        "mode": { "enum": ["none", "licensed_asset", "platform_native", "provider_selection", "rendered_track"] },
+        "track_ref": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "source_provider": { "type": "string", "minLength": 1 },
+        "render_mode": { "enum": ["platform_attachment", "muxed_audio", "editorial_instruction"] },
+        "start_seconds": { "type": "number", "minimum": 0 },
+        "duration_seconds": { "type": "number", "exclusiveMinimum": 0 },
+        "rights": { "$ref": "#/$defs/musicRights" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "mode": { "not": { "const": "none" } } }, "required": ["mode"] },
+          "then": { "required": ["track_ref", "source_provider", "render_mode", "rights"] }
+        }
+      ]
+    },
+    "variant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["variant_id", "locale", "market", "adaptation_mode", "placement", "copy", "media", "music", "qa"],
+      "properties": {
+        "variant_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,127}$" },
+        "locale": { "$ref": "#/$defs/locale" },
+        "market": { "type": "string", "pattern": "^[A-Z0-9-]{2,12}$" },
+        "adaptation_mode": { "enum": ["translation", "localization", "transcreation", "native"] },
+        "locale_profile_ref": { "type": "string", "minLength": 1 },
+        "market_dna_hash": { "$ref": "#/$defs/hash" },
+        "placement": { "$ref": "#/$defs/placement" },
+        "copy": { "$ref": "#/$defs/copy" },
+        "media": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/media" } },
+        "music": { "$ref": "#/$defs/music" },
+        "tracking": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "destination": { "type": "string", "minLength": 1 },
+            "utm_ref": { "type": "string", "minLength": 1 }
+          }
+        },
+        "qa": { "$ref": "#/$defs/qa" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "adaptation_mode": { "const": "transcreation" } }, "required": ["adaptation_mode"] },
+          "then": {
+            "required": ["locale_profile_ref", "market_dna_hash"],
+            "properties": {
+              "copy": { "required": ["transcreation_rationale"] },
+              "qa": { "required": ["native_market_review_ref"] }
+            }
+          }
+        }
+      ]
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider_ref",
+        "account_ref",
+        "timezone",
+        "payload_hash",
+        "capability_snapshot_ref",
+        "idempotency_key",
+        "preflight_status"
+      ],
+      "properties": {
+        "provider_ref": { "type": "string", "minLength": 1 },
+        "account_ref": { "type": "string", "minLength": 1 },
+        "scheduled_at": { "type": "string", "format": "date-time" },
+        "timezone": { "type": "string", "minLength": 1 },
+        "payload_hash": { "$ref": "#/$defs/hash" },
+        "capability_snapshot_ref": { "type": "string", "minLength": 1 },
+        "idempotency_key": { "type": "string", "minLength": 8 },
+        "preflight_status": { "enum": ["not_run", "blocked", "ready", "expired"] },
+        "preflight_ref": { "type": "string", "minLength": 1 },
+        "receipt_ref": { "type": "string", "minLength": 1 },
+        "provider_post_ref": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}
