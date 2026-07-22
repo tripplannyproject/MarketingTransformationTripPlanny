@@ -1,11 +1,11 @@
 {
-  "mamw_version": "0.13",
+  "mamw_version": "0.15",
   "project_id": "marketingtransformationtripplanny",
   "project_name": "MarketingTransformationTripPlanny",
   "base_branch": "main",
   "mirror": "both",
   "installed_at": "2026-07-21T14:38:33.978Z",
-  "updated_at": "2026-07-21T20:30:05.718Z",
+  "updated_at": "2026-07-22T14:06:05.873Z",
   "runtime_contract": {
     "codex": "$mm-start",
     "claude": "/mm:start",
@@ -21,6 +21,6 @@
   },
   "source": {
     "cli_package": "@tripplanny/mamw-cli",
-    "framework_version": "0.13.0"
+    "framework_version": "0.15.1"
   }
 }

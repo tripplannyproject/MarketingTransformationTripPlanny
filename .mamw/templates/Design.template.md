@@ -13,6 +13,20 @@
 - Brief hash:
 - Owner y revisores:
 
+## Sistema de diseño (tokens — reusados por TODA pieza para consistencia)
+
+Autoría del `art-director`. Cada post, story y carrusel de la marca reutiliza estos tokens para que
+el set lea como un solo estudio.
+
+- **Color y roles (60/30/10):** dominante / secundario / acento, con hex exactos + tints/shades.
+  Colores de texto elegidos por contraste (nunca #000 puro sobre color de marca).
+- **Escala tipográfica:** ratio modular (p. ej. 1.25) — display / H1 / H2 / body / caption; máximo
+  dos familias con roles de peso; line-height y tracking por tamaño; mínimo body ≥ 32px en 1080×1920.
+- **Escala de spacing:** sistema de 8px (8/16/24/32/48/64…); márgenes y gutters consistentes.
+- **Grid:** columnas + márgenes por formato; ritmo base para alinear.
+- **Elevación/sombra:** 2–3 niveles de sombra suave con UNA sola fuente de luz; capa de legibilidad
+  (scrim/gradiente) para copy sobre foto. Radio y grosor de trazo acordes al carácter de marca.
+
 ## Objetivo y audiencia
 
 - Cambio de percepción o acción buscada:
@@ -81,9 +95,13 @@ RTL/CJK o expansión del texto. Cada variante publicable conserva QA y aprobaci�
 
 - Marca y storytelling:
 - Originalidad y anti-cliché:
-- Fidelidad de referencias:
+- Fidelidad de referencias (principio, no copia — qué se tomó y qué NO se copió):
 - Derechos y marcas de terceros:
-- Locale, cultura y claims:
+- Locale, cultura y claims (ortografía y acentos verificados):
+- **Contraste MEDIDO (WCAG):** body ≥ 4.5:1, display/UI ≥ 3:1 — anotar ratios reales.
+- **Jerarquía:** un solo foco; ranking hero → subhead → body → CTA → legal.
+- **Safe areas y legibilidad móvil:** contenido dentro de la columna segura; texto fuera de zonas de
+  UI; sin franjas, sin estiramiento, sin corte.
 - Accesibilidad y formato de plataforma:
 
 ## Gate de aprobación humana

@@ -1,263 +1,862 @@
 {
   "schema_version": "1.0",
-  "catalog_version": "0.13.0",
+  "catalog_version": "0.15.1",
   "framework": "MAMW",
-  "total": 15,
+  "total": 16,
   "execution_contract": {
     "codex_root": ".codex/agents",
     "claude_root": ".claude/agents",
     "visible_announcement": "▶ Agent: <id> (<model>) — <task>",
     "fallback": "adopt one role at a time when native subagents are unavailable",
-    "standard_output": ["Agent", "HU", "Phase", "Decision", "Evidence", "Risks", "Engram updates", "Next"]
+    "standard_output": [
+      "Agent",
+      "HU",
+      "Phase",
+      "Decision",
+      "Evidence",
+      "Risks",
+      "Engram updates",
+      "Next"
+    ]
   },
   "agents": [
     {
       "id": "channel-auditor",
       "kind": "core",
-      "phases": ["M0", "M7"],
+      "phases": [
+        "M0",
+        "M7"
+      ],
       "description": "Audits channel ownership, profiles, permissions, cadence, formats and baselines without mutating external accounts.",
       "codex_model": "gpt-5.4",
       "claude_model": "sonnet",
-      "subroles": ["presence inventory", "channel profiler", "baseline analyst", "drift monitor"],
-      "skills": ["mamw-channel-audit", "mamw-tenant-scope"],
-      "outputs": ["marketing-presence-inventory.json", "channel-profile.md", "content-baseline.md"],
+      "subroles": [
+        "presence inventory",
+        "channel profiler",
+        "baseline analyst",
+        "drift monitor"
+      ],
+      "skills": [
+        "mamw-channel-audit",
+        "mamw-tenant-scope"
+      ],
+      "outputs": [
+        "marketing-presence-inventory.json",
+        "channel-profile.md",
+        "content-baseline.md"
+      ],
       "effect_ceiling": "R0"
     },
     {
       "id": "brand-strategist",
       "kind": "core",
-      "phases": ["M0", "M4"],
+      "phases": [
+        "M0",
+        "M4"
+      ],
       "description": "Owns positioning, Brand and Growth DNA, message house, storytelling system and brand governance.",
       "codex_model": "gpt-5.5",
       "claude_model": "opus",
-      "subroles": ["positioning strategist", "brand architect", "story architect", "voice steward"],
-      "skills": ["mamw-brand-dna", "mamw-storytelling", "mamw-brand-rights"],
-      "outputs": ["brand-growth-dna.md", "storytelling-system.md", "brand review"],
+      "subroles": [
+        "positioning strategist",
+        "brand architect",
+        "story architect",
+        "voice steward"
+      ],
+      "skills": [
+        "mamw-brand-dna",
+        "mamw-storytelling",
+        "mamw-brand-rights"
+      ],
+      "outputs": [
+        "brand-growth-dna.md",
+        "storytelling-system.md",
+        "brand review"
+      ],
       "effect_ceiling": "R1"
     },
     {
       "id": "market-researcher",
       "kind": "core",
-      "phases": ["M0", "M2", "M7"],
+      "phases": [
+        "M0",
+        "M2",
+        "M7"
+      ],
       "description": "Finds dated market, competitor, customer and trend evidence with provenance, freshness and rights-safe use.",
       "codex_model": "gpt-5.5",
       "claude_model": "opus",
-      "subroles": ["market researcher", "competitive analyst", "trend analyst", "evidence synthesizer"],
-      "skills": ["mamw-market-research", "mamw-competitive-intelligence", "mamw-trend-intelligence"],
-      "outputs": ["research brief", "trend signals", "source and freshness log"],
+      "subroles": [
+        "market researcher",
+        "competitive analyst",
+        "trend analyst",
+        "evidence synthesizer"
+      ],
+      "skills": [
+        "mamw-market-research",
+        "mamw-competitive-intelligence",
+        "mamw-trend-intelligence"
+      ],
+      "outputs": [
+        "research brief",
+        "trend signals",
+        "source and freshness log"
+      ],
       "effect_ceiling": "R0"
     },
     {
       "id": "marketing-planner",
       "kind": "core",
-      "phases": ["M1"],
+      "phases": [
+        "M1"
+      ],
       "description": "Turns a PAMW handoff, business mandate or marketing HU into a bounded brief, spec, plan and measurable acceptance criteria.",
       "codex_model": "gpt-5.5",
       "claude_model": "opus",
-      "subroles": ["intake manager", "business analyst", "marketing product owner", "Engram steward"],
-      "skills": ["mamw-engram", "mamw-pamw-handoff", "mamw-campaign-planning", "mamw-azure-work-item"],
-      "outputs": ["hu.md", "spec.md", "plan.md", "marketing-brief.md"],
+      "subroles": [
+        "intake manager",
+        "business analyst",
+        "marketing product owner",
+        "Engram steward"
+      ],
+      "skills": [
+        "mamw-engram",
+        "mamw-pamw-handoff",
+        "mamw-campaign-planning",
+        "mamw-azure-work-item"
+      ],
+      "outputs": [
+        "hu.md",
+        "spec.md",
+        "plan.md",
+        "marketing-brief.md"
+      ],
       "effect_ceiling": "R1"
     },
     {
       "id": "audience-strategist",
       "kind": "core",
-      "phases": ["M2"],
+      "phases": [
+        "M2"
+      ],
       "description": "Defines audiences, journeys, consent, exclusions and privacy boundaries for B2C, B2B and B2B2C.",
       "codex_model": "gpt-5.5",
       "claude_model": "opus",
-      "subroles": ["segmentation strategist", "JTBD and journey analyst", "privacy reviewer", "suppression steward"],
-      "skills": ["mamw-audience-segmentation", "mamw-audience-privacy", "mamw-customer-journey"],
-      "outputs": ["audience-contract.md", "journey map", "consent and exclusion rules"],
+      "subroles": [
+        "segmentation strategist",
+        "JTBD and journey analyst",
+        "privacy reviewer",
+        "suppression steward"
+      ],
+      "skills": [
+        "mamw-audience-segmentation",
+        "mamw-audience-privacy",
+        "mamw-customer-journey"
+      ],
+      "outputs": [
+        "audience-contract.md",
+        "journey map",
+        "consent and exclusion rules"
+      ],
       "effect_ceiling": "R1"
     },
     {
       "id": "campaign-strategist",
       "kind": "core",
-      "phases": ["M3", "M7"],
+      "phases": [
+        "M3",
+        "M7"
+      ],
       "description": "Designs campaign, growth, lifecycle, demand, ABM and partner strategy with explicit objectives and experiments.",
       "codex_model": "gpt-5.5",
       "claude_model": "opus",
-      "subroles": ["growth strategist", "revenue marketer", "partner marketer", "experiment portfolio owner"],
-      "skills": ["mamw-growth-strategy", "mamw-b2c-lifecycle", "mamw-b2b-demand-abm", "mamw-b2b2c-partner", "mamw-experimentation"],
-      "outputs": ["campaign-plan.md", "experiment portfolio", "channel and lifecycle strategy"],
+      "subroles": [
+        "growth strategist",
+        "revenue marketer",
+        "partner marketer",
+        "experiment portfolio owner"
+      ],
+      "skills": [
+        "mamw-growth-strategy",
+        "mamw-b2c-lifecycle",
+        "mamw-b2b-demand-abm",
+        "mamw-b2b2c-partner",
+        "mamw-experimentation"
+      ],
+      "outputs": [
+        "campaign-plan.md",
+        "experiment portfolio",
+        "channel and lifecycle strategy"
+      ],
       "effect_ceiling": "R1"
     },
     {
       "id": "media-strategist",
       "kind": "pack",
-      "phases": ["M3", "M5", "M7"],
+      "phases": [
+        "M3",
+        "M5",
+        "M7"
+      ],
       "description": "Selects ad platforms and produces media plans, budget allocations, tracking requirements and bounded optimization proposals.",
       "codex_model": "gpt-5.5",
       "claude_model": "opus",
-      "subroles": ["media planner", "platform evaluator", "ad operations planner", "media buyer reviewer"],
-      "skills": ["mamw-media-planning", "mamw-budget-governance", "mamw-ad-operations", "mamw-conversion-tracking"],
-      "outputs": ["platform-selection.md", "media-plan-v1.json", "budget-envelope-v1.json", "ad preflight"],
+      "subroles": [
+        "media planner",
+        "platform evaluator",
+        "ad operations planner",
+        "media buyer reviewer"
+      ],
+      "skills": [
+        "mamw-media-planning",
+        "mamw-budget-governance",
+        "mamw-ad-operations",
+        "mamw-conversion-tracking"
+      ],
+      "outputs": [
+        "platform-selection.md",
+        "media-plan-v1.json",
+        "budget-envelope-v1.json",
+        "ad preflight"
+      ],
       "effect_ceiling": "R1"
     },
     {
       "id": "editorial-strategist",
       "kind": "pack",
-      "phases": ["M3", "M4", "M7"],
+      "phases": [
+        "M3",
+        "M4",
+        "M7"
+      ],
       "description": "Runs always-on editorial systems, content collections, calendars and format-specific production briefs.",
       "codex_model": "gpt-5.5",
       "claude_model": "opus",
-      "subroles": ["editorial strategist", "content editor", "longform editor", "podcast and video format producer"],
-      "skills": ["mamw-editorial-operations", "mamw-content-collection", "mamw-longform-content", "mamw-podcast-production", "mamw-video-production"],
-      "outputs": ["editorial calendar", "content collection graph", "format briefs", "readiness review"],
+      "subroles": [
+        "editorial strategist",
+        "content editor",
+        "longform editor",
+        "podcast and video format producer"
+      ],
+      "skills": [
+        "mamw-editorial-operations",
+        "mamw-content-collection",
+        "mamw-longform-content",
+        "mamw-podcast-production",
+        "mamw-video-production",
+        "mamw-seo-blog",
+        "mamw-seo-onpage",
+        "mamw-seo-technical",
+        "mamw-seo-serp-aeo"
+      ],
+      "outputs": [
+        "editorial calendar",
+        "content collection graph",
+        "format briefs",
+        "readiness review"
+      ],
       "effect_ceiling": "R1"
     },
     {
       "id": "creative-director",
       "kind": "pack",
-      "phases": ["M4"],
+      "phases": [
+        "M4"
+      ],
       "description": "Owns creative concept, visual direction, copy, claims, channel variants and Design.md conformance.",
       "codex_model": "gpt-5.5",
       "claude_model": "opus",
-      "subroles": ["creative strategist", "visual director", "copywriter", "claims and originality reviewer"],
-      "skills": ["mamw-creative-strategy", "mamw-visual-design", "mamw-copywriting", "mamw-originality", "mamw-claims-compliance"],
-      "outputs": ["Design.md", "creative brief", "copy deck", "creative QA decision"],
+      "subroles": [
+        "creative strategist",
+        "visual director",
+        "copywriter",
+        "claims and originality reviewer"
+      ],
+      "skills": [
+        "mamw-creative-strategy",
+        "mamw-visual-design",
+        "mamw-copywriting",
+        "mamw-originality",
+        "mamw-claims-compliance"
+      ],
+      "outputs": [
+        "Design.md",
+        "creative brief",
+        "copy deck",
+        "creative QA decision"
+      ],
+      "effect_ceiling": "R1"
+    },
+    {
+      "id": "art-director",
+      "kind": "pack",
+      "phases": [
+        "M4"
+      ],
+      "description": "Senior art director — owns the professional design craft (visual hierarchy, contrast, type scale, grid, spacing, shadow/elevation, safe areas) and the brand design system so every post, story and carousel is beautiful, legible and CONSISTENT. Turns references into brand-native design, never a literal copy.",
+      "codex_model": "gpt-5.5",
+      "claude_model": "opus",
+      "subroles": [
+        "design system owner",
+        "art director",
+        "layout and typography lead",
+        "design QA"
+      ],
+      "skills": [
+        "mamw-visual-design",
+        "mamw-canva-instagram",
+        "mamw-openai-creative",
+        "mamw-accessibility"
+      ],
+      "outputs": [
+        "Design.md design system",
+        "creative-design-v1.json",
+        "art-direction decision"
+      ],
       "effect_ceiling": "R1"
     },
     {
       "id": "localization-strategist",
       "kind": "pack",
-      "phases": ["M0", "M4"],
+      "phases": [
+        "M0",
+        "M4"
+      ],
       "description": "Owns locale profiles, terminology, transcreation, regional slang, cultural safety and native-market review.",
       "codex_model": "gpt-5.5",
       "claude_model": "opus",
-      "subroles": ["localization strategist", "transcreator", "terminology steward", "cultural and linguistic QA"],
-      "skills": ["mamw-locale-profile", "mamw-transcreation", "mamw-multilingual-seo", "mamw-multilingual-media"],
-      "outputs": ["locale-profile-v1.json", "term base", "localized variants", "native review request"],
+      "subroles": [
+        "localization strategist",
+        "transcreator",
+        "terminology steward",
+        "cultural and linguistic QA"
+      ],
+      "skills": [
+        "mamw-locale-profile",
+        "mamw-transcreation",
+        "mamw-multilingual-seo",
+        "mamw-multilingual-media"
+      ],
+      "outputs": [
+        "locale-profile-v1.json",
+        "term base",
+        "localized variants",
+        "native review request"
+      ],
       "effect_ceiling": "R1"
     },
     {
       "id": "multimodal-producer",
       "kind": "pack",
-      "phases": ["M4"],
+      "phases": [
+        "M4"
+      ],
       "description": "Compiles provider-neutral prompts, generates or adapts media drafts and assembles auditable content-package-v1 artifacts.",
       "codex_model": "gpt-5.5",
       "claude_model": "opus",
-      "subroles": ["prompt compiler", "image and media producer", "content adapter", "package assembler"],
-      "skills": ["mamw-creative-prompting", "mamw-openai-creative", "mamw-content-atomization", "mamw-social-content", "mamw-accessibility"],
-      "outputs": ["provider request", "draft assets", "content-package-v1.json", "generation lineage"],
+      "subroles": [
+        "prompt compiler",
+        "image and media producer",
+        "content adapter",
+        "package assembler"
+      ],
+      "skills": [
+        "mamw-creative-prompting",
+        "mamw-openai-creative",
+        "mamw-content-atomization",
+        "mamw-social-content",
+        "mamw-accessibility"
+      ],
+      "outputs": [
+        "provider request",
+        "draft assets",
+        "content-package-v1.json",
+        "generation lineage"
+      ],
       "effect_ceiling": "R1"
     },
     {
       "id": "channel-operator",
       "kind": "pack",
-      "phases": ["M5", "M6"],
+      "phases": [
+        "M5",
+        "M6"
+      ],
       "description": "Discovers connector capabilities and prepares preflights, but executes external activation only through valid effect gates and receipts.",
       "codex_model": "gpt-5.5",
       "claude_model": "opus",
-      "subroles": ["connector guardian", "activation operator", "lifecycle operator", "community escalation operator"],
-      "skills": ["mamw-connector-policy", "mamw-activation-preflight", "mamw-social-publishing", "mamw-email-outbound", "mamw-community-crisis"],
-      "outputs": ["capability snapshot", "activation-plan.json", "dry-run", "receipt or blocked decision"],
+      "subroles": [
+        "connector guardian",
+        "activation operator",
+        "lifecycle operator",
+        "community escalation operator"
+      ],
+      "skills": [
+        "mamw-connector-policy",
+        "mamw-activation-preflight",
+        "mamw-social-publishing",
+        "mamw-email-outbound",
+        "mamw-community-crisis"
+      ],
+      "outputs": [
+        "capability snapshot",
+        "activation-plan.json",
+        "dry-run",
+        "receipt or blocked decision"
+      ],
       "effect_ceiling": "R1"
     },
     {
       "id": "performance-analyst",
       "kind": "core",
-      "phases": ["M7"],
+      "phases": [
+        "M7"
+      ],
       "description": "Monitors campaign drift and proposes evidence-based creative, media, CRO and lifecycle optimizations within approved bounds.",
       "codex_model": "gpt-5.4",
       "claude_model": "sonnet",
-      "subroles": ["performance monitor", "drift analyst", "CRO analyst", "optimization proposer"],
-      "skills": ["mamw-marketing-measurement", "mamw-cro-optimization", "mamw-experimentation", "mamw-attribution-incrementality"],
-      "outputs": ["optimization-proposal.md", "drift report", "experiment readout"],
+      "subroles": [
+        "performance monitor",
+        "drift analyst",
+        "CRO analyst",
+        "optimization proposer"
+      ],
+      "skills": [
+        "mamw-marketing-measurement",
+        "mamw-cro-optimization",
+        "mamw-experimentation",
+        "mamw-attribution-incrementality"
+      ],
+      "outputs": [
+        "optimization-proposal.md",
+        "drift report",
+        "experiment readout"
+      ],
       "effect_ceiling": "R1"
     },
     {
       "id": "marketing-analyst",
       "kind": "core",
-      "phases": ["M8"],
+      "phases": [
+        "M8"
+      ],
       "description": "Produces operational performance envelopes, retrospectives and read-only feedback to PAMW and DAMW without claiming uncertified causality.",
       "codex_model": "gpt-5.4",
       "claude_model": "sonnet",
-      "subroles": ["measurement analyst", "retrospective facilitator", "attribution reviewer", "PAMW and DAMW feedback steward"],
-      "skills": ["mamw-marketing-measurement", "mamw-attribution-incrementality", "mamw-damw-feedback", "mamw-pamw-handoff"],
-      "outputs": ["marketing-performance-v1.json", "campaign-retrospective-v1.json", "feedback envelope"],
+      "subroles": [
+        "measurement analyst",
+        "retrospective facilitator",
+        "attribution reviewer",
+        "PAMW and DAMW feedback steward"
+      ],
+      "skills": [
+        "mamw-marketing-measurement",
+        "mamw-attribution-incrementality",
+        "mamw-damw-feedback",
+        "mamw-pamw-handoff"
+      ],
+      "outputs": [
+        "marketing-performance-v1.json",
+        "campaign-retrospective-v1.json",
+        "feedback envelope"
+      ],
       "effect_ceiling": "R1"
     },
     {
       "id": "governance-reviewer",
       "kind": "core",
-      "phases": ["M0", "M1", "M2", "M3", "M4", "M5", "M6", "M7", "M8"],
+      "phases": [
+        "M0",
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M7",
+        "M8"
+      ],
       "description": "Independently verifies scope, approvals, rights, privacy, budget, tenant isolation, schemas and evidence before phase transitions.",
       "codex_model": "gpt-5.5",
       "claude_model": "opus",
-      "subroles": ["marketing registry guardian", "privacy and consent reviewer", "brand-rights reviewer", "budget reviewer", "QA evidence owner"],
-      "skills": ["mamw-governance", "mamw-tenant-scope", "mamw-audience-privacy", "mamw-brand-rights", "mamw-budget-governance", "mamw-accessibility"],
-      "outputs": ["gate verdict", "AC to evidence map", "verify.md", "escalation"],
+      "subroles": [
+        "marketing registry guardian",
+        "privacy and consent reviewer",
+        "brand-rights reviewer",
+        "budget reviewer",
+        "QA evidence owner"
+      ],
+      "skills": [
+        "mamw-governance",
+        "mamw-tenant-scope",
+        "mamw-audience-privacy",
+        "mamw-brand-rights",
+        "mamw-budget-governance",
+        "mamw-accessibility"
+      ],
+      "outputs": [
+        "gate verdict",
+        "AC to evidence map",
+        "verify.md",
+        "escalation"
+      ],
       "effect_ceiling": "R1"
     }
   ],
   "workflows": {
     "feature-launch": {
       "route": "FULL",
-      "phases": ["M1", "M2", "M3", "M4", "M5", "M8"],
+      "phases": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M8"
+      ],
       "effect_ceiling": "R1",
-      "groups": [["marketing-planner"], ["market-researcher", "audience-strategist"], ["campaign-strategist", "media-strategist"], ["editorial-strategist", "creative-director", "localization-strategist"], ["multimodal-producer"], ["governance-reviewer"], ["channel-operator"], ["marketing-analyst"]]
+      "groups": [
+        [
+          "marketing-planner"
+        ],
+        [
+          "market-researcher",
+          "audience-strategist"
+        ],
+        [
+          "campaign-strategist",
+          "media-strategist"
+        ],
+        [
+          "editorial-strategist",
+          "art-director",
+          "creative-director",
+          "localization-strategist"
+        ],
+        [
+          "multimodal-producer"
+        ],
+        [
+          "governance-reviewer"
+        ],
+        [
+          "channel-operator"
+        ],
+        [
+          "marketing-analyst"
+        ]
+      ]
     },
     "weekly-content-system": {
       "route": "FULL",
-      "phases": ["M0", "M3", "M4", "M7", "M8"],
+      "phases": [
+        "M0",
+        "M3",
+        "M4",
+        "M7",
+        "M8"
+      ],
       "effect_ceiling": "R1",
-      "groups": [["channel-auditor", "market-researcher"], ["editorial-strategist"], ["creative-director", "localization-strategist"], ["multimodal-producer"], ["governance-reviewer"], ["performance-analyst", "marketing-analyst"]]
+      "groups": [
+        [
+          "channel-auditor",
+          "market-researcher"
+        ],
+        [
+          "editorial-strategist"
+        ],
+        [
+          "art-director",
+          "creative-director",
+          "localization-strategist"
+        ],
+        [
+          "multimodal-producer"
+        ],
+        [
+          "governance-reviewer"
+        ],
+        [
+          "performance-analyst",
+          "marketing-analyst"
+        ]
+      ]
     },
     "multilingual-campaign": {
       "route": "FULL",
-      "phases": ["M0", "M2", "M3", "M4"],
+      "phases": [
+        "M0",
+        "M2",
+        "M3",
+        "M4"
+      ],
       "effect_ceiling": "R1",
-      "groups": [["brand-strategist", "localization-strategist"], ["market-researcher", "audience-strategist"], ["campaign-strategist"], ["creative-director"], ["multimodal-producer"], ["governance-reviewer"]]
+      "groups": [
+        [
+          "brand-strategist",
+          "localization-strategist"
+        ],
+        [
+          "market-researcher",
+          "audience-strategist"
+        ],
+        [
+          "campaign-strategist"
+        ],
+        [
+          "art-director",
+          "creative-director"
+        ],
+        [
+          "multimodal-producer"
+        ],
+        [
+          "governance-reviewer"
+        ]
+      ]
     },
     "paid-campaign": {
       "route": "FULL",
-      "phases": ["M1", "M2", "M3", "M4", "M5", "M7", "M8"],
+      "phases": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M7",
+        "M8"
+      ],
       "effect_ceiling": "R1",
-      "groups": [["marketing-planner"], ["audience-strategist", "market-researcher"], ["campaign-strategist", "media-strategist"], ["creative-director", "multimodal-producer"], ["governance-reviewer"], ["channel-operator"], ["performance-analyst", "marketing-analyst"]]
+      "groups": [
+        [
+          "marketing-planner"
+        ],
+        [
+          "audience-strategist",
+          "market-researcher"
+        ],
+        [
+          "campaign-strategist",
+          "media-strategist"
+        ],
+        [
+          "art-director",
+          "creative-director",
+          "multimodal-producer"
+        ],
+        [
+          "governance-reviewer"
+        ],
+        [
+          "channel-operator"
+        ],
+        [
+          "performance-analyst",
+          "marketing-analyst"
+        ]
+      ]
     },
     "provider-connection": {
       "route": "FULL",
-      "phases": ["M0", "M5"],
+      "phases": [
+        "M0",
+        "M5"
+      ],
       "effect_ceiling": "R1",
-      "groups": [["channel-auditor"], ["channel-operator"], ["governance-reviewer"]]
+      "groups": [
+        [
+          "channel-auditor"
+        ],
+        [
+          "channel-operator"
+        ],
+        [
+          "governance-reviewer"
+        ]
+      ]
     },
     "social-image-with-caption": {
       "route": "FULL",
-      "phases": ["M0", "M4"],
+      "phases": [
+        "M0",
+        "M4"
+      ],
       "effect_ceiling": "R1",
-      "groups": [["brand-strategist", "localization-strategist"], ["creative-director"], ["multimodal-producer"], ["governance-reviewer"]]
+      "groups": [
+        [
+          "brand-strategist",
+          "localization-strategist"
+        ],
+        [
+          "art-director",
+          "creative-director"
+        ],
+        [
+          "multimodal-producer"
+        ],
+        [
+          "governance-reviewer"
+        ]
+      ]
     },
     "social-publish": {
       "route": "FULL",
-      "phases": ["M4", "M5", "M6"],
+      "phases": [
+        "M4",
+        "M5",
+        "M6"
+      ],
       "effect_ceiling": "R1",
-      "groups": [["creative-director", "localization-strategist"], ["multimodal-producer"], ["governance-reviewer"], ["channel-operator"]]
+      "groups": [
+        [
+          "art-director",
+          "creative-director",
+          "localization-strategist"
+        ],
+        [
+          "multimodal-producer"
+        ],
+        [
+          "governance-reviewer"
+        ],
+        [
+          "channel-operator"
+        ]
+      ]
     },
     "crisis-response": {
       "route": "FULL",
-      "phases": ["M5"],
+      "phases": [
+        "M5"
+      ],
       "effect_ceiling": "R1",
-      "groups": [["channel-auditor", "market-researcher"], ["brand-strategist", "channel-operator"], ["governance-reviewer"]]
+      "groups": [
+        [
+          "channel-auditor",
+          "market-researcher"
+        ],
+        [
+          "brand-strategist",
+          "channel-operator"
+        ],
+        [
+          "governance-reviewer"
+        ]
+      ]
     },
     "b2c-lifecycle": {
       "route": "FULL",
-      "phases": ["M1", "M2", "M3", "M4", "M7", "M8"],
+      "phases": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M7",
+        "M8"
+      ],
       "effect_ceiling": "R1",
-      "groups": [["marketing-planner"], ["audience-strategist", "market-researcher"], ["campaign-strategist"], ["editorial-strategist", "creative-director"], ["performance-analyst", "marketing-analyst"], ["governance-reviewer"]]
+      "groups": [
+        [
+          "marketing-planner"
+        ],
+        [
+          "audience-strategist",
+          "market-researcher"
+        ],
+        [
+          "campaign-strategist"
+        ],
+        [
+          "editorial-strategist",
+          "art-director",
+          "creative-director"
+        ],
+        [
+          "performance-analyst",
+          "marketing-analyst"
+        ],
+        [
+          "governance-reviewer"
+        ]
+      ]
     },
     "b2b-demand-abm": {
       "route": "FULL",
-      "phases": ["M1", "M2", "M3", "M4", "M7", "M8"],
+      "phases": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M7",
+        "M8"
+      ],
       "effect_ceiling": "R1",
-      "groups": [["marketing-planner"], ["market-researcher", "audience-strategist"], ["campaign-strategist", "media-strategist"], ["editorial-strategist", "creative-director"], ["performance-analyst", "marketing-analyst"], ["governance-reviewer"]]
+      "groups": [
+        [
+          "marketing-planner"
+        ],
+        [
+          "market-researcher",
+          "audience-strategist"
+        ],
+        [
+          "campaign-strategist",
+          "media-strategist"
+        ],
+        [
+          "editorial-strategist",
+          "art-director",
+          "creative-director"
+        ],
+        [
+          "performance-analyst",
+          "marketing-analyst"
+        ],
+        [
+          "governance-reviewer"
+        ]
+      ]
     },
     "b2b2c-partner": {
       "route": "FULL",
-      "phases": ["M1", "M2", "M3", "M4", "M7", "M8"],
+      "phases": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M7",
+        "M8"
+      ],
       "effect_ceiling": "R1",
-      "groups": [["marketing-planner"], ["market-researcher", "audience-strategist"], ["campaign-strategist"], ["brand-strategist", "localization-strategist"], ["editorial-strategist", "creative-director", "multimodal-producer"], ["performance-analyst", "marketing-analyst"], ["governance-reviewer"]]
+      "groups": [
+        [
+          "marketing-planner"
+        ],
+        [
+          "market-researcher",
+          "audience-strategist"
+        ],
+        [
+          "campaign-strategist"
+        ],
+        [
+          "brand-strategist",
+          "localization-strategist"
+        ],
+        [
+          "editorial-strategist",
+          "art-director",
+          "creative-director",
+          "multimodal-producer"
+        ],
+        [
+          "performance-analyst",
+          "marketing-analyst"
+        ],
+        [
+          "governance-reviewer"
+        ]
+      ]
     }
   }
 }

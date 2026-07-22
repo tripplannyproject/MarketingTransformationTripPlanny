@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "catalog_version": "0.13.0",
+  "catalog_version": "0.15.1",
   "framework": "MAMW",
-  "total": 72,
+  "total": 76,
   "canonical_source": "templates/skills",
   "runtime_invocation": {
     "codex": "$<skill-name>",
@@ -76,7 +76,11 @@
       "mamw-content-atomization",
       "mamw-originality",
       "mamw-brand-rights",
-      "mamw-accessibility"
+      "mamw-accessibility",
+      "mamw-seo-blog",
+      "mamw-seo-onpage",
+      "mamw-seo-technical",
+      "mamw-seo-serp-aeo"
     ],
     "localization": [
       "mamw-locale-profile",

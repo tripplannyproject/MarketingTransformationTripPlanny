@@ -77,6 +77,12 @@ to the next phase, not after.
 ```
 
 - `status` per phase: `pending` | `in_progress` | `done` | `skipped` (with a reason in `artifacts`).
+- **Acceptance before `done` (`ACCEPT-001`).** A phase deliverable may be set `done` ONLY after the
+  user accepts it: present the finished deliverable in the chat and open the acceptance window
+  `¿El entregable está bien o falta algo? [MAMW-GATE: accept]` (options «Acepto el entregable» /
+  «Falta algo»). The `plan-ack-guard` blocks the checkpoint's `done` write without a fresh
+  acceptance. The plan-ack approved DOING the work; acceptance approves the RESULT. On «Falta algo»,
+  ask what to fix, redo it and re-present — never self-declare a deliverable good.
 - `resume_hint` states the exact next action in the user's language — it is what `/mm:resume`
   reads first and what the orchestrator proposes at the end of every turn.
 - The checkpoint is workflow state, not gate state: it never substitutes a plan-ack or a signed

@@ -49,8 +49,11 @@ approve`/`mamw channel confirm`) and the agent executes the signed `--confirm` c
    `--confirm sha256:<hash>` command yourself. Channel receipts: add `Bundle:`/`URL:`/`Confirm:`
    lines to the same window after the human pastes the live URL.
    Never hand the human commands to type.
-8. On completion set `status: "done"`, record receipts/pending items, and report `mamw doctor`
-   deviations if any.
+8. **Acceptance before done.** When a phase's deliverable is finished, PRESENT it in the chat and
+   open `¿El entregable está bien o falta algo? [MAMW-GATE: accept]` with «Acepto el entregable» /
+   «Falta algo». Only on acceptance set `status: "done"` (the `ACCEPT-001` guard blocks the
+   checkpoint's `done` write without it); if the user says something's missing, ask what, redo it
+   and re-present. Then record receipts/pending items and report `mamw doctor` deviations if any.
 
 ## Salida auditable
 

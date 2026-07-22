@@ -28,8 +28,11 @@ description: Crear la dirección visual gobernada y los artefactos Design.md, cr
 
 ## Salida auditable
 
-Producir `Design.md`, `creative-design-v1.json` y `reference-assets-v1.json`, con scope, linaje,
-capas deterministas, política de generación, referencias autorizadas y QA por mercado/locale.
+Producir, en la ruta canónica `.mamw/creative/<piece-id>/`, los archivos `Design.md`,
+`creative-design-v1.json` y `reference-assets-v1.json` (con `schema_version: "creative-design-v1"`),
+con scope, linaje, capas deterministas, política de generación, referencias autorizadas y QA por
+mercado/locale. Ahí los encuentra el gate `DESIGN-001` y allí exporta Canva
+(`.mamw/creative/<piece-id>/canva/`).
 
 ## Límites y gates
 

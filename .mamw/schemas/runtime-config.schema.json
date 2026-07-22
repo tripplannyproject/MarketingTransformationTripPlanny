@@ -6,7 +6,7 @@
   "additionalProperties": true,
   "required": ["mamw_version", "project", "marketing_models", "packs", "channel_profiles", "providers", "tracker", "budget", "approval_gates", "engram", "effects"],
   "properties": {
-    "mamw_version": { "const": "0.13" },
+    "mamw_version": { "const": "0.15" },
     "project": {
       "type": "object",
       "required": ["organization_id", "brand_id", "markets", "locales", "timezone"],

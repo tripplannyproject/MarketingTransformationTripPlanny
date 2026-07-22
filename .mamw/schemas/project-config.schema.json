@@ -6,7 +6,7 @@
   "additionalProperties": false,
   "required": ["mamw_version", "project_id", "project_name", "mirror", "security", "source"],
   "properties": {
-    "mamw_version": { "const": "0.13" },
+    "mamw_version": { "const": "0.15" },
     "project_id": { "type": "string", "minLength": 1 },
     "project_name": { "type": "string", "minLength": 1 },
     "base_branch": { "type": "string", "minLength": 1 },

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Claude PreToolUse adapter: require an ExitPlanMode approval bound to session + MAMW turn nonce.
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
 const input = readInput();
@@ -26,6 +26,21 @@ if (capability.code === "MANUAL-ONLY-001") {
     "Nunca pidas al usuario tipear comandos."
   );
 }
+// DESIGN-001 (0.14.0): a Canva design-CREATION call requires an authored Design.md
+// (creative-design-v1.json) first — no jumping into Canva/generate-design with no design system,
+// which produced off-brand, generic, inconsistent pieces. Reading/searching/exporting stays free.
+if (/^mcp__.*canva/i.test(tool) && /(generate-design|create-design|perform-editing|copy-design|import-design|merge-designs|autofill)/i.test(tool)) {
+  if (!hasDesignArtifact()) {
+    deny(
+      "[MAMW DESIGN-001] Diseñar en Canva requiere un Design.md autorizado antes. No existe ningún " +
+      "creative-design-v1.json en .mamw/creative/. Autora primero el diseño con `mamw-visual-design` / " +
+      "el agente `art-director` (design system: paleta, tipografía, grid, contraste, safe areas), y " +
+      "usa el patrón plantilla-primero (copy-design + find_and_replace), nunca generate-design para " +
+      "piezas de marca."
+    );
+  }
+}
+
 // BANNER-001 (0.13.0): a gate window must be preceded by the plan announced IN THE CHAT — the
 // window itself stays short and clean, but the user only ever SEES the window, so if the agent
 // jumped straight to it the user has no idea what they're approving ("¿apruebas el gate?"). We
@@ -34,7 +49,10 @@ if (capability.code === "MANUAL-ONLY-001") {
 // otherwise we fail open (allow).
 if (tool === "AskUserQuestion") {
   const questions = Array.isArray(toolInput.questions) ? toolInput.questions : [];
-  const gateQ = questions.map((q) => String(q?.question || "")).find((q) => /\[MAMW-GATE:/i.test(q));
+  // `accept` windows present a FINISHED deliverable (the agent shows the output, not a route
+  // banner), so they are exempt from the pre-window banner requirement.
+  const gateQ = questions.map((q) => String(q?.question || ""))
+    .find((q) => /\[MAMW-GATE:/i.test(q) && !/\[MAMW-GATE:\s*accept\s*\]/i.test(q));
   if (gateQ && input.transcript_path) {
     const announced = bannerAnnouncedInChat(input.transcript_path, gateQ);
     if (announced === false) {
@@ -80,6 +98,23 @@ if (tool === "Bash") {
       "click del usuario y te devuelve este mismo comando listo para ejecutar."
     );
   }
+}
+
+// ACCEPT-001 (0.15.0): the agent may NOT mark a deliverable/phase "done" in the run checkpoint
+// until the USER accepted the deliverable in a [MAMW-GATE: accept] window. The plan-ack only
+// approves DOING the work; nothing approved the RESULT — so the agent kept self-declaring
+// garbage deliverables done and advancing the phase without the user agreeing. This blocks the
+// checkpoint's "done" write unless a fresh acceptance for this session exists.
+if (["Write", "Edit", "MultiEdit", "apply_patch"].includes(tool)
+  && String(toolInput.file_path || toolInput.path || "").endsWith(".mm-run.json")
+  && marksPhaseNewlyDone(toolInput)
+  && !hasFreshAcceptance()) {
+  deny(
+    "[MAMW ACCEPT-001] No puedes marcar el entregable/fase como \"done\": el usuario todavía no " +
+    "ACEPTÓ el resultado. Presenta el entregable en el chat y abre la ventana de aceptación — " +
+    "AskUserQuestion `¿El entregable está bien o falta algo? [MAMW-GATE: accept]` con opciones " +
+    "«Acepto el entregable» / «Falta algo». El plan-ack aprobó HACER el trabajo, no el RESULTADO."
+  );
 }
 
 const turn = readState(join(cwd, ".mamw", ".mm-turn.json"));
@@ -161,6 +196,58 @@ function approvalsInclude(hash) {
   } catch {
     return false;
   }
+}
+
+// True only when the write ADDS a `"status":"done"` that was not already there — so re-writing a
+// checkpoint that already had a done phase (updating a different phase) is NOT blocked.
+function doneCount(text) {
+  return (String(text || "").match(/"status"\s*:\s*"done"/gi) || []).length;
+}
+function marksPhaseNewlyDone(ti) {
+  if (typeof ti.content === "string") {
+    let current = "";
+    try { current = readFileSync(join(cwd, ".mamw", ".mm-run.json"), "utf8"); } catch { /* new file */ }
+    return doneCount(ti.content) > doneCount(current);
+  }
+  if (typeof ti.new_string === "string") return doneCount(ti.new_string) > doneCount(ti.old_string);
+  if (Array.isArray(ti.edits)) return ti.edits.some((e) => doneCount(e?.new_string) > doneCount(e?.old_string));
+  if (typeof ti.command === "string") return /"status"\s*:\s*"done"/i.test(ti.command);
+  return false;
+}
+
+// ACCEPT-001: did the user accept a deliverable in a [MAMW-GATE: accept] window this session,
+// still within its TTL? Written only by approve-window on the human's click.
+function hasFreshAcceptance() {
+  const record = readState(join(cwd, ".mamw", ".mm-accept.json"));
+  return record?.accepted === true
+    && record.session_id === input.session_id
+    && Date.parse(record.expires_at) > Date.now();
+}
+
+// DESIGN-001: is there at least one authored creative-design-v1 anywhere under .mamw/? Scans the
+// whole tree (not just .mamw/creative) so the design is found wherever the skill authored it —
+// under an engram work-item, .mamw/creative/, etc. Skips the heavy cloned KB / backup dirs.
+const DESIGN_SCAN_SKIP = new Set(["kb", "logs-kb", "backups", "node_modules", ".git"]);
+function isDesignDoc(file) {
+  try {
+    return JSON.parse(readFileSync(file, "utf8"))?.schema_version === "creative-design-v1";
+  } catch {
+    return false;
+  }
+}
+function hasDesignArtifact() {
+  const stack = [join(cwd, ".mamw")];
+  for (let steps = 0; stack.length && steps < 4000; steps += 1) {
+    const dir = stack.pop();
+    let entries;
+    try { entries = readdirSync(dir, { withFileTypes: true }); } catch { continue; }
+    for (const entry of entries) {
+      const full = join(dir, entry.name);
+      if (entry.isDirectory()) { if (!DESIGN_SCAN_SKIP.has(entry.name)) stack.push(full); }
+      else if (entry.name.endsWith(".json") && isDesignDoc(full)) return true;
+    }
+  }
+  return false;
 }
 
 async function loadPolicy() {

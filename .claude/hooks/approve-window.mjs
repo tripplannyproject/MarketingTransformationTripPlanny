@@ -67,6 +67,43 @@ if (tool === "ExitPlanMode") {
       "completo y reabre el gate con ese plan exacto."
     );
   }
+} else if (gate.marker === "accept") {
+  // Deliverable ACCEPTANCE (0.15.0): the human reviews a FINISHED deliverable and says whether
+  // it is good or needs changes. This does NOT unlock mutations — it records acceptance so the
+  // agent may not self-declare a deliverable "done". Approve → write .mm-accept.json; reject →
+  // tell the agent to revise. Never writes a plan-ack.
+  if (gate.verdict === null) {
+    fail(
+      "[MAMW ACCEPT-006] No se pudo resolver la opción en la ventana [MAMW-GATE: accept]; no se " +
+      "registró nada. Reábrela con opciones inequívocas (p. ej. «Acepto el entregable» / «Falta algo»)."
+    );
+  }
+  if (gate.verdict === false) {
+    process.stdout.write(
+      "[MAMW] El usuario dice que el entregable NO está bien / falta algo. NO lo marques done ni " +
+      "avances de fase: pregunta exactamente qué corregir, rehazlo y vuelve a presentarlo para aceptación."
+    );
+    process.exit(0);
+  }
+  const now = new Date();
+  const ttlMinutes = boundedTtl(process.env.MAMW_PLAN_ACK_TTL_MINUTES);
+  const record = {
+    schema_version: "1.0",
+    accepted: true,
+    session_id: input.session_id,
+    turn_nonce: turn.turn_nonce,
+    label: gate.question.slice(0, 200),
+    recorded_at: now.toISOString(),
+    expires_at: new Date(now.getTime() + ttlMinutes * 60_000).toISOString()
+  };
+  try {
+    mkdirSync(join(cwd, ".mamw"), { recursive: true });
+    writeFileSync(join(cwd, ".mamw", ".mm-accept.json"), `${JSON.stringify(record, null, 2)}\n`, "utf8");
+    process.stdout.write("[MAMW] Entregable ACEPTADO por el usuario. Ya puedes marcarlo done y avanzar de fase.");
+  } catch {
+    fail("[MAMW ACCEPT-003] No se pudo persistir la aceptación; no marques el entregable done.");
+  }
+  process.exit(0);
 } else {
   surface = "AskUserQuestion";
   if (gate.verdict === null) {
@@ -164,7 +201,7 @@ function exactPlan(value) {
 function markedPlanAck(value) {
   const questions = Array.isArray(value.tool_input?.questions) ? value.tool_input.questions : [];
   const marked = questions
-    .map((q) => ({ q, m: /\[MAMW-GATE:\s*(plan-ack|effect|receipt)\s*\]/i.exec(String(q?.question || "")) }))
+    .map((q) => ({ q, m: /\[MAMW-GATE:\s*(plan-ack|effect|receipt|accept)\s*\]/i.exec(String(q?.question || "")) }))
     .filter((entry) => entry.m);
   if (!marked.length) return null;
   const question = marked[0].q;

@@ -4,7 +4,7 @@ import { createHash, createHmac, randomBytes } from "node:crypto";
 import { homedir } from "node:os";
 import { dirname, join } from "node:path";
 
-const GATE_STATE_PATTERN = /\.mm-(?:plan-ack|plan-pending|turn)\.json/i;
+const GATE_STATE_PATTERN = /\.mm-(?:plan-ack|plan-pending|turn|accept)\.json/i;
 const READ_TOOLS = new Set(["Read", "Glob", "Grep", "WebFetch", "WebSearch"]);
 // Interaction/planning tools with no repo, network or external effect: they render
 // the flow (option windows, plan mode, the step tracker) and never mutate anything.
@@ -155,8 +155,13 @@ export function orchestrationProtocol(mirror = "claude") {
     gate + "\n" +
     "Reglas: nunca pidas al usuario que escriba comandos (el click firma, tú ejecutas). Trabajo " +
     "solo-lectura: muestra el 🧭 con `GATE: no requerido (solo lectura)` y responde directo, sin " +
-    "ventana. Delega roles con Task anunciando `▶ Agent: <id> (<modelo>)`. Todo lo visible en el " +
-    "idioma del usuario. Ver orchestration.md y approvals.md.";
+    "ventana. Delega roles con Task anunciando `▶ Agent: <id> (<modelo>)`. " +
+    "ACEPTACIÓN DEL ENTREGABLE: cuando termines un entregable (diseño, doc, draft, export…) NUNCA " +
+    "lo des por bueno ni lo marques \"done\" ni avances de fase por tu cuenta. Preséntalo en el chat " +
+    "y abre la ventana `¿El entregable está bien o falta algo? [MAMW-GATE: accept]` con opciones " +
+    "«Acepto el entregable» / «Falta algo». Solo con la aceptación del usuario marcas done (el hook " +
+    "ACCEPT-001 bloquea el checkpoint sin ella); si dice que falta algo, pregunta qué y rehazlo. " +
+    "Todo lo visible en el idioma del usuario. Ver orchestration.md y approvals.md.";
 }
 
 // TADW-parity (their 2.23.3): READING gate state is legitimate — audits, self-tests, a user
