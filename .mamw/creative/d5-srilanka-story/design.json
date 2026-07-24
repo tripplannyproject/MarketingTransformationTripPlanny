@@ -1,0 +1,91 @@
+{
+  "schema_version": "creative-design-v1",
+  "design_id": "d5-srilanka-story",
+  "design_version": 1,
+  "status": "draft",
+  "scope": {
+    "organization_id": "tripplanny",
+    "brand_id": "tripplanny",
+    "market_ids": ["GLOBAL"],
+    "account_scope": "social-account:tripplanny:instagram:tripplannyappen"
+  },
+  "lineage": {
+    "campaign_ref": "campaign:verano-continua-2026",
+    "work_item_ref": "azure:HU-468",
+    "brand_dna_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "storytelling_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "brief_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  },
+  "objective": {
+    "audience": "Viajeros hispanohablantes que planifican su verano y creen que ya pasaron la mejor ventana de playa.",
+    "desired_change": "Pasar de creer que el verano de playa termino a descubrir que la costa este de Sri Lanka vive su mejor ventana seca en julio, y que la ruta la arman ellos mismos.",
+    "single_minded_proposition": "El verano no se acaba: cambia de lado del mapa, y la ruta la armas tu.",
+    "proof": ["La costa este de Sri Lanka (Trincomalee, Nilaveli, Pasikuda) vive su temporada seca de mayo a septiembre, con julio en su mejor momento."],
+    "claims_allowed": ["Hub 360: todo tu viaje en un solo lugar."],
+    "claims_forbidden": ["Cualquier cifra de cobertura eSIM", "Playa vacia, secreta o joya escondida solo para ti", "Personalizacion o automatizacion no verificadas"]
+  },
+  "concept": {
+    "insight": "Cuando media isla esta bajo el monzon del suroeste, la costa este vive su ventana seca: un detalle de calendario que casi nadie arma a tiempo.",
+    "central_idea": "Una bahia luminosa y en calma de la costa este como invitacion serena a un verano que cambio de lado del mapa.",
+    "story_spine": "Fondo-recurso sereno que sostiene la cita de plataforma y el teaser del blog, dejando que el copy determinista resuelva el bucle.",
+    "distinctive_elements": ["Mar azul-turquesa real del este", "Amplio espacio negativo central e inferior para la cita y el titulo del blog", "Luz de dia luminosa, no dorada"],
+    "avoid": ["Postal turistica cliche", "Bano dorado uniforme o hora azul", "Playa vacia o joya escondida", "Personas o rostros identificables", "Texto, logos o marcas dentro del pixel generado"]
+  },
+  "visual_system": {
+    "subject": "Bahia tranquila de la costa este de Sri Lanka (zona Nilaveli / Trincomalee), completamente sin personas.",
+    "scene": "Orilla de arena clara que encuentra un mar en calma azul-turquesa real, con una silueta suave de promontorio al fondo y unas palmeras lejanas; ventana seca de julio, cielo despejado.",
+    "composition": "Plano vertical; bahia y promontorio centrados horizontalmente, horizonte en el tercio superior; amplia area central lisa de mar, cielo y orilla como espacio negativo para la cita, y tercio inferior de arena lisa como espacio negativo extra para el titulo del blog y el chip.",
+    "palette": ["petroleo #063F5C", "naranja #F07F0C", "mar azul-turquesa real", "arena clara", "cielo azul claro"],
+    "style": "Fotografia editorial documental de estilo fotoperiodistico, color real y fiel, balance de blancos correcto, aspecto autentico sin retoque; nada estilizado.",
+    "lighting": "Luz natural luminosa de dia veraniego despejado; sin filtro calido, sin bano de hora dorada, sin teal-and-orange, sin HDR.",
+    "continuity": ["El mar del este se renderiza azul-turquesa real, nunca dorado uniforme", "Coherencia de grado editorial con los fondos bg-p1..bg-p3 ya aceptados"],
+    "deterministic_layers": ["logo", "overlay_text", "cta"]
+  },
+  "copy_system": {
+    "voice_tone": "Cercano, especifico y con rumbo (Explorer); sin hiperboles ni frases de IA; nunca la app lo arma por ti.",
+    "text_render_policy": "deterministic_only",
+    "locale_copy_refs": ["copy:d5-srilanka:story:es:v1"]
+  },
+  "placements": [
+    {
+      "placement_id": "instagram-story",
+      "platform": "instagram",
+      "surface": "story",
+      "width": 1080,
+      "height": 1920,
+      "safe_zones_ref": "platform-spec:instagram-story:2026-07-17"
+    }
+  ],
+  "locales": [
+    {
+      "locale": "es",
+      "market": "GLOBAL",
+      "adaptation_mode": "native",
+      "locale_profile_ref": "locale-profile:es:v1",
+      "market_dna_hash": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "native_review_required": false,
+      "visual_adaptation": "Sin simbolos nacionales ni estereotipos; comunidades del este con dignidad; topografia y mar reales del este de Sri Lanka."
+    }
+  ],
+  "reference_manifest_ref": "reference-manifest:d5-srilanka-story:v1",
+  "generation_policy": {
+    "provider_profile": "codex-images",
+    "capability": "generate_image",
+    "max_attempts": 3,
+    "max_assets": 1,
+    "currency": "USD",
+    "run_ceiling": 10,
+    "authority_ref": "budget-envelope:verano-continua-2026:v1",
+    "fallback": "deny"
+  },
+  "qa_rubric": {
+    "brand": "Paleta petroleo/naranja, mar azul-turquesa real y espacio negativo coinciden con el DNA y el sistema de la campana.",
+    "storytelling": "La imagen expresa un verano que cambio de lado del mapa (bahia luminosa en calma), no una postal generica.",
+    "originality": "No replica piezas historicas ni campanas externas.",
+    "reference_fidelity": "Escena sin referencias visibles al proveedor; el logo se compone despues en Canva.",
+    "rights": "Recurso-escena generado, sin rostros ni retratos de residentes; derechos de la foto final se cierran en QA (SR2).",
+    "locale": "Contexto natural y respetuoso del este de Sri Lanka; sin folclorizar.",
+    "accessibility": "Espacio negativo y contraste permiten leer la cita y el titulo del blog; alt text provisto en el copy.",
+    "platform": "1080x1920 Story, safe zones de UI respetadas (cita fuera de la zona superior e inferior de la plataforma)."
+  }
+}

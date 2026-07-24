@@ -6,7 +6,7 @@
   "additionalProperties": true,
   "required": ["mamw_version", "project", "marketing_models", "packs", "channel_profiles", "providers", "tracker", "budget", "approval_gates", "engram", "effects"],
   "properties": {
-    "mamw_version": { "const": "0.15" },
+    "mamw_version": { "const": "0.19" },
     "project": {
       "type": "object",
       "required": ["organization_id", "brand_id", "markets", "locales", "timezone"],
@@ -105,7 +105,7 @@
       "properties": {
         "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,63}$" },
         "provider": { "type": "string", "minLength": 1 },
-        "kind": { "enum": ["creative-api", "mcp", "rest-api", "sdk", "webhook", "human"] },
+        "kind": { "enum": ["creative-api", "creative-subscription", "mcp", "rest-api", "sdk", "webhook", "human"] },
         "mode": { "enum": ["disabled", "read_only", "active"] },
         "capabilities": {
           "type": "array",
@@ -121,7 +121,7 @@
           "properties": {
             "type": { "enum": ["api_key", "oauth2", "workload_identity", "none"] },
             "auth_env": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]+$" },
-            "secret_location": { "enum": ["server_only", "secret_manager", "manual_only", "not_applicable"] }
+            "secret_location": { "enum": ["server_only", "secret_manager", "manual_only", "not_applicable", "codex_session"] }
           },
           "allOf": [
             {

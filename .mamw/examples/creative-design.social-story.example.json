@@ -79,7 +79,7 @@
   ],
   "reference_manifest_ref": "reference-manifest:summer-story-design-001:v1",
   "generation_policy": {
-    "provider_profile": "openai-images",
+    "provider_profile": "codex-images",
     "capability": "edit_image",
     "max_attempts": 3,
     "max_assets": 2,

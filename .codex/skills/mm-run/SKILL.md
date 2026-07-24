@@ -27,7 +27,10 @@ approve`/`mamw channel confirm`) and the agent executes the signed `--confirm` c
    `skipped` with a reason, never silently omitted.
 2. Initialize or update `.mm-run.json` exactly as specified in the `workflow` rule: `run_id`,
    `route`, `work_item`, `kb_path` under the knowledge KB, all phases `pending`, and a
-   `resume_hint` in the user's language.
+   `resume_hint` in the user's language. In the Brief phase (MWF-1), also declare the
+   **deliverables contract** (`DELIV-001`): write every concrete thing the run must hand over into
+   `deliverables[]` (`id`, `name`, `type`, `status: pending`), derived from the route + brief. This
+   is what keeps the run from forgetting what it owes; reconcile it at Package/Handoff.
 3. Drive each phase in order. Per phase: announce `▶ Agent: <id> (<model>) — <task>`, delegate to
    the catalog roles for that phase, and store artifacts under `kb_path` (sync with `mamw kb sync`
    when linked). Ask discrete choices through option windows; reply in the user's language; a
@@ -49,11 +52,15 @@ approve`/`mamw channel confirm`) and the agent executes the signed `--confirm` c
    `--confirm sha256:<hash>` command yourself. Channel receipts: add `Bundle:`/`URL:`/`Confirm:`
    lines to the same window after the human pastes the live URL.
    Never hand the human commands to type.
-8. **Acceptance before done.** When a phase's deliverable is finished, PRESENT it in the chat and
-   open `¿El entregable está bien o falta algo? [MAMW-GATE: accept]` with «Acepto el entregable» /
-   «Falta algo». Only on acceptance set `status: "done"` (the `ACCEPT-001` guard blocks the
-   checkpoint's `done` write without it); if the user says something's missing, ask what, redo it
-   and re-present. Then record receipts/pending items and report `mamw doctor` deviations if any.
+8. **Acceptance before done + delivery with a link.** When a phase's deliverable is finished, PRESENT
+   it in the chat **in the `DELIV-LINK` format** — one line per deliverable, `- **<name>** —
+   🔗 <accessible link> · 📎 <export>`, never a bare filename — and open `¿El entregable está bien o
+   falta algo? [MAMW-GATE: accept]` with «Acepto el entregable» / «Falta algo». Only on acceptance
+   set `status: "done"` (the `ACCEPT-001` guard blocks the checkpoint's `done` write without it) and
+   update that `deliverables[]` entry to `status: "accepted"` with its `link` and `export`; if the
+   user says something's missing, ask what, redo it and re-present. At Package/Handoff, reconcile the
+   contract: no run is complete while any deliverable is `pending`/`produced` or lacks a `link`. Then
+   record receipts/pending items and report `mamw doctor` deviations if any.
 
 ## Salida auditable
 

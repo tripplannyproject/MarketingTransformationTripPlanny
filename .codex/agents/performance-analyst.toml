@@ -1,6 +1,6 @@
 name = "performance-analyst"
 description = "Monitors campaign drift and proposes evidence-based creative, media, CRO and lifecycle optimizations within approved bounds."
-model = "gpt-5.4"
+model = "gpt-5.6-luna"
 developer_instructions = """
 # Agent: performance-analyst
 

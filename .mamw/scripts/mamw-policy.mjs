@@ -161,6 +161,16 @@ export function orchestrationProtocol(mirror = "claude") {
     "y abre la ventana `¿El entregable está bien o falta algo? [MAMW-GATE: accept]` con opciones " +
     "«Acepto el entregable» / «Falta algo». Solo con la aceptación del usuario marcas done (el hook " +
     "ACCEPT-001 bloquea el checkpoint sin ella); si dice que falta algo, pregunta qué y rehazlo. " +
+    "ENTREGA CON LINK (DELIV-LINK): al presentar CUALQUIER entregable —en la ventana de aceptación y " +
+    "en el resumen de fin de turno— da SIEMPRE un link accesible por entregable, una línea por " +
+    "entregable, nunca solo el nombre del archivo: `- **<nombre>** — 🔗 <link editable/accesible> · " +
+    "📎 <export>`. Un entregable sin link cuenta como incompleto, no como done. LINK ACCESIBLE " +
+    "AHORA (DELIV-LINK-NOW): 'accesible' significa alcanzable en el momento de presentarlo, no " +
+    "después. Resuelve el link por fuente: pieza de diseño/Canva → su `edit_url` vivo; doc ya " +
+    "commiteado Y pusheado → su URL `github.com/<org>/<repo>/blob/<rama>/<ruta>`; doc aún solo en " +
+    "local (artefacto del engram escrito en Create, sin pushear) → su ruta de archivo local clicable " +
+    "en el IDE. NUNCA muestres un link GitHub `blob` de contenido que todavía no está en el remoto: " +
+    "da 404 hasta que el push llegue. Si necesitas el link GitHub, commitea y pushea primero. " +
     "Todo lo visible en el idioma del usuario. Ver orchestration.md y approvals.md.";
 }
 
@@ -212,10 +222,16 @@ export function classifyConnector(name) {
   const server = String(name || "").toLowerCase();
   const tool = server.split("__").pop() || "";
   if (server.includes("canva")) {
-    if (/^(?:help$|get-|list-|search-|resolve-)/.test(tool)) {
+    // Reads (R0). Tolerant prefix set so a future read-only rename does not fail closed. `read-design`
+    // (0.19 rename) is a read even with open_transaction:true — it only opens a LOCAL edit transaction
+    // and returns locator_ids/transaction_id; the persisted mutation happens at `edit-design` commit.
+    if (/^(?:help$|get-|list-|search-|resolve-|read-)/.test(tool)) {
       return { decision: "allow", effect: "R0" };
     }
-    if (/^(?:generate-design|create-design|perform-editing|start-editing|commit-editing|cancel-editing|resize-design|copy-design|merge-designs|import-design|upload-asset|export-design|create-folder|move-item)/.test(tool)) {
+    // Workspace drafting (R1, plan-ack). `edit-design` is the 0.19 rename of the transactional editing
+    // model (perform/start/commit/cancel-editing-transaction, kept for back-compat). Publishing/sharing
+    // (publish-brand-template, share-link, comment/reply) stays denied below (fail closed).
+    if (/^(?:generate-design|create-design|edit-design|perform-editing|start-editing|commit-editing|cancel-editing|resize-design|copy-design|merge-designs|import-design|upload-asset|export-design|create-folder|move-item)/.test(tool)) {
       return { decision: "require_plan_ack", effect: "R1_MUTATION" };
     }
     return { decision: "deny", code: "CONNECTOR-001", reason: "canva_sharing_or_unclassified" };
@@ -228,6 +244,16 @@ export function classifyConnector(name) {
       return { decision: "require_plan_ack", effect: "R1_MUTATION" };
     }
     return { decision: "deny", code: "CONNECTOR-001", reason: "calendar_delete_or_unclassified" };
+  }
+  // Instagram / Meta Graph (0.17.0): READS are R0 (limits, media status, account info). PUBLISHING
+  // is R4 and NEVER an autonomous MCP capability — it runs only through the signed, manual-only
+  // `instagram-graph` channel adapter (mamw channel confirm), which binds a human's signature to the
+  // exact payload and writes a receipt. So any create/publish/send MCP verb fails closed here.
+  if (server.includes("instagram") || server.includes("facebook") || server.includes("meta-graph")) {
+    if (/^(?:get|list|search|read)[-_]/.test(tool) || /[-_](?:limit|status|insights)$/.test(tool)) {
+      return { decision: "allow", effect: "R0" };
+    }
+    return { decision: "deny", code: "CONNECTOR-001", reason: "instagram_publish_via_signed_channel_adapter_only" };
   }
   return { decision: "deny", code: "CONNECTOR-001", reason: "unclassified_mcp_capability" };
 }

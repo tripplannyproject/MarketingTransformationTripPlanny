@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
   "accepted": true,
-  "session_id": "6c3a19c9-b171-456e-b8e3-6ee2e68d43eb",
-  "turn_nonce": "7dacbe66-238b-4018-904e-34b8d07cd01c",
-  "label": "¿El entregable está bien o falta algo? [MAMW-GATE: accept]",
-  "recorded_at": "2026-07-22T17:02:21.047Z",
-  "expires_at": "2026-07-22T17:17:21.047Z"
+  "session_id": "cf99eab5-dc35-4df7-93bc-6500075a7249",
+  "turn_nonce": "940f4d79-68c3-4040-a64c-63f76040a90a",
+  "label": "¿El entregable QA está bien o falta algo? [MAMW-GATE: accept]\n\nQA/Compliance M5 D5: compliance-review-d5.md + en-locale-review-d5.md (PASS R1; FIX-1 resuelto = mantener CTA-App como D2–D4).",
+  "recorded_at": "2026-07-24T15:06:23.490Z",
+  "expires_at": "2026-07-24T15:21:23.490Z"
 }

@@ -14,8 +14,11 @@ description: Incorporar herramientas de marketing por MCP, API o adaptador con m
 
 1. Inventariar herramientas, recursos, transports, límites, webhooks y residencia de datos.
 2. Mapear cada capability a R0–R5 y eliminar permisos no necesarios.
-3. Definir secret references, rotación y separación dev/staging/prod sin capturar secretos. Para
-   OpenAI usar por defecto `OPENAI_API_KEY` server-side; para OAuth conservar tokens fuera del repo.
+3. Definir secret references, rotación y separación dev/staging/prod sin capturar secretos. El
+   proveedor creativo por defecto (`codex-images`) genera con la SUSCRIPCIÓN de Codex vía sesión
+   OAuth (`secret_location: codex_session`, sin `OPENAI_API_KEY`); si `OPENAI_API_KEY` está presente,
+   Codex factura por API → `blocked`. Otros proveedores con API key: `*_API_KEY` server-side; para
+   OAuth conservar tokens fuera del repo.
 4. Ejecutar conectividad read-only o dry-run y guardar evidencia redactada.
 5. Publicar manifest, health check, failure modes, rollback y owner de renovación.
 

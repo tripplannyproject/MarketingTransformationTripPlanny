@@ -1,6 +1,6 @@
 name = "channel-auditor"
 description = "Audits channel ownership, profiles, permissions, cadence, formats and baselines without mutating external accounts."
-model = "gpt-5.4"
+model = "gpt-5.6-luna"
 developer_instructions = """
 # Agent: channel-auditor
 

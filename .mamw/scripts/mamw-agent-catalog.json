@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "catalog_version": "0.15.1",
+  "catalog_version": "0.19.1",
   "framework": "MAMW",
   "total": 16,
   "execution_contract": {
@@ -28,7 +28,7 @@
         "M7"
       ],
       "description": "Audits channel ownership, profiles, permissions, cadence, formats and baselines without mutating external accounts.",
-      "codex_model": "gpt-5.4",
+      "codex_model": "gpt-5.6-luna",
       "claude_model": "sonnet",
       "subroles": [
         "presence inventory",
@@ -55,7 +55,7 @@
         "M4"
       ],
       "description": "Owns positioning, Brand and Growth DNA, message house, storytelling system and brand governance.",
-      "codex_model": "gpt-5.5",
+      "codex_model": "gpt-5.6-sol",
       "claude_model": "opus",
       "subroles": [
         "positioning strategist",
@@ -84,7 +84,7 @@
         "M7"
       ],
       "description": "Finds dated market, competitor, customer and trend evidence with provenance, freshness and rights-safe use.",
-      "codex_model": "gpt-5.5",
+      "codex_model": "gpt-5.6-sol",
       "claude_model": "opus",
       "subroles": [
         "market researcher",
@@ -111,7 +111,7 @@
         "M1"
       ],
       "description": "Turns a PAMW handoff, business mandate or marketing HU into a bounded brief, spec, plan and measurable acceptance criteria.",
-      "codex_model": "gpt-5.5",
+      "codex_model": "gpt-5.6-sol",
       "claude_model": "opus",
       "subroles": [
         "intake manager",
@@ -140,7 +140,7 @@
         "M2"
       ],
       "description": "Defines audiences, journeys, consent, exclusions and privacy boundaries for B2C, B2B and B2B2C.",
-      "codex_model": "gpt-5.5",
+      "codex_model": "gpt-5.6-sol",
       "claude_model": "opus",
       "subroles": [
         "segmentation strategist",
@@ -168,7 +168,7 @@
         "M7"
       ],
       "description": "Designs campaign, growth, lifecycle, demand, ABM and partner strategy with explicit objectives and experiments.",
-      "codex_model": "gpt-5.5",
+      "codex_model": "gpt-5.6-sol",
       "claude_model": "opus",
       "subroles": [
         "growth strategist",
@@ -199,7 +199,7 @@
         "M7"
       ],
       "description": "Selects ad platforms and produces media plans, budget allocations, tracking requirements and bounded optimization proposals.",
-      "codex_model": "gpt-5.5",
+      "codex_model": "gpt-5.6-sol",
       "claude_model": "opus",
       "subroles": [
         "media planner",
@@ -230,7 +230,7 @@
         "M7"
       ],
       "description": "Runs always-on editorial systems, content collections, calendars and format-specific production briefs.",
-      "codex_model": "gpt-5.5",
+      "codex_model": "gpt-5.6-terra",
       "claude_model": "opus",
       "subroles": [
         "editorial strategist",
@@ -264,7 +264,7 @@
         "M4"
       ],
       "description": "Owns creative concept, visual direction, copy, claims, channel variants and Design.md conformance.",
-      "codex_model": "gpt-5.5",
+      "codex_model": "gpt-5.6-sol",
       "claude_model": "opus",
       "subroles": [
         "creative strategist",
@@ -294,7 +294,7 @@
         "M4"
       ],
       "description": "Senior art director — owns the professional design craft (visual hierarchy, contrast, type scale, grid, spacing, shadow/elevation, safe areas) and the brand design system so every post, story and carousel is beautiful, legible and CONSISTENT. Turns references into brand-native design, never a literal copy.",
-      "codex_model": "gpt-5.5",
+      "codex_model": "gpt-5.6-terra",
       "claude_model": "opus",
       "subroles": [
         "design system owner",
@@ -305,7 +305,7 @@
       "skills": [
         "mamw-visual-design",
         "mamw-canva-instagram",
-        "mamw-openai-creative",
+        "mamw-codex-creative",
         "mamw-accessibility"
       ],
       "outputs": [
@@ -323,7 +323,7 @@
         "M4"
       ],
       "description": "Owns locale profiles, terminology, transcreation, regional slang, cultural safety and native-market review.",
-      "codex_model": "gpt-5.5",
+      "codex_model": "gpt-5.6-terra",
       "claude_model": "opus",
       "subroles": [
         "localization strategist",
@@ -352,7 +352,7 @@
         "M4"
       ],
       "description": "Compiles provider-neutral prompts, generates or adapts media drafts and assembles auditable content-package-v1 artifacts.",
-      "codex_model": "gpt-5.5",
+      "codex_model": "gpt-5.6-terra",
       "claude_model": "opus",
       "subroles": [
         "prompt compiler",
@@ -362,7 +362,7 @@
       ],
       "skills": [
         "mamw-creative-prompting",
-        "mamw-openai-creative",
+        "mamw-codex-creative",
         "mamw-content-atomization",
         "mamw-social-content",
         "mamw-accessibility"
@@ -383,7 +383,7 @@
         "M6"
       ],
       "description": "Discovers connector capabilities and prepares preflights, but executes external activation only through valid effect gates and receipts.",
-      "codex_model": "gpt-5.5",
+      "codex_model": "gpt-5.6-terra",
       "claude_model": "opus",
       "subroles": [
         "connector guardian",
@@ -413,7 +413,7 @@
         "M7"
       ],
       "description": "Monitors campaign drift and proposes evidence-based creative, media, CRO and lifecycle optimizations within approved bounds.",
-      "codex_model": "gpt-5.4",
+      "codex_model": "gpt-5.6-luna",
       "claude_model": "sonnet",
       "subroles": [
         "performance monitor",
@@ -441,7 +441,7 @@
         "M8"
       ],
       "description": "Produces operational performance envelopes, retrospectives and read-only feedback to PAMW and DAMW without claiming uncertified causality.",
-      "codex_model": "gpt-5.4",
+      "codex_model": "gpt-5.6-terra",
       "claude_model": "sonnet",
       "subroles": [
         "measurement analyst",
@@ -477,7 +477,7 @@
         "M8"
       ],
       "description": "Independently verifies scope, approvals, rights, privacy, budget, tenant isolation, schemas and evidence before phase transitions.",
-      "codex_model": "gpt-5.5",
+      "codex_model": "gpt-5.6-sol",
       "claude_model": "opus",
       "subroles": [
         "marketing registry guardian",

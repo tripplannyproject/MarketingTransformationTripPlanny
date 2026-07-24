@@ -1,5 +1,5 @@
 {
-  "mamw_version": "0.15",
+  "mamw_version": "0.19",
   "project": {
     "organization_id": "org-example",
     "brand_id": "brand-example",
@@ -18,26 +18,26 @@
   "channel_profiles": [],
   "providers": [
     {
-      "id": "openai-images",
-      "provider": "openai",
-      "kind": "creative-api",
+      "id": "codex-images",
+      "provider": "codex",
+      "kind": "creative-subscription",
       "mode": "disabled",
       "capabilities": [
-        "generate_image",
-        "edit_image"
+        "generate_image"
       ],
       "effect_ceiling": "R2",
       "auth": {
-        "type": "api_key",
-        "auth_env": "OPENAI_API_KEY",
-        "secret_location": "server_only"
+        "type": "none",
+        "secret_location": "codex_session"
       },
       "config": {
+        "runtime": "auto",
         "image_model_env": "MAMW_OPENAI_IMAGE_MODEL",
         "quality_env": "MAMW_OPENAI_IMAGE_QUALITY",
         "size_env": "MAMW_OPENAI_IMAGE_SIZE",
         "max_images_env": "MAMW_OPENAI_MAX_IMAGES_PER_RUN",
-        "max_cost_env": "MAMW_OPENAI_MAX_COST_USD_PER_RUN"
+        "max_bytes_env": "MAMW_CREATIVE_MAX_BYTES_PER_ASSET",
+        "generated_dir_env": "CODEX_HOME"
       }
     }
   ],

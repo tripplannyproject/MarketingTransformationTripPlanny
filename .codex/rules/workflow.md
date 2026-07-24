@@ -71,11 +71,34 @@ to the next phase, not after.
     "handoff": { "status": "pending", "artifacts": [] },
     "learn": { "status": "pending", "artifacts": [] }
   },
+  "deliverables": [
+    { "id": "", "name": "", "type": "", "status": "pending", "link": "", "export": "" }
+  ],
   "resume_hint": ""
 }
 ```
 
 - `status` per phase: `pending` | `in_progress` | `done` | `skipped` (with a reason in `artifacts`).
+- **Deliverables contract (`DELIV-001`).** `deliverables[]` is the run's binding list of what it must
+  hand over — the thing the orchestrator must NEVER lose track of between phases. Each entry has an
+  `id`, human `name`, `type` (post/story/carousel/doc/export/link…), `status`
+  (`pending` | `produced` | `accepted`) and, once produced, an accessible `link` plus its `export`.
+  - **Declare it in Brief.** Derive the concrete deliverables from the route + brief and write them
+    into `deliverables[]` at MWF-1, all `pending`. A run with no declared deliverables is not briefed.
+  - **Reconcile at Package/Handoff.** Every declared deliverable must be `accepted` with a non-empty
+    `link` before the run can be reported complete. Add nothing to the package that is not in the
+    contract; if scope grew, add the entry — never hand over silently.
+  - **Never close with gaps.** The run does not reach a global `done`/Learn while any deliverable is
+    `pending`/`produced` or lacks a `link`; the propositive summary enumerates the missing ones.
+    The contract is workflow state, not a gate — it authorizes nothing; it just makes forgetting
+    impossible.
+  - **Link must resolve NOW (`DELIV-LINK-NOW`).** "Accessible" means reachable **at presentation
+    time**, not eventually. Resolve the `link` per source: a Canva/design piece uses its live
+    `edit_url`; a doc that is **already committed AND pushed** uses its `github.com/<org>/<repo>/blob/<branch>/<path>`
+    URL; a doc still **local-only** (engram artifact written during Create, not yet pushed) uses its
+    **clickable local file path** (IDE-clickable). NEVER present a GitHub `blob` URL for content that
+    is not on the remote yet — it 404s until the push lands. If a GitHub link is required, commit and
+    push first, then present it.
 - `resume_hint` states the exact next action in the user's language — it is what the `mm-resume` skill
   reads first and what the orchestrator proposes at the end of every turn.
 - The checkpoint is workflow state, not gate state: it never substitutes a plan-ack or a signed
@@ -91,5 +114,15 @@ At the end of every phase (and every interrupted turn):
 1. Update `.mm-run.json` with the phase result and a fresh `resume_hint`.
 2. Tell the user, in their language: what was produced, what phase follows, which roles it needs
    and which gate it will require.
-3. Offer the continuation as an option window (a concise numbered option list in text — Codex has no option window): continue now / adjust /
+3. Report the deliverables contract: `producidos / aceptados / faltantes`, and list every produced
+   deliverable **with its accessible link** (`DELIV-LINK`) — one line per deliverable, never a bare
+   filename:
+
+   ```text
+   - **<nombre del entregable>** — 🔗 <link editable/accesible> · 📎 <export>
+   ```
+
+   A deliverable presented without a link counts as missing, not done. This is also the exact format
+   used inside the `ACCEPT-001` window when presenting a finished deliverable for acceptance.
+4. Offer the continuation as an option window (a concise numbered option list in text — Codex has no option window): continue now / adjust /
    pause. Never end a run turn with a bare summary and no proposed next step.

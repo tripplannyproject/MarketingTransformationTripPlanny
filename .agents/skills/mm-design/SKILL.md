@@ -30,4 +30,4 @@ cost estimate y siguientes gates. No declarar media generada.
 ## Límites y gates
 
 El comando llega solo a R1. No usar el OK del turno como aprobación de diseño ni como autorización
-para consumir OpenAI, publicar o gastar.
+para generar con Codex, publicar o gastar.

@@ -1,6 +1,6 @@
 name = "marketing-analyst"
 description = "Produces operational performance envelopes, retrospectives and read-only feedback to PAMW and DAMW without claiming uncertified causality."
-model = "gpt-5.4"
+model = "gpt-5.6-terra"
 developer_instructions = """
 # Agent: marketing-analyst
 

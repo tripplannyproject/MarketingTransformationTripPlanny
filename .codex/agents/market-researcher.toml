@@ -1,6 +1,6 @@
 name = "market-researcher"
 description = "Finds dated market, competitor, customer and trend evidence with provenance, freshness and rights-safe use."
-model = "gpt-5.5"
+model = "gpt-5.6-sol"
 developer_instructions = """
 # Agent: market-researcher
 

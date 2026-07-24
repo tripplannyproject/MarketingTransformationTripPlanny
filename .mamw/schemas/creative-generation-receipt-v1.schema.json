@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tripplanny.dev/mamw/schemas/creative-generation-receipt-v1.schema.json",
+  "title": "MAMW creative generation receipt v1",
+  "description": "Immutable receipt emitted after a creative-provider-request-v1 is executed by the Codex-subscription creative provider (native image_gen or the codex exec bridge). Never contains secrets, tokens or OAuth session paths.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_hash",
+    "request_id",
+    "design_ref",
+    "runtime",
+    "provider_profile",
+    "model_snapshot",
+    "created_at",
+    "assets",
+    "batch",
+    "guards"
+  ],
+  "properties": {
+    "schema_version": { "const": "creative-generation-receipt-v1" },
+    "request_hash": { "$ref": "#/$defs/hash" },
+    "request_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,159}$" },
+    "design_ref": { "type": "string", "minLength": 1 },
+    "runtime": { "enum": ["native", "bridge"] },
+    "provider_profile": { "type": "string", "minLength": 1 },
+    "model_snapshot": {
+      "description": "Pinned model snapshot for auditability, e.g. gpt-image-2-2026-04-21 (never the always-latest alias).",
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["asset_id", "path", "checksum", "bytes", "width", "height", "attempt", "status"],
+        "properties": {
+          "asset_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,159}$" },
+          "path": {
+            "description": "Repo-relative path inside the MAMW creative store; adopted atomically (temp+rename).",
+            "type": "string",
+            "minLength": 1
+          },
+          "checksum": { "$ref": "#/$defs/hash" },
+          "bytes": { "type": "integer", "minimum": 1 },
+          "width": { "type": "integer", "minimum": 1 },
+          "height": { "type": "integer", "minimum": 1 },
+          "attempt": { "type": "integer", "minimum": 1, "maximum": 20 },
+          "status": { "enum": ["succeeded", "reused"] }
+        }
+      }
+    },
+    "failures": {
+      "description": "Per-item failures that did not abort the batch (resilient batch). Present when batch.failed > 0.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["asset_slot", "attempts", "reason"],
+        "properties": {
+          "asset_slot": { "type": "integer", "minimum": 1 },
+          "attempts": { "type": "integer", "minimum": 1, "maximum": 20 },
+          "reason": { "enum": ["network", "oversize", "provider_error", "no_path_reported"] }
+        }
+      }
+    },
+    "batch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requested", "succeeded", "failed", "partial", "reused"],
+      "properties": {
+        "requested": { "type": "integer", "minimum": 0 },
+        "succeeded": { "type": "integer", "minimum": 0 },
+        "failed": { "type": "integer", "minimum": 0 },
+        "partial": { "type": "boolean" },
+        "reused": { "type": "boolean" }
+      }
+    },
+    "guards": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["max_images_per_run", "max_bytes_per_asset"],
+      "properties": {
+        "max_images_per_run": { "type": "integer", "minimum": 1 },
+        "max_bytes_per_asset": { "type": "integer", "minimum": 1 },
+        "oversize_rejected": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "integer", "minimum": 1 }
+        },
+        "run_capped": {
+          "description": "True when the design requested more assets than max_images_per_run and the run stopped at the cap.",
+          "type": "boolean"
+        },
+        "requested_before_cap": { "type": "integer", "minimum": 0 }
+      }
+    }
+  },
+  "$defs": {
+    "hash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }
+  }
+}

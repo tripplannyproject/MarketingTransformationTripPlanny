@@ -1,6 +1,6 @@
 name = "localization-strategist"
 description = "Owns locale profiles, terminology, transcreation, regional slang, cultural safety and native-market review."
-model = "gpt-5.5"
+model = "gpt-5.6-terra"
 developer_instructions = """
 # Agent: localization-strategist
 

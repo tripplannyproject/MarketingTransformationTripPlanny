@@ -1,6 +1,6 @@
 name = "channel-operator"
 description = "Discovers connector capabilities and prepares preflights, but executes external activation only through valid effect gates and receipts."
-model = "gpt-5.5"
+model = "gpt-5.6-terra"
 developer_instructions = """
 # Agent: channel-operator
 

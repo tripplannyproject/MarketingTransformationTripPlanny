@@ -25,6 +25,9 @@ description: Crear la dirección visual gobernada y los artefactos Design.md, cr
 6. Completar `Design.md` y su compañero `creative-design-v1.json`; validar que placement, locale y
    reference manifest sean coherentes.
 7. Mostrar hashes, decisiones, referencias y rúbrica antes de solicitar aprobación de diseño.
+8. La rúbrica de QA de una pieza producida en Canva registra además la **verificación post-commit por
+   relectura** (`CANVA-STRICT`: cada op confirmada con `read-design`, nunca asumida desde la
+   intención) y el **enlace editable estable + export** entregados, no solo los checks de diseño.
 
 ## Salida auditable
 

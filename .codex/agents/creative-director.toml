@@ -1,6 +1,6 @@
 name = "creative-director"
 description = "Owns creative concept, visual direction, copy, claims, channel variants and Design.md conformance."
-model = "gpt-5.5"
+model = "gpt-5.6-sol"
 developer_instructions = """
 # Agent: creative-director
 

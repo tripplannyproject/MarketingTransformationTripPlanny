@@ -1,6 +1,6 @@
 name = "campaign-strategist"
 description = "Designs campaign, growth, lifecycle, demand, ABM and partner strategy with explicit objectives and experiments."
-model = "gpt-5.5"
+model = "gpt-5.6-sol"
 developer_instructions = """
 # Agent: campaign-strategist
 

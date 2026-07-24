@@ -1,0 +1,91 @@
+{
+  "schema_version": "creative-design-v1",
+  "design_id": "d5-srilanka-p4-koneswaram",
+  "design_version": 1,
+  "status": "draft",
+  "scope": {
+    "organization_id": "tripplanny",
+    "brand_id": "tripplanny",
+    "market_ids": ["GLOBAL"],
+    "account_scope": "social-account:tripplanny:instagram:tripplannyappen"
+  },
+  "lineage": {
+    "campaign_ref": "campaign:verano-continua-2026",
+    "work_item_ref": "azure:HU-468",
+    "brand_dna_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "storytelling_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "brief_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  },
+  "objective": {
+    "audience": "Viajeros hispanohablantes que arman su ruta por la costa este de Sri Lanka y quieren vivir sus lugares a buena hora y con respeto.",
+    "desired_change": "Entender que Koneswaram es un templo hindu de Shiva que se visita descalzo, con hombros y rodillas cubiertos, a la hora buena.",
+    "single_minded_proposition": "A la hora buena y con respeto: el este se disfruta mejor cuando se arma bien.",
+    "proof": ["Koneswaram es un templo hindu de Shiva sobre el acantilado que domina la bahia de Trincomalee; el respeto religioso es obligatorio (arrestos y deportaciones documentados por irrespeto)."],
+    "claims_allowed": ["Hub 360: todo tu viaje en un solo lugar."],
+    "claims_forbidden": ["Cualquier cifra de cobertura eSIM", "Playa vacia o joya escondida", "Cualquier gesto irrespetuoso hacia lo religioso"]
+  },
+  "concept": {
+    "insight": "Lo que casi nadie arma bien es la hora y el respeto: el templo se vive descalzo y a buena luz.",
+    "central_idea": "La silueta del templo de Koneswaram sobre el acantilado y la bahia como parada respetuosa del hilo del carrusel.",
+    "story_spine": "Cuarta parada del hilo cosido; fondo-recurso que sostiene el titular sobre franja petroleo, dejando espacio negativo inferior.",
+    "distinctive_elements": ["Silueta digna del templo hindu sobre el acantilado", "Bahia azul profundo del este al fondo", "Espacio negativo inferior para la franja de titular"],
+    "avoid": ["Cualquier imagen o estatua de Buda", "Personas o figuras de espaldas a imagenes sagradas", "Gestos hacia deidades", "Bano dorado uniforme", "Texto, logos o marcas dentro del pixel generado"]
+  },
+  "visual_system": {
+    "subject": "Templo hindu de Koneswaram sobre un promontorio de acantilado verde que domina la bahia de Trincomalee, sin personas.",
+    "scene": "Gopuram y estructuras del templo, respetados e intactos, vistos desde un angulo amplio, distante y respetuoso; el mar azul profundo y la bahia muy abajo, cielo despejado.",
+    "composition": "Plano vertical; templo y acantilado en el tercio superior-medio, con la bahia y el mar extendiendose abajo; 40 por ciento inferior liso (verde del acantilado o mar en calma) como espacio negativo para la franja de titular.",
+    "palette": ["petroleo #063F5C", "naranja #F07F0C", "gopuram colorido real", "verde de acantilado", "mar azul profundo"],
+    "style": "Fotografia editorial documental de estilo fotoperiodistico, color real y fiel, aspecto autentico sin retoque; nada estilizado.",
+    "lighting": "Luz natural de tarde suave de un dia despejado; sin bano de hora dorada saturado, sin teal-and-orange, sin HDR.",
+    "continuity": ["El mar del este se renderiza azul real, nunca dorado uniforme", "Coherencia de grado editorial con bg-p1..bg-p3 ya aceptados", "Arquitectura del templo hindu renderizada con respeto, a distancia, digna e intacta"],
+    "deterministic_layers": ["logo", "overlay_text", "cta"]
+  },
+  "copy_system": {
+    "voice_tone": "Cercano, especifico y respetuoso; sin hiperboles ni frases de IA.",
+    "text_render_policy": "deterministic_only",
+    "locale_copy_refs": ["copy:d5-srilanka:carrusel:es:v1"]
+  },
+  "placements": [
+    {
+      "placement_id": "instagram-carousel-p4",
+      "platform": "instagram",
+      "surface": "feed",
+      "width": 1080,
+      "height": 1350,
+      "safe_zones_ref": "platform-spec:instagram-feed:2026-07-17"
+    }
+  ],
+  "locales": [
+    {
+      "locale": "es",
+      "market": "GLOBAL",
+      "adaptation_mode": "native",
+      "locale_profile_ref": "locale-profile:es:v1",
+      "market_dna_hash": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "native_review_required": false,
+      "visual_adaptation": "Respeto religioso critico (templo hindu de Shiva); sin Budas ni figuras de espaldas a imagenes sagradas; comunidades del este con dignidad."
+    }
+  ],
+  "reference_manifest_ref": "reference-manifest:d5-srilanka-p4-koneswaram:v1",
+  "generation_policy": {
+    "provider_profile": "codex-images",
+    "capability": "generate_image",
+    "max_attempts": 3,
+    "max_assets": 1,
+    "currency": "USD",
+    "run_ceiling": 10,
+    "authority_ref": "budget-envelope:verano-continua-2026:v1",
+    "fallback": "deny"
+  },
+  "qa_rubric": {
+    "brand": "Paleta petroleo/naranja, mar azul real y espacio negativo inferior coinciden con el sistema del carrusel.",
+    "storytelling": "La imagen sostiene la cuarta parada del hilo (a la hora buena y con respeto), no un item suelto.",
+    "originality": "No replica piezas historicas ni campanas externas.",
+    "reference_fidelity": "Escena sin referencias visibles al proveedor; el logo se compone despues en Canva.",
+    "rights": "Recurso-escena generado, sin rostros ni personas; landmark publico a distancia; derechos de la foto final se cierran en QA (SR2).",
+    "locale": "Respeto religioso y cultural del este de Sri Lanka garantizado; sin Budas ni gestos hacia deidades.",
+    "accessibility": "Espacio negativo inferior y contraste permiten leer el titular; alt text provisto en el copy.",
+    "platform": "1080x1350 feed/carousel, margenes respetados; el gopuram y el titular fuera de los bordes."
+  }
+}

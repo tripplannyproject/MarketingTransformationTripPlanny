@@ -1,0 +1,37 @@
+{
+  "schema_version": "creative-provider-request-v1",
+  "request_id": "d5-srilanka-p4-koneswaram.es.instagram-carousel-p4.v1",
+  "design_ref": "design:d5-srilanka-p4-koneswaram:v1",
+  "design_hash": "sha256:a25e425f94eb8501b13ab482bdbe11d35d5b2c8df6a8480f6c375ca380535c56",
+  "reference_manifest_hash": "sha256:b53458dc87ab83eee0efc952f4af041936b27cfbc3f0ab205f06e2d04d0597b9",
+  "locale": "es",
+  "provider_profile": "codex-images",
+  "capability": "generate_image",
+  "budget": {
+    "currency": "USD",
+    "run_ceiling": 10,
+    "authority_ref": "budget-envelope:verano-continua-2026:v1"
+  },
+  "prompt": "OBJECTIVE: Entender que Koneswaram es un templo hindu de Shiva que se visita descalzo, con hombros y rodillas cubiertos, a la hora buena.\nAUDIENCE: Viajeros hispanohablantes que arman su ruta por la costa este de Sri Lanka y quieren vivir sus lugares a buena hora y con respeto.\nPROPOSITION: A la hora buena y con respeto: el este se disfruta mejor cuando se arma bien.\nCONCEPT: La silueta del templo de Koneswaram sobre el acantilado y la bahia como parada respetuosa del hilo del carrusel.\nSTORY: Cuarta parada del hilo cosido; fondo-recurso que sostiene el titular sobre franja petroleo, dejando espacio negativo inferior.\nSUBJECT: Templo hindu de Koneswaram sobre un promontorio de acantilado verde que domina la bahia de Trincomalee, sin personas.\nSCENE: Gopuram y estructuras del templo, respetados e intactos, vistos desde un angulo amplio, distante y respetuoso; el mar azul profundo y la bahia muy abajo, cielo despejado.\nCOMPOSITION: Plano vertical; templo y acantilado en el tercio superior-medio, con la bahia y el mar extendiendose abajo; 40 por ciento inferior liso (verde del acantilado o mar en calma) como espacio negativo para la franja de titular.\nPALETTE: petroleo #063F5C, naranja #F07F0C, gopuram colorido real, verde de acantilado, mar azul profundo\nSTYLE: Fotografia editorial documental de estilo fotoperiodistico, color real y fiel, aspecto autentico sin retoque; nada estilizado.\nLIGHTING: Luz natural de tarde suave de un dia despejado; sin bano de hora dorada saturado, sin teal-and-orange, sin HDR.\nCONTINUITY: El mar del este se renderiza azul real, nunca dorado uniforme; Coherencia de grado editorial con bg-p1..bg-p3 ya aceptados; Arquitectura del templo hindu renderizada con respeto, a distancia, digna e intacta\nLOCALE: es / market GLOBAL; adaptation mode native. Respeto religioso critico (templo hindu de Shiva); sin Budas ni figuras de espaldas a imagenes sagradas; comunidades del este con dignidad.\nPLACEMENT: instagram feed, 1080x1350; preserve safe zones from platform-spec:instagram-feed:2026-07-17.\nDISTINCTIVE ELEMENTS: Silueta digna del templo hindu sobre el acantilado; Bahia azul profundo del este al fondo; Espacio negativo inferior para la franja de titular\nREFERENCE INSTRUCTIONS: No provider-visible references.\nDETERMINISTIC POST-COMPOSITION: logo, overlay_text, cta. Leave intentional negative space for those layers.",
+  "negative_constraints": [
+    "Cualquier imagen o estatua de Buda",
+    "Personas o figuras de espaldas a imagenes sagradas",
+    "Gestos hacia deidades",
+    "Bano dorado uniforme",
+    "Texto, logos o marcas dentro del pixel generado",
+    "Do not render final logos, legal lines, prices, captions, CTA text or exact overlay copy inside the generated pixels.",
+    "Do not imitate a living artist, competitor campaign or third-party brand style.",
+    "Do not introduce products, people, claims or trademarks that are absent from the approved design and references."
+  ],
+  "parameters": {
+    "placement_id": "instagram-carousel-p4",
+    "width": 1080,
+    "height": 1350,
+    "quality_ref": "config:creative.image.quality",
+    "output_format": "png",
+    "max_attempts": 3,
+    "max_assets": 1
+  },
+  "references": [],
+  "request_hash": "sha256:a06292d5619761bbd889baa0a312ac16e312fef3d7709fb86a44088cda4c7e88"
+}

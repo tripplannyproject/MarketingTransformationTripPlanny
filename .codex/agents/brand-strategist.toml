@@ -1,6 +1,6 @@
 name = "brand-strategist"
 description = "Owns positioning, Brand and Growth DNA, message house, storytelling system and brand governance."
-model = "gpt-5.5"
+model = "gpt-5.6-sol"
 developer_instructions = """
 # Agent: brand-strategist
 

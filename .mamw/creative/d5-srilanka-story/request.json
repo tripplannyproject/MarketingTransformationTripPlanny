@@ -1,0 +1,37 @@
+{
+  "schema_version": "creative-provider-request-v1",
+  "request_id": "d5-srilanka-story.es.instagram-story.v1",
+  "design_ref": "design:d5-srilanka-story:v1",
+  "design_hash": "sha256:f96d06f55b8101b76bcc2fc455aa1d765eccdb5c74079f34266750d94f725f51",
+  "reference_manifest_hash": "sha256:e0ba51c011f19ee901c6bab3a64f2efb06f233af91f238286ef4d6961f30d361",
+  "locale": "es",
+  "provider_profile": "codex-images",
+  "capability": "generate_image",
+  "budget": {
+    "currency": "USD",
+    "run_ceiling": 10,
+    "authority_ref": "budget-envelope:verano-continua-2026:v1"
+  },
+  "prompt": "OBJECTIVE: Pasar de creer que el verano de playa termino a descubrir que la costa este de Sri Lanka vive su mejor ventana seca en julio, y que la ruta la arman ellos mismos.\nAUDIENCE: Viajeros hispanohablantes que planifican su verano y creen que ya pasaron la mejor ventana de playa.\nPROPOSITION: El verano no se acaba: cambia de lado del mapa, y la ruta la armas tu.\nCONCEPT: Una bahia luminosa y en calma de la costa este como invitacion serena a un verano que cambio de lado del mapa.\nSTORY: Fondo-recurso sereno que sostiene la cita de plataforma y el teaser del blog, dejando que el copy determinista resuelva el bucle.\nSUBJECT: Bahia tranquila de la costa este de Sri Lanka (zona Nilaveli / Trincomalee), completamente sin personas.\nSCENE: Orilla de arena clara que encuentra un mar en calma azul-turquesa real, con una silueta suave de promontorio al fondo y unas palmeras lejanas; ventana seca de julio, cielo despejado.\nCOMPOSITION: Plano vertical; bahia y promontorio centrados horizontalmente, horizonte en el tercio superior; amplia area central lisa de mar, cielo y orilla como espacio negativo para la cita, y tercio inferior de arena lisa como espacio negativo extra para el titulo del blog y el chip.\nPALETTE: petroleo #063F5C, naranja #F07F0C, mar azul-turquesa real, arena clara, cielo azul claro\nSTYLE: Fotografia editorial documental de estilo fotoperiodistico, color real y fiel, balance de blancos correcto, aspecto autentico sin retoque; nada estilizado.\nLIGHTING: Luz natural luminosa de dia veraniego despejado; sin filtro calido, sin bano de hora dorada, sin teal-and-orange, sin HDR.\nCONTINUITY: El mar del este se renderiza azul-turquesa real, nunca dorado uniforme; Coherencia de grado editorial con los fondos bg-p1..bg-p3 ya aceptados\nLOCALE: es / market GLOBAL; adaptation mode native. Sin simbolos nacionales ni estereotipos; comunidades del este con dignidad; topografia y mar reales del este de Sri Lanka.\nPLACEMENT: instagram story, 1080x1920; preserve safe zones from platform-spec:instagram-story:2026-07-17.\nDISTINCTIVE ELEMENTS: Mar azul-turquesa real del este; Amplio espacio negativo central e inferior para la cita y el titulo del blog; Luz de dia luminosa, no dorada\nREFERENCE INSTRUCTIONS: No provider-visible references.\nDETERMINISTIC POST-COMPOSITION: logo, overlay_text, cta. Leave intentional negative space for those layers.",
+  "negative_constraints": [
+    "Postal turistica cliche",
+    "Bano dorado uniforme o hora azul",
+    "Playa vacia o joya escondida",
+    "Personas o rostros identificables",
+    "Texto, logos o marcas dentro del pixel generado",
+    "Do not render final logos, legal lines, prices, captions, CTA text or exact overlay copy inside the generated pixels.",
+    "Do not imitate a living artist, competitor campaign or third-party brand style.",
+    "Do not introduce products, people, claims or trademarks that are absent from the approved design and references."
+  ],
+  "parameters": {
+    "placement_id": "instagram-story",
+    "width": 1080,
+    "height": 1920,
+    "quality_ref": "config:creative.image.quality",
+    "output_format": "png",
+    "max_attempts": 3,
+    "max_assets": 1
+  },
+  "references": [],
+  "request_hash": "sha256:947adf39fff924802aebca796b062484d7b0fe2e6c737f6d79777d51c8eecf13"
+}

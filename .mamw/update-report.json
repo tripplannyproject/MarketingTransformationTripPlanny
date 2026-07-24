@@ -2,10 +2,10 @@
   "schema_version": "1.0",
   "mode": "apply",
   "changed": true,
-  "from_version": "0.14.0",
-  "to_version": "0.15.1",
-  "applied_at": "2026-07-22T14:06:05.935Z",
-  "backup": ".mamw/backups/update-2026-07-22T14-06-05-559Z",
+  "from_version": "0.19.0",
+  "to_version": "0.19.1",
+  "applied_at": "2026-07-24T13:38:18.173Z",
+  "backup": ".mamw/backups/update-2026-07-24T13-38-17-938Z",
   "backed_up": [
     ".mamw/project.json",
     ".mamw/installed-files.json",
@@ -19,18 +19,33 @@
     ".codex/skills",
     ".codex/hooks.json",
     ".codex/rules",
+    ".codex/mamw.config.json",
     ".claude/hooks",
     ".claude/agents",
     ".claude/skills",
     ".claude/settings.json",
     ".claude/rules",
     ".claude/commands",
+    ".claude/mamw.config.json",
     ".agents/skills"
   ],
   "pruned": [],
+  "config_migrations": [
+    {
+      "file": ".codex/mamw.config.json",
+      "changes": [],
+      "provider_gaps": []
+    },
+    {
+      "file": ".claude/mamw.config.json",
+      "changes": [],
+      "provider_gaps": []
+    }
+  ],
   "actions": [
     "refresh framework-owned hooks, agents, rules, skills, schemas, examples, scripts and templates",
     "merge Codex/Claude runtime JSON while preserving non-MAMW hooks and user settings",
+    "migrate each mirror's live mamw.config.json (mamw_version) to the installed schema contract",
     "preserve root AGENTS.md and existing project identity",
     "create a recoverable backup before replacing managed files"
   ],

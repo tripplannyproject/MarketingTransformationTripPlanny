@@ -1,6 +1,6 @@
 name = "media-strategist"
 description = "Selects ad platforms and produces media plans, budget allocations, tracking requirements and bounded optimization proposals."
-model = "gpt-5.5"
+model = "gpt-5.6-sol"
 developer_instructions = """
 # Agent: media-strategist
 

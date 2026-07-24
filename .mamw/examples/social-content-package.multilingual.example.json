@@ -52,7 +52,7 @@
           "width": 1080,
           "height": 1920,
           "generated": true,
-          "provider_receipt_ref": "receipt:openai-image:request-001",
+          "provider_receipt_ref": "receipt:codex-image:request-001",
           "rights_ref": "rights:generated-asset-policy:v1"
         }
       ],
@@ -120,7 +120,7 @@
           "width": 1080,
           "height": 1920,
           "generated": true,
-          "provider_receipt_ref": "receipt:openai-image:request-002",
+          "provider_receipt_ref": "receipt:codex-image:request-002",
           "rights_ref": "rights:generated-asset-policy:v1"
         }
       ],
@@ -158,11 +158,11 @@
   "generation": {
     "providers": [
       {
-        "provider_ref": "openai-images",
+        "provider_ref": "codex-images",
         "capability": "generate_image",
         "model_ref": "env:MAMW_OPENAI_IMAGE_MODEL",
         "request_hash": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
-        "receipt_ref": "receipt:openai-image:batch-001",
+        "receipt_ref": "receipt:codex-image:batch-001",
         "state": "generated",
         "estimated_cost": 0.5,
         "actual_cost": 0.46

@@ -1,0 +1,74 @@
+{
+  "schema_version": "creative-generation-receipt-v1",
+  "request_hash": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+  "request_id": "summer-launch.es-co.instagram-story.v1",
+  "design_ref": "design:summer-launch:v1",
+  "runtime": "bridge",
+  "provider_profile": "codex-images",
+  "model_snapshot": "gpt-image-2-2026-04-21",
+  "created_at": "2026-07-23T15:18:00Z",
+  "assets": [
+    {
+      "asset_id": "summer-launch.es-co.carousel-1",
+      "path": ".mamw/creative/assets/summer-launch.es-co.instagram-story.v1/carousel-1.png",
+      "checksum": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1",
+      "bytes": 1548210,
+      "width": 1024,
+      "height": 1536,
+      "attempt": 1,
+      "status": "succeeded"
+    },
+    {
+      "asset_id": "summer-launch.es-co.carousel-2",
+      "path": ".mamw/creative/assets/summer-launch.es-co.instagram-story.v1/carousel-2.png",
+      "checksum": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa2",
+      "bytes": 1490332,
+      "width": 1024,
+      "height": 1536,
+      "attempt": 1,
+      "status": "succeeded"
+    },
+    {
+      "asset_id": "summer-launch.es-co.carousel-3",
+      "path": ".mamw/creative/assets/summer-launch.es-co.instagram-story.v1/carousel-3.png",
+      "checksum": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa3",
+      "bytes": 1601777,
+      "width": 1024,
+      "height": 1536,
+      "attempt": 2,
+      "status": "succeeded"
+    },
+    {
+      "asset_id": "summer-launch.es-co.carousel-4",
+      "path": ".mamw/creative/assets/summer-launch.es-co.instagram-story.v1/carousel-4.png",
+      "checksum": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa4",
+      "bytes": 1522008,
+      "width": 1024,
+      "height": 1536,
+      "attempt": 1,
+      "status": "succeeded"
+    },
+    {
+      "asset_id": "summer-launch.es-co.story-1",
+      "path": ".mamw/creative/assets/summer-launch.es-co.instagram-story.v1/story-1.png",
+      "checksum": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa5",
+      "bytes": 1575641,
+      "width": 1024,
+      "height": 1536,
+      "attempt": 1,
+      "status": "succeeded"
+    }
+  ],
+  "batch": {
+    "requested": 5,
+    "succeeded": 5,
+    "failed": 0,
+    "partial": false,
+    "reused": false
+  },
+  "guards": {
+    "max_images_per_run": 5,
+    "max_bytes_per_asset": 8388608,
+    "oversize_rejected": []
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": "creative-generation-receipt-v1",
+  "request_hash": "sha256:947adf39fff924802aebca796b062484d7b0fe2e6c737f6d79777d51c8eecf13",
+  "request_id": "d5-srilanka-story.es.instagram-story.v1",
+  "design_ref": "design:d5-srilanka-story:v1",
+  "runtime": "native",
+  "provider_profile": "codex-images",
+  "model_snapshot": "gpt-image-2-2026-04-21",
+  "created_at": "2026-07-24T12:14:35.358Z",
+  "assets": [
+    {
+      "asset_id": "d5-srilanka-story.es.instagram-story.v1.a1",
+      "path": ".mamw/creative/assets/947adf39fff924802aebca796b062484d7b0fe2e6c737f6d79777d51c8eecf13/asset-1.png",
+      "checksum": "sha256:3fd629a3d56a081faa16721444c9c66e65d695bcab9e5cb40f278a8cfb1e57a8",
+      "bytes": 2273550,
+      "width": 1024,
+      "height": 1536,
+      "attempt": 1,
+      "status": "succeeded"
+    }
+  ],
+  "batch": {
+    "requested": 1,
+    "succeeded": 1,
+    "failed": 0,
+    "partial": false,
+    "reused": false
+  },
+  "guards": {
+    "max_images_per_run": 5,
+    "max_bytes_per_asset": 8388608,
+    "oversize_rejected": []
+  }
+}

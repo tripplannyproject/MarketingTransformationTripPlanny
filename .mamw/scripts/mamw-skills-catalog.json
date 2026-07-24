@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "catalog_version": "0.15.1",
+  "catalog_version": "0.19.1",
   "framework": "MAMW",
   "total": 76,
   "canonical_source": "templates/skills",
@@ -114,7 +114,7 @@
     "providers": [
       "mamw-provider-onboarding",
       "mamw-connector-policy",
-      "mamw-openai-creative",
+      "mamw-codex-creative",
       "mamw-activation-preflight",
       "mamw-canva-instagram",
       "mamw-calendar-scheduling"
@@ -141,7 +141,7 @@
       "mamw-email-outbound",
       "mamw-provider-onboarding",
       "mamw-connector-policy",
-      "mamw-openai-creative",
+      "mamw-codex-creative",
       "mamw-activation-preflight",
       "mamw-social-publishing",
       "mamw-azure-work-item",
@@ -208,7 +208,7 @@
       "mamw-visual-design",
       "mamw-creative-prompting",
       "mamw-social-content",
-      "mamw-openai-creative",
+      "mamw-codex-creative",
       "mamw-originality",
       "mamw-accessibility",
       "mamw-brand-rights"
@@ -278,7 +278,7 @@
       "mamw-visual-design",
       "mamw-creative-prompting",
       "mamw-social-content",
-      "mamw-openai-creative",
+      "mamw-codex-creative",
       "mamw-accessibility"
     ],
     "UC-12": [
@@ -295,7 +295,7 @@
     ],
     "UC-14": [
       "mamw-creative-prompting",
-      "mamw-openai-creative",
+      "mamw-codex-creative",
       "mamw-connector-policy"
     ],
     "UC-15": [

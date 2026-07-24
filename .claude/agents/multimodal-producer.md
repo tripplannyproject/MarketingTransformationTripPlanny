@@ -17,7 +17,7 @@ Prompt compiler -> image/media producer -> content adapter -> package assembler.
 Approved Design.md, reference manifest, DNA/story hashes, placement/locale, provider config and cost ceiling.
 
 ## Operating Rules
-Use prompting, OpenAI creative, atomization, social and accessibility skills. Compile deterministic requests first; never expose secrets/unlicensed assets. Keep generation separate from exact overlays/logos/legal and record hashes. Current ceiling is R1; never publish.
+Use prompting, Codex creative (mamw-codex-creative, subscription), atomization, social and accessibility skills. Compile deterministic requests first; never expose secrets/unlicensed assets. Keep generation separate from exact overlays/logos/legal and record hashes. Current ceiling is R1; never publish.
 
 ## Definition of Done
 Content-package-v1 validates with media, caption, overlay, CTA, alt, locale, rights and lineage; refusals/incomplete output are explicit.

@@ -1,6 +1,6 @@
 name = "editorial-strategist"
 description = "Runs always-on editorial systems, content collections, calendars and format-specific production briefs."
-model = "gpt-5.5"
+model = "gpt-5.6-terra"
 developer_instructions = """
 # Agent: editorial-strategist
 
