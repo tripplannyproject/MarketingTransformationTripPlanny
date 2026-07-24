@@ -1,0 +1,39 @@
+{
+  "schema_version": "creative-provider-request-v1",
+  "request_id": "d4-lencois-p5-atardecer-cierre.es.instagram-carousel-p5.v1",
+  "design_ref": "design:d4-lencois-p5-atardecer-cierre:v1",
+  "design_hash": "sha256:5cd5ff6c66b6f87a5f7ed70f7abc352a4d33daa008bf4abb0e7af859102b3df6",
+  "reference_manifest_hash": "sha256:9bca313d1ecb50eccc16b514a31850e2c05ac0d9844e765237e57455ec235744",
+  "locale": "es",
+  "provider_profile": "codex-images",
+  "capability": "generate_image",
+  "budget": {
+    "currency": "USD",
+    "run_ceiling": 10,
+    "authority_ref": "budget-envelope:verano-continua-2026:v1"
+  },
+  "prompt": "OBJECTIVE: Cerrar el hilo con un atardecer amplio, lienzo para la resolucion y el CTA-App.\nAUDIENCE: Viajeros hispanohablantes que arman su ruta por los Lencois Maranhenses en Brasil y quieren vivirlos con calma y a buena hora.\nPROPOSITION: El verano esta donde tu lo armes.\nCONCEPT: Dunas y lagunas de los Lencois hasta el horizonte al atardecer temprano, sin personas, como cierre sereno.\nSTORY: Cierre del hilo; lienzo limpio para resolucion + logo + CTA-App.\nSUBJECT: El campo de dunas y las lagunas de agua de lluvia de los Lencois Maranhenses extendiendose hasta el horizonte donde la arena se une al cielo; sin personas; cierre amplio y sereno.\nSCENE: Atardecer temprano suave de un dia despejado de temporada seca, visto desde un punto elevado; el sol bajo da una calidez REAL a las crestas de las dunas mientras las hondonadas y las lagunas quedan frias y fieles en color; la calidez es solo la del sol bajo real, no un filtro dorado anadido ni un grado teal-and-orange, las sombras quedan naturalmente frias.\nCOMPOSITION: Plano vertical; crestas de duna, lagunas y horizonte en la banda superior-media; banda inferior ~45% de arena lisa y uniforme como amplio espacio negativo para el titular de cierre, el logo y el CTA-App.\nPALETTE: arena blanco-crema con calidez real solo en las crestas, lagunas oliva-verdosa y azul-gris, cielo de atardecer graduado con fidelidad\nSTYLE: Fotografia editorial documental de estilo fotoperiodistico, color real y fiel con balance de blanco neutro, grano de pelicula muy sutil, aspecto autentico sin retoque; nada estilizado.\nLIGHTING: Luz suave de atardecer temprano; calidez de sol bajo real con sombras frias; sin filtro dorado uniforme, sin teal-and-orange, sin HDR.\nCONTINUITY: Agua de lluvia en color real, nunca turquesa; calidez solo del sol real; Paisaje puro sin personas; Coherencia editorial con el set D4\nLOCALE: es / market GLOBAL; adaptation mode native. Paisaje puro; sin personas; lienzo para la marca.\nPLACEMENT: instagram feed, 1080x1350; preserve safe zones from platform-spec:instagram-feed:2026-07-17.\nDISTINCTIVE ELEMENTS: Panoramica amplia de dunas y lagunas al horizonte; Calidez REAL de sol bajo solo en las crestas; Banda inferior amplia para el CTA-App\nREFERENCE INSTRUCTIONS: No provider-visible references.\nDETERMINISTIC POST-COMPOSITION: logo, overlay_text, cta. Leave intentional negative space for those layers.",
+  "negative_constraints": [
+    "Agua turquesa tropical o caribena; el agua es de lluvia en color real oliva-verdosa/azul-gris",
+    "Bano dorado uniforme, golden hour wash, teal-and-orange, HDR",
+    "Rostros identificables; multitudes; retratos de residentes o pescadores",
+    "Cliches: otro planeta, Marte, paraiso magico, desierto que se inunda por magia",
+    "Texto, logos o marcas dentro del pixel generado",
+    "Bano naranja uniforme o teal-and-orange en el cierre",
+    "Cualquier persona o figura",
+    "Do not render final logos, legal lines, prices, captions, CTA text or exact overlay copy inside the generated pixels.",
+    "Do not imitate a living artist, competitor campaign or third-party brand style.",
+    "Do not introduce products, people, claims or trademarks that are absent from the approved design and references."
+  ],
+  "parameters": {
+    "placement_id": "instagram-carousel-p5",
+    "width": 1080,
+    "height": 1350,
+    "quality_ref": "config:creative.image.quality",
+    "output_format": "png",
+    "max_attempts": 3,
+    "max_assets": 1
+  },
+  "references": [],
+  "request_hash": "sha256:c6c86e0b11e1c778f0d674282135c36d804b5a6dfcc4e9faa85bf7d01f4ec29a"
+}

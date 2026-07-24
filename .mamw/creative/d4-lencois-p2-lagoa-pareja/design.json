@@ -1,0 +1,127 @@
+{
+  "schema_version": "creative-design-v1",
+  "design_id": "d4-lencois-p2-lagoa-pareja",
+  "design_version": 1,
+  "status": "draft",
+  "scope": {
+    "organization_id": "tripplanny",
+    "brand_id": "tripplanny",
+    "market_ids": [
+      "GLOBAL"
+    ],
+    "account_scope": "social-account:tripplanny:instagram:tripplannyappen"
+  },
+  "lineage": {
+    "campaign_ref": "campaign:verano-continua-2026",
+    "work_item_ref": "azure:HU-468",
+    "brand_dna_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "storytelling_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "brief_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  },
+  "objective": {
+    "audience": "Viajeros hispanohablantes que arman su ruta por los Lencois Maranhenses en Brasil y quieren vivirlos con calma y a buena hora.",
+    "desired_change": "Mostrar Lagoa Azul y Bonita llenas en julio como parada disfrutable del hilo.",
+    "single_minded_proposition": "Lagoa Azul y Bonita, llenas justo en julio.",
+    "proof": [
+      "Las lagunas de agua de lluvia estan mas llenas tras las lluvias (jun-ago); se llega en 4x4 con guia desde Barreirinhas."
+    ],
+    "claims_allowed": [
+      "Hub 360: todo tu viaje en un solo lugar."
+    ],
+    "claims_forbidden": [
+      "Aguas turquesa tropicales u oasis",
+      "Paraiso escondido o lugar secreto",
+      "Playa vacia solo para ti"
+    ]
+  },
+  "concept": {
+    "insight": "La tarde da mejor luz y menos gente; el guia sabe cuales aparecen cada ano.",
+    "central_idea": "Duna alta que baja a una laguna a ultima hora de la tarde con una pareja sentada de espaldas mirando el agua.",
+    "story_spine": "Primera parada del hilo; sostiene el titular con cielo superior para el texto.",
+    "distinctive_elements": [
+      "Duna alta bajando a laguna de agua de lluvia",
+      "Pareja sentada de espaldas disfrutando la vista",
+      "Cielo superior limpio para el titular"
+    ],
+    "avoid": [
+      "Agua turquesa tropical o caribena; el agua es de lluvia en color real oliva-verdosa/azul-gris",
+      "Bano dorado uniforme, golden hour wash, teal-and-orange, HDR",
+      "Rostros identificables; multitudes; retratos de residentes o pescadores",
+      "Cliches: otro planeta, Marte, paraiso magico, desierto que se inunda por magia",
+      "Texto, logos o marcas dentro del pixel generado"
+    ]
+  },
+  "visual_system": {
+    "subject": "Una duna alta de arena blanca baja hacia una laguna de agua de lluvia clara; una pareja de viajeros sentada junta en la cresta, de espaldas, mira tranquila el agua, pequena en cuadro y sin rostros.",
+    "scene": "Ultima hora de la tarde de un dia despejado de temporada seca; plano medio intimo, camara a la altura de los ojos detras de la pareja; luz lateral suave que raspa la arena con sombras largas, calidez REAL de sol bajo, no un bano dorado saturado.",
+    "composition": "Plano vertical; pareja sentada y cresta de duna en la banda media, laguna en la parte media-baja; banda superior de cielo en calma (~tercio) como espacio negativo para el titular; franja limpia de arena al pie para el conector.",
+    "palette": [
+      "arena blanco-crema calida por el sol bajo real",
+      "laguna oliva-verdosa y azul-gris real",
+      "cielo suave de tarde",
+      "petroleo #063F5C para composicion posterior",
+      "naranja #F07F0C para composicion posterior"
+    ],
+    "style": "Fotografia editorial documental de estilo fotoperiodistico, color real y fiel con balance de blanco neutro, grano de pelicula muy sutil, aspecto autentico sin retoque; nada estilizado.",
+    "lighting": "Luz lateral suave de tarde avanzada; sombras largas fieles; sin golden wash saturado, sin teal-and-orange, sin HDR.",
+    "continuity": [
+      "Agua de laguna en color de lluvia real, nunca turquesa tropical",
+      "Personas solo como pareja de espaldas sin rostro",
+      "Coherencia editorial con bg-p1 aceptado"
+    ],
+    "deterministic_layers": [
+      "logo",
+      "overlay_text",
+      "cta"
+    ]
+  },
+  "copy_system": {
+    "voice_tone": "Cercano, especifico y calido; sin hiperboles ni frases de IA.",
+    "text_render_policy": "deterministic_only",
+    "locale_copy_refs": [
+      "copy:d4-lencois:carrusel:es:v2"
+    ]
+  },
+  "placements": [
+    {
+      "placement_id": "instagram-carousel-p2",
+      "platform": "instagram",
+      "surface": "feed",
+      "width": 1080,
+      "height": 1350,
+      "safe_zones_ref": "platform-spec:instagram-feed:2026-07-17"
+    }
+  ],
+  "locales": [
+    {
+      "locale": "es",
+      "market": "GLOBAL",
+      "adaptation_mode": "native",
+      "locale_profile_ref": "locale-profile:es:v1",
+      "market_dna_hash": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "native_review_required": false,
+      "visual_adaptation": "Anti-masa honesta (una pareja); agua de lluvia real; sin retratar residentes."
+    }
+  ],
+  "reference_manifest_ref": "reference-manifest:d4-lencois-p2-lagoa-pareja:v1",
+  "generation_policy": {
+    "provider_profile": "codex-images",
+    "capability": "generate_image",
+    "max_attempts": 3,
+    "max_assets": 1,
+    "currency": "USD",
+    "run_ceiling": 10,
+    "authority_ref": "budget-envelope:verano-continua-2026:v1",
+    "fallback": "deny"
+  },
+  "qa_rubric": {
+    "brand": "Paleta natural que armoniza con petroleo/naranja y espacio negativo coinciden con el sistema del carrusel D4.",
+    "storytelling": "Sostiene la primera parada del hilo (Lagoa Azul/Bonita llenas en julio), no un item suelto.",
+    "originality": "No replica piezas historicas ni campanas externas.",
+    "reference_fidelity": "Escena sin referencias visibles al proveedor; el logo se compone despues en Canva.",
+    "rights": "Escena generada; pareja de espaldas sin rostro; derechos finales en QA (SR2).",
+    "locale": "Anti-masa honesta y agua de lluvia real garantizadas; sin retratos de residentes.",
+    "accessibility": "Espacio negativo y contraste permiten leer el titular; alt text en el copy.",
+    "platform": "1080x1350 feed/carousel, margenes respetados; sujeto y titular fuera de los bordes."
+  }
+}

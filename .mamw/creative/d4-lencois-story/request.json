@@ -1,0 +1,37 @@
+{
+  "schema_version": "creative-provider-request-v1",
+  "request_id": "d4-lencois-story.es.instagram-story.v1",
+  "design_ref": "design:d4-lencois-story:v1",
+  "design_hash": "sha256:68a6cc28ef022601fd9c5663c567943a003661674175c41a6eaa6a3dda162d36",
+  "reference_manifest_hash": "sha256:4ad337bc623901bda6572613e9a6de49c7dbecd176010fbb33f0c292c1544bb2",
+  "locale": "es",
+  "provider_profile": "codex-images",
+  "capability": "generate_image",
+  "budget": {
+    "currency": "USD",
+    "run_ceiling": 10,
+    "authority_ref": "budget-envelope:verano-continua-2026:v1"
+  },
+  "prompt": "OBJECTIVE: Sentir el verano que cambia de hemisferio y querer leer el blog para armar el viaje.\nAUDIENCE: Viajeros hispanohablantes que arman su ruta por los Lencois Maranhenses y sueñan con un verano que sigue en otro hemisferio.\nPROPOSITION: El verano no se acaba: cambia de hemisferio. Los Lencois te esperan.\nCONCEPT: Pareja de viajeros de espaldas disfrutando el atardecer sobre una duna con una laguna de agua de lluvia; emocional, calido, humano.\nSTORY: Fondo de Story vertical que sostiene la cita de plataforma y el titulo del blog, con espacio negativo central-inferior para el texto.\nSUBJECT: Una pareja de viajeros de espaldas, de pie o sentada junta sobre la cresta de una duna blanca, disfruta el atardecer mirando una laguna de agua de lluvia; pequena en cuadro, sin rostros.\nSCENE: Atardecer temprano suave de temporada seca en los Lencois Maranhenses; el sol bajo da calidez REAL a las crestas mientras la laguna queda fresca y fiel en color; dunas rodando al fondo, cielo de atardecer graduado con fidelidad.\nCOMPOSITION: Plano vertical alto; la pareja y la cresta de duna en el tercio superior-medio a un lado, la laguna y las dunas al fondo; amplia banda central-inferior de arena lisa y uniforme como espacio negativo para la cita y el chip del blog.\nPALETTE: arena blanco-crema con calidez real de sol bajo, laguna oliva-verdosa y azul-gris real, cielo de atardecer graduado, petroleo #063F5C para composicion posterior, naranja #F07F0C para composicion posterior\nSTYLE: Fotografia editorial documental de estilo fotoperiodistico, color real y fiel, calida pero honesta, grano de pelicula muy sutil, aspecto autentico sin retoque.\nLIGHTING: Luz de atardecer temprano; calidez de sol bajo real con sombras frias y fieles; sin filtro dorado uniforme, sin teal-and-orange, sin HDR.\nCONTINUITY: Agua de lluvia en color real, nunca turquesa; Pareja de espaldas sin rostro; una pareja, no gentio; Coherencia editorial con los fondos v2 del carrusel D4\nLOCALE: es / market GLOBAL; adaptation mode native. Anti-masa honesta (una pareja); agua de lluvia real; sin retratar residentes; calor humano sin cliches.\nPLACEMENT: instagram story, 1080x1920; preserve safe zones from platform-spec:instagram-story:2026-07-17.\nDISTINCTIVE ELEMENTS: Pareja de espaldas disfrutando el atardecer; Duna y laguna de agua de lluvia real; Amplio espacio negativo central-inferior para cita + chip\nREFERENCE INSTRUCTIONS: No provider-visible references.\nDETERMINISTIC POST-COMPOSITION: logo, overlay_text, cta. Leave intentional negative space for those layers.",
+  "negative_constraints": [
+    "Agua turquesa tropical o caribena; el agua es de lluvia en color real oliva-verdosa/azul-gris",
+    "Bano dorado uniforme, teal-and-orange, HDR (calidez solo del sol bajo real)",
+    "Rostros identificables; multitudes; retratos de residentes o pescadores",
+    "Cliches: otro planeta, Marte, paraiso magico",
+    "Texto, logos o marcas dentro del pixel generado",
+    "Do not render final logos, legal lines, prices, captions, CTA text or exact overlay copy inside the generated pixels.",
+    "Do not imitate a living artist, competitor campaign or third-party brand style.",
+    "Do not introduce products, people, claims or trademarks that are absent from the approved design and references."
+  ],
+  "parameters": {
+    "placement_id": "instagram-story",
+    "width": 1080,
+    "height": 1920,
+    "quality_ref": "config:creative.image.quality",
+    "output_format": "png",
+    "max_attempts": 3,
+    "max_assets": 1
+  },
+  "references": [],
+  "request_hash": "sha256:b49fddcf392ec9954be6e30e9187a06149bd77da7269bb71083599e69f182271"
+}

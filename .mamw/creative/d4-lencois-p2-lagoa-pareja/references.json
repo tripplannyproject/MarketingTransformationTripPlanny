@@ -1,0 +1,41 @@
+{
+  "schema_version": "reference-assets-v1",
+  "manifest_id": "d4-lencois-p2-lagoa-pareja-refs",
+  "manifest_version": 1,
+  "design_ref": "design:d4-lencois-p2-lagoa-pareja:v1",
+  "assets": [
+    {
+      "asset_id": "tripplanny-logo",
+      "media_type": "image/svg+xml",
+      "checksum": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+      "source": {
+        "kind": "dam_ref",
+        "ref": "dam:tripplanny:logo-primary:v1",
+        "transport_policy": "upload_at_execution"
+      },
+      "prompt_role": "logo_for_composition_only",
+      "instruction": "No enviar al generador; el logo se compone despues en Canva. La escena generada NO debe contener texto ni logo.",
+      "influence": "exact_where_supported",
+      "locale_scope": [
+        "*"
+      ],
+      "allowed_transformations": [
+        "resize"
+      ],
+      "rights": {
+        "status": "owned",
+        "owner_ref": "brand-owner:tripplanny",
+        "evidence_ref": "rights:tripplanny-logo:v1",
+        "territories": [
+          "*"
+        ],
+        "channels": [
+          "instagram-carousel-p2",
+          "instagram"
+        ],
+        "commercial_use": true,
+        "third_party_brand": false
+      }
+    }
+  ]
+}

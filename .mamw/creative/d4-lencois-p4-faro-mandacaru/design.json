@@ -1,0 +1,129 @@
+{
+  "schema_version": "creative-design-v1",
+  "design_id": "d4-lencois-p4-faro-mandacaru",
+  "design_version": 1,
+  "status": "draft",
+  "scope": {
+    "organization_id": "tripplanny",
+    "brand_id": "tripplanny",
+    "market_ids": [
+      "GLOBAL"
+    ],
+    "account_scope": "social-account:tripplanny:instagram:tripplannyappen"
+  },
+  "lineage": {
+    "campaign_ref": "campaign:verano-continua-2026",
+    "work_item_ref": "azure:HU-468",
+    "brand_dna_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "storytelling_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "brief_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  },
+  "objective": {
+    "audience": "Viajeros hispanohablantes que arman su ruta por los Lencois Maranhenses en Brasil y quieren vivirlos con calma y a buena hora.",
+    "desired_change": "Mostrar la otra cara del agua: la ruta del rio con el faro de Mandacaru.",
+    "single_minded_proposition": "El rio Preguicas: Mandacaru y Cabure.",
+    "proof": [
+      "El faro de Mandacaru (torre de ~35 m de la Marina de Brasil) domina el rio, las dunas y el mar; se llega en paseo de lancha desde Barreirinhas."
+    ],
+    "claims_allowed": [
+      "Hub 360: todo tu viaje en un solo lugar."
+    ],
+    "claims_forbidden": [
+      "Aguas turquesa tropicales u oasis",
+      "Paraiso escondido o lugar secreto",
+      "Playa vacia solo para ti"
+    ]
+  },
+  "concept": {
+    "insight": "No todo son dunas; el rio y los manglares dan otro plano.",
+    "central_idea": "El faro de Mandacaru alzandose sobre palmeras y manglares, sin personas, como parada fluvial del hilo.",
+    "story_spine": "Tercera parada del hilo; cambia dunas por rio/arquitectura.",
+    "distinctive_elements": [
+      "Faro esbelto en composicion vertical grafica",
+      "Palmeras y manglares del rio",
+      "Dunas y Atlantico al fondo"
+    ],
+    "avoid": [
+      "Agua turquesa tropical o caribena; el agua es de lluvia en color real oliva-verdosa/azul-gris",
+      "Bano dorado uniforme, golden hour wash, teal-and-orange, HDR",
+      "Rostros identificables; multitudes; retratos de residentes o pescadores",
+      "Cliches: otro planeta, Marte, paraiso magico, desierto que se inunda por magia",
+      "Texto, logos o marcas dentro del pixel generado",
+      "Cualquier persona o figura",
+      "Arquitectura deformada o torre distorsionada"
+    ]
+  },
+  "visual_system": {
+    "subject": "El faro de Mandacaru, una torre esbelta de piedra palida y blanca, se alza sobre un grupo de palmeras verdes y manglares bajos junto al rio Preguicas; dunas blancas y el Atlantico azul al fondo; sin personas.",
+    "scene": "Mediodia claro de temporada seca; detalle arquitectonico vertical con camara baja en contrapicado mirando la torre; cielo azul con nubes dispersas; colores reales.",
+    "composition": "Plano vertical; el faro y las palmeras en el eje vertical central con la punta de la torre en la parte superior-media (sin tocar el borde); dunas y mar detras; banda inferior de palmeras/suelo en tono uniforme y cielo despejado a un lado de la torre como espacio negativo para la caja de texto y el conector.",
+    "palette": [
+      "piedra palida y blanca del faro",
+      "verde de palmeras",
+      "dunas blancas",
+      "Atlantico azul",
+      "cielo azul con nubes"
+    ],
+    "style": "Fotografia editorial documental de estilo fotoperiodistico, color real y fiel con balance de blanco neutro, grano de pelicula muy sutil, aspecto autentico sin retoque; nada estilizado.",
+    "lighting": "Luz natural clara de mediodia; colores fieles; sin golden wash, sin teal-and-orange, sin HDR.",
+    "continuity": [
+      "Colores reales; sin dorado uniforme",
+      "Paisaje puro sin personas",
+      "Coherencia editorial con el set D4"
+    ],
+    "deterministic_layers": [
+      "logo",
+      "overlay_text",
+      "cta"
+    ]
+  },
+  "copy_system": {
+    "voice_tone": "Cercano, especifico y calido; sin hiperboles ni frases de IA.",
+    "text_render_policy": "deterministic_only",
+    "locale_copy_refs": [
+      "copy:d4-lencois:carrusel:es:v2"
+    ]
+  },
+  "placements": [
+    {
+      "placement_id": "instagram-carousel-p4",
+      "platform": "instagram",
+      "surface": "feed",
+      "width": 1080,
+      "height": 1350,
+      "safe_zones_ref": "platform-spec:instagram-feed:2026-07-17"
+    }
+  ],
+  "locales": [
+    {
+      "locale": "es",
+      "market": "GLOBAL",
+      "adaptation_mode": "native",
+      "locale_profile_ref": "locale-profile:es:v1",
+      "market_dna_hash": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "native_review_required": false,
+      "visual_adaptation": "Paisaje y arquitectura publica; sin personas; sin marcas."
+    }
+  ],
+  "reference_manifest_ref": "reference-manifest:d4-lencois-p4-faro-mandacaru:v1",
+  "generation_policy": {
+    "provider_profile": "codex-images",
+    "capability": "generate_image",
+    "max_attempts": 3,
+    "max_assets": 1,
+    "currency": "USD",
+    "run_ceiling": 10,
+    "authority_ref": "budget-envelope:verano-continua-2026:v1",
+    "fallback": "deny"
+  },
+  "qa_rubric": {
+    "brand": "Paleta natural que armoniza con petroleo/naranja y espacio negativo coinciden con el sistema del carrusel D4.",
+    "storytelling": "Sostiene la tercera parada (la otra cara del agua: rio y faro).",
+    "originality": "No replica piezas historicas ni campanas externas.",
+    "reference_fidelity": "Escena sin referencias visibles al proveedor; el logo se compone despues en Canva.",
+    "rights": "Escena generada; landmark publico a distancia; sin personas; derechos finales en QA (SR2).",
+    "locale": "Anti-masa honesta y agua de lluvia real garantizadas; sin retratos de residentes.",
+    "accessibility": "Espacio negativo y contraste permiten leer el titular; alt text en el copy.",
+    "platform": "1080x1350 feed/carousel, margenes respetados; sujeto y titular fuera de los bordes."
+  }
+}

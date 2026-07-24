@@ -1,0 +1,91 @@
+{
+  "schema_version": "creative-design-v1",
+  "design_id": "d4-lencois-p1-dunas-gancho",
+  "design_version": 1,
+  "status": "draft",
+  "scope": {
+    "organization_id": "tripplanny",
+    "brand_id": "tripplanny",
+    "market_ids": ["GLOBAL"],
+    "account_scope": "social-account:tripplanny:instagram:tripplannyappen"
+  },
+  "lineage": {
+    "campaign_ref": "campaign:verano-continua-2026",
+    "work_item_ref": "azure:HU-468",
+    "brand_dna_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "storytelling_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "brief_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  },
+  "objective": {
+    "audience": "Viajeros hispanohablantes que arman su ruta por los Lencois Maranhenses en Brasil y quieren vivirlos con calma y a buena hora.",
+    "desired_change": "Enganchar con el misterio de que en lo que parece un desierto el agua esta tibia, para que deslicen y descubran el porque.",
+    "single_minded_proposition": "Parece un desierto y el agua esta tibia: hay un porque, y decide cuando ir.",
+    "proof": ["Los Lencois son el mayor campo de dunas de Sudamerica, con lagunas de agua de lluvia entre las dunas, Patrimonio Mundial de la UNESCO desde 2024."],
+    "claims_allowed": ["Hub 360: todo tu viaje en un solo lugar."],
+    "claims_forbidden": ["Aguas turquesa tropicales u oasis", "Paraiso escondido o lugar secreto", "Playa vacia solo para ti"]
+  },
+  "concept": {
+    "insight": "El agua tibia entre dunas blancas es la pregunta que abre el bucle del carrusel.",
+    "central_idea": "Campo de dunas blancas con varias lagunas de agua de lluvia y una pareja diminuta de espaldas bajando una duna, como gancho del hilo.",
+    "story_spine": "Portada que abre el bucle; fondo-recurso que sostiene el titular bicolor con espacio negativo inferior.",
+    "distinctive_elements": ["Campo de dunas ondulado con lagunas en los pliegues", "Pareja diminuta de espaldas para escala humana y gancho", "Espacio negativo inferior para la franja de titular"],
+    "avoid": ["Agua turquesa tropical o caribena; el agua es de lluvia en color real oliva-verdosa/azul-gris", "Bano dorado uniforme, golden hour wash, teal-and-orange, HDR", "Rostros identificables; multitudes; retratos de residentes o pescadores", "Cliches: otro planeta, Marte, paraiso magico, desierto que se inunda por magia", "Texto, logos o marcas dentro del pixel generado"]
+  },
+  "visual_system": {
+    "subject": "El vasto campo de dunas blancas de los Lencois Maranhenses con varias lagunas de agua de lluvia entre los pliegues; una pareja de viajeros diminuta y de espaldas baja una cresta de duna hacia una laguna, sin rostros.",
+    "scene": "Vista desde un punto elevado, gran angular epico, en una manana clara de temporada seca (julio); dunas suaves rodando al horizonte y lagunas de agua de lluvia en las hondonadas, cielo azul de manana.",
+    "composition": "Plano vertical; crestas de duna, lagunas, la pareja pequena y el horizonte en la banda superior-media; 40 por ciento inferior de arena y borde de laguna lisos como espacio negativo para la franja de titular; franja superior de cielo en calma.",
+    "palette": ["arena blanco-crema", "agua de lluvia oliva-verdosa y azul-gris real", "cielo azul de manana", "petroleo #063F5C para composicion posterior", "naranja #F07F0C para composicion posterior"],
+    "style": "Fotografia editorial documental de estilo fotoperiodistico, color real y fiel con balance de blanco neutro, grano de pelicula muy sutil, aspecto autentico sin retoque; nada estilizado.",
+    "lighting": "Luz natural nitida de media manana de un dia despejado; sin bano de hora dorada, sin teal-and-orange, sin HDR.",
+    "continuity": ["El agua de las lagunas se renderiza en color de lluvia real, nunca turquesa tropical", "Personas solo como pareja diminuta de espaldas sin rostro", "Coherencia de grado editorial con el set del carrusel D4"],
+    "deterministic_layers": ["logo", "overlay_text", "cta"]
+  },
+  "copy_system": {
+    "voice_tone": "Cercano, especifico y calido; sin hiperboles ni frases de IA.",
+    "text_render_policy": "deterministic_only",
+    "locale_copy_refs": ["copy:d4-lencois:carrusel:es:v2"]
+  },
+  "placements": [
+    {
+      "placement_id": "instagram-carousel-p1",
+      "platform": "instagram",
+      "surface": "feed",
+      "width": 1080,
+      "height": 1350,
+      "safe_zones_ref": "platform-spec:instagram-feed:2026-07-17"
+    }
+  ],
+  "locales": [
+    {
+      "locale": "es",
+      "market": "GLOBAL",
+      "adaptation_mode": "native",
+      "locale_profile_ref": "locale-profile:es:v1",
+      "market_dna_hash": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "native_review_required": false,
+      "visual_adaptation": "Anti-masa honesta (una pareja, no gentio); agua de lluvia en color real; sin retratar residentes ni pescadores; comunidades de Maranhao con dignidad."
+    }
+  ],
+  "reference_manifest_ref": "reference-manifest:d4-lencois-p1-dunas-gancho:v1",
+  "generation_policy": {
+    "provider_profile": "codex-images",
+    "capability": "generate_image",
+    "max_attempts": 3,
+    "max_assets": 1,
+    "currency": "USD",
+    "run_ceiling": 10,
+    "authority_ref": "budget-envelope:verano-continua-2026:v1",
+    "fallback": "deny"
+  },
+  "qa_rubric": {
+    "brand": "Paleta natural que armoniza con petroleo/naranja y espacio negativo inferior coinciden con el sistema del carrusel D4.",
+    "storytelling": "La imagen abre el bucle (parece desierto y el agua esta tibia), no un item suelto.",
+    "originality": "No replica piezas historicas ni campanas externas.",
+    "reference_fidelity": "Escena sin referencias visibles al proveedor; el logo se compone despues en Canva.",
+    "rights": "Recurso-escena generado; pareja diminuta de espaldas sin rostro; derechos de la foto final se cierran en QA (SR2).",
+    "locale": "Anti-masa honesta y agua de lluvia real garantizadas; sin retratos de residentes.",
+    "accessibility": "Espacio negativo inferior y contraste permiten leer el titular; alt text provisto en el copy.",
+    "platform": "1080x1350 feed/carousel, margenes respetados; sujeto y titular fuera de los bordes."
+  }
+}

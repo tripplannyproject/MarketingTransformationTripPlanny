@@ -1,0 +1,127 @@
+{
+  "schema_version": "creative-design-v1",
+  "design_id": "d4-lencois-p5-atardecer-cierre",
+  "design_version": 1,
+  "status": "draft",
+  "scope": {
+    "organization_id": "tripplanny",
+    "brand_id": "tripplanny",
+    "market_ids": [
+      "GLOBAL"
+    ],
+    "account_scope": "social-account:tripplanny:instagram:tripplannyappen"
+  },
+  "lineage": {
+    "campaign_ref": "campaign:verano-continua-2026",
+    "work_item_ref": "azure:HU-468",
+    "brand_dna_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "storytelling_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "brief_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  },
+  "objective": {
+    "audience": "Viajeros hispanohablantes que arman su ruta por los Lencois Maranhenses en Brasil y quieren vivirlos con calma y a buena hora.",
+    "desired_change": "Cerrar el hilo con un atardecer amplio, lienzo para la resolucion y el CTA-App.",
+    "single_minded_proposition": "El verano esta donde tu lo armes.",
+    "proof": [
+      "Las lagunas son de lluvia atrapada bajo la arena; julio, tras las lluvias, las encuentra llenas."
+    ],
+    "claims_allowed": [
+      "Hub 360: todo tu viaje en un solo lugar."
+    ],
+    "claims_forbidden": [
+      "Aguas turquesa tropicales u oasis",
+      "Paraiso escondido o lugar secreto",
+      "Playa vacia solo para ti"
+    ]
+  },
+  "concept": {
+    "insight": "El cierre resuelve el bucle y deja espacio para la marca.",
+    "central_idea": "Dunas y lagunas de los Lencois hasta el horizonte al atardecer temprano, sin personas, como cierre sereno.",
+    "story_spine": "Cierre del hilo; lienzo limpio para resolucion + logo + CTA-App.",
+    "distinctive_elements": [
+      "Panoramica amplia de dunas y lagunas al horizonte",
+      "Calidez REAL de sol bajo solo en las crestas",
+      "Banda inferior amplia para el CTA-App"
+    ],
+    "avoid": [
+      "Agua turquesa tropical o caribena; el agua es de lluvia en color real oliva-verdosa/azul-gris",
+      "Bano dorado uniforme, golden hour wash, teal-and-orange, HDR",
+      "Rostros identificables; multitudes; retratos de residentes o pescadores",
+      "Cliches: otro planeta, Marte, paraiso magico, desierto que se inunda por magia",
+      "Texto, logos o marcas dentro del pixel generado",
+      "Bano naranja uniforme o teal-and-orange en el cierre",
+      "Cualquier persona o figura"
+    ]
+  },
+  "visual_system": {
+    "subject": "El campo de dunas y las lagunas de agua de lluvia de los Lencois Maranhenses extendiendose hasta el horizonte donde la arena se une al cielo; sin personas; cierre amplio y sereno.",
+    "scene": "Atardecer temprano suave de un dia despejado de temporada seca, visto desde un punto elevado; el sol bajo da una calidez REAL a las crestas de las dunas mientras las hondonadas y las lagunas quedan frias y fieles en color; la calidez es solo la del sol bajo real, no un filtro dorado anadido ni un grado teal-and-orange, las sombras quedan naturalmente frias.",
+    "composition": "Plano vertical; crestas de duna, lagunas y horizonte en la banda superior-media; banda inferior ~45% de arena lisa y uniforme como amplio espacio negativo para el titular de cierre, el logo y el CTA-App.",
+    "palette": [
+      "arena blanco-crema con calidez real solo en las crestas",
+      "lagunas oliva-verdosa y azul-gris",
+      "cielo de atardecer graduado con fidelidad"
+    ],
+    "style": "Fotografia editorial documental de estilo fotoperiodistico, color real y fiel con balance de blanco neutro, grano de pelicula muy sutil, aspecto autentico sin retoque; nada estilizado.",
+    "lighting": "Luz suave de atardecer temprano; calidez de sol bajo real con sombras frias; sin filtro dorado uniforme, sin teal-and-orange, sin HDR.",
+    "continuity": [
+      "Agua de lluvia en color real, nunca turquesa; calidez solo del sol real",
+      "Paisaje puro sin personas",
+      "Coherencia editorial con el set D4"
+    ],
+    "deterministic_layers": [
+      "logo",
+      "overlay_text",
+      "cta"
+    ]
+  },
+  "copy_system": {
+    "voice_tone": "Cercano, especifico y calido; sin hiperboles ni frases de IA.",
+    "text_render_policy": "deterministic_only",
+    "locale_copy_refs": [
+      "copy:d4-lencois:carrusel:es:v2"
+    ]
+  },
+  "placements": [
+    {
+      "placement_id": "instagram-carousel-p5",
+      "platform": "instagram",
+      "surface": "feed",
+      "width": 1080,
+      "height": 1350,
+      "safe_zones_ref": "platform-spec:instagram-feed:2026-07-17"
+    }
+  ],
+  "locales": [
+    {
+      "locale": "es",
+      "market": "GLOBAL",
+      "adaptation_mode": "native",
+      "locale_profile_ref": "locale-profile:es:v1",
+      "market_dna_hash": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "native_review_required": false,
+      "visual_adaptation": "Paisaje puro; sin personas; lienzo para la marca."
+    }
+  ],
+  "reference_manifest_ref": "reference-manifest:d4-lencois-p5-atardecer-cierre:v1",
+  "generation_policy": {
+    "provider_profile": "codex-images",
+    "capability": "generate_image",
+    "max_attempts": 3,
+    "max_assets": 1,
+    "currency": "USD",
+    "run_ceiling": 10,
+    "authority_ref": "budget-envelope:verano-continua-2026:v1",
+    "fallback": "deny"
+  },
+  "qa_rubric": {
+    "brand": "Paleta natural que armoniza con petroleo/naranja y espacio negativo coinciden con el sistema del carrusel D4.",
+    "storytelling": "Cierra el hilo (el agua es lluvia, julio las llena) y deja espacio para el CTA.",
+    "originality": "No replica piezas historicas ni campanas externas.",
+    "reference_fidelity": "Escena sin referencias visibles al proveedor; el logo se compone despues en Canva.",
+    "rights": "Escena generada; sin personas; derechos finales en QA (SR2).",
+    "locale": "Anti-masa honesta y agua de lluvia real garantizadas; sin retratos de residentes.",
+    "accessibility": "Espacio negativo y contraste permiten leer el titular; alt text en el copy.",
+    "platform": "1080x1350 feed/carousel, margenes respetados; sujeto y titular fuera de los bordes."
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": "creative-design-v1",
+  "design_id": "d4-lencois-p3-atins-kite",
+  "design_version": 1,
+  "status": "draft",
+  "scope": {
+    "organization_id": "tripplanny",
+    "brand_id": "tripplanny",
+    "market_ids": [
+      "GLOBAL"
+    ],
+    "account_scope": "social-account:tripplanny:instagram:tripplannyappen"
+  },
+  "lineage": {
+    "campaign_ref": "campaign:verano-continua-2026",
+    "work_item_ref": "azure:HU-468",
+    "brand_dna_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "storytelling_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "brief_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  },
+  "objective": {
+    "audience": "Viajeros hispanohablantes que arman su ruta por los Lencois Maranhenses en Brasil y quieren vivirlos con calma y a buena hora.",
+    "desired_change": "Presentar Atins como base menos obvia (pesca y kitesurf) mientras los circuitos clasicos se llenan.",
+    "single_minded_proposition": "Atins, la base menos obvia: pesca y kitesurf.",
+    "proof": [
+      "Atins es una villa de pescadores en la desembocadura del Preguicas con alisios constantes jun-ene, hotspot de kitesurf."
+    ],
+    "claims_allowed": [
+      "Hub 360: todo tu viaje en un solo lugar."
+    ],
+    "claims_forbidden": [
+      "Aguas turquesa tropicales u oasis",
+      "Paraiso escondido o lugar secreto",
+      "Playa vacia solo para ti"
+    ]
+  },
+  "concept": {
+    "insight": "Mientras los clasicos se llenan, Atins ofrece otro ritmo.",
+    "central_idea": "Playa ventosa en la desembocadura del Preguicas con cometas de kite diminutas al fondo y una pareja caminando de espaldas a media distancia.",
+    "story_spine": "Segunda parada del hilo; contrasta con la postal clasica.",
+    "distinctive_elements": [
+      "Playa ventosa con ondas de viento en la arena",
+      "Cometas de kite diminutas y distantes",
+      "Pareja caminando de espaldas a media distancia"
+    ],
+    "avoid": [
+      "Agua turquesa tropical o caribena; el agua es de lluvia en color real oliva-verdosa/azul-gris",
+      "Bano dorado uniforme, golden hour wash, teal-and-orange, HDR",
+      "Rostros identificables; multitudes; retratos de residentes o pescadores",
+      "Cliches: otro planeta, Marte, paraiso magico, desierto que se inunda por magia",
+      "Texto, logos o marcas dentro del pixel generado",
+      "Barcas con nombre visible o matriculas",
+      "Retratos de pescadores o residentes de Atins"
+    ]
+  },
+  "visual_system": {
+    "subject": "Una playa ancha y ventosa en la desembocadura del rio Preguicas junto a Atins; cometas de kitesurf diminutas y distantes sobre el agua; una pareja de viajeros camina a media/larga distancia de espaldas por la arena, sin rostros; un par de barcas de pesca sin nombre varadas muy al fondo.",
+    "scene": "Tarde ventosa y luminosa de temporada seca; gran angular con camara a ras de arena; ondas de viento en la arena como lineas guia hacia un horizonte bajo; leve sensacion de arena/spray en el aire; sin golden.",
+    "composition": "Plano vertical; playa, pareja distante, kites diminutos, barcas lejanas y horizonte en la banda media; banda inferior ~40% de arena lisa peinada por el viento como espacio negativo para la caja de texto y el conector al pie.",
+    "palette": [
+      "arena palida",
+      "agua azul-gris del Atlantico y el rio",
+      "cometas de colores pequenas",
+      "cielo claro o levemente brumoso"
+    ],
+    "style": "Fotografia editorial documental de estilo fotoperiodistico, color real y fiel con balance de blanco neutro, grano de pelicula muy sutil, aspecto autentico sin retoque; nada estilizado.",
+    "lighting": "Luz fresca natural de tarde ventosa; colores reales; sin golden, sin teal-and-orange, sin HDR.",
+    "continuity": [
+      "Agua en azul-gris real, nunca turquesa tropical",
+      "Gente solo distante y de espaldas sin rostro; sin retratar pescadores",
+      "Coherencia editorial con bg-p1/bg-p2"
+    ],
+    "deterministic_layers": [
+      "logo",
+      "overlay_text",
+      "cta"
+    ]
+  },
+  "copy_system": {
+    "voice_tone": "Cercano, especifico y calido; sin hiperboles ni frases de IA.",
+    "text_render_policy": "deterministic_only",
+    "locale_copy_refs": [
+      "copy:d4-lencois:carrusel:es:v2"
+    ]
+  },
+  "placements": [
+    {
+      "placement_id": "instagram-carousel-p3",
+      "platform": "instagram",
+      "surface": "feed",
+      "width": 1080,
+      "height": 1350,
+      "safe_zones_ref": "platform-spec:instagram-feed:2026-07-17"
+    }
+  ],
+  "locales": [
+    {
+      "locale": "es",
+      "market": "GLOBAL",
+      "adaptation_mode": "native",
+      "locale_profile_ref": "locale-profile:es:v1",
+      "market_dna_hash": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "native_review_required": false,
+      "visual_adaptation": "Pescadores y residentes NO se retratan; una pareja distante de espaldas; anti-masa honesta."
+    }
+  ],
+  "reference_manifest_ref": "reference-manifest:d4-lencois-p3-atins-kite:v1",
+  "generation_policy": {
+    "provider_profile": "codex-images",
+    "capability": "generate_image",
+    "max_attempts": 3,
+    "max_assets": 1,
+    "currency": "USD",
+    "run_ceiling": 10,
+    "authority_ref": "budget-envelope:verano-continua-2026:v1",
+    "fallback": "deny"
+  },
+  "qa_rubric": {
+    "brand": "Paleta natural que armoniza con petroleo/naranja y espacio negativo coinciden con el sistema del carrusel D4.",
+    "storytelling": "Sostiene la segunda parada (Atins base menos obvia), cosida por contraste.",
+    "originality": "No replica piezas historicas ni campanas externas.",
+    "reference_fidelity": "Escena sin referencias visibles al proveedor; el logo se compone despues en Canva.",
+    "rights": "Escena generada; gente distante de espaldas sin rostro; barcas sin nombre; derechos finales en QA (SR2).",
+    "locale": "Anti-masa honesta y agua de lluvia real garantizadas; sin retratos de residentes.",
+    "accessibility": "Espacio negativo y contraste permiten leer el titular; alt text en el copy.",
+    "platform": "1080x1350 feed/carousel, margenes respetados; sujeto y titular fuera de los bordes."
+  }
+}

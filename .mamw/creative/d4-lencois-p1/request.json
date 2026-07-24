@@ -1,0 +1,37 @@
+{
+  "schema_version": "creative-provider-request-v1",
+  "request_id": "d4-lencois-p1-dunas-gancho.es.instagram-carousel-p1.v1",
+  "design_ref": "design:d4-lencois-p1-dunas-gancho:v1",
+  "design_hash": "sha256:c0e84642f9b3657fe2d5791870f755fd84e771c1dca6820a60e5419b7ce5937c",
+  "reference_manifest_hash": "sha256:442a76af40abfb6a6b1dd34cc85b250e23b8df7d0f08493390124659f6fc1280",
+  "locale": "es",
+  "provider_profile": "codex-images",
+  "capability": "generate_image",
+  "budget": {
+    "currency": "USD",
+    "run_ceiling": 10,
+    "authority_ref": "budget-envelope:verano-continua-2026:v1"
+  },
+  "prompt": "OBJECTIVE: Enganchar con el misterio de que en lo que parece un desierto el agua esta tibia, para que deslicen y descubran el porque.\nAUDIENCE: Viajeros hispanohablantes que arman su ruta por los Lencois Maranhenses en Brasil y quieren vivirlos con calma y a buena hora.\nPROPOSITION: Parece un desierto y el agua esta tibia: hay un porque, y decide cuando ir.\nCONCEPT: Campo de dunas blancas con varias lagunas de agua de lluvia y una pareja diminuta de espaldas bajando una duna, como gancho del hilo.\nSTORY: Portada que abre el bucle; fondo-recurso que sostiene el titular bicolor con espacio negativo inferior.\nSUBJECT: El vasto campo de dunas blancas de los Lencois Maranhenses con varias lagunas de agua de lluvia entre los pliegues; una pareja de viajeros diminuta y de espaldas baja una cresta de duna hacia una laguna, sin rostros.\nSCENE: Vista desde un punto elevado, gran angular epico, en una manana clara de temporada seca (julio); dunas suaves rodando al horizonte y lagunas de agua de lluvia en las hondonadas, cielo azul de manana.\nCOMPOSITION: Plano vertical; crestas de duna, lagunas, la pareja pequena y el horizonte en la banda superior-media; 40 por ciento inferior de arena y borde de laguna lisos como espacio negativo para la franja de titular; franja superior de cielo en calma.\nPALETTE: arena blanco-crema, agua de lluvia oliva-verdosa y azul-gris real, cielo azul de manana, petroleo #063F5C para composicion posterior, naranja #F07F0C para composicion posterior\nSTYLE: Fotografia editorial documental de estilo fotoperiodistico, color real y fiel con balance de blanco neutro, grano de pelicula muy sutil, aspecto autentico sin retoque; nada estilizado.\nLIGHTING: Luz natural nitida de media manana de un dia despejado; sin bano de hora dorada, sin teal-and-orange, sin HDR.\nCONTINUITY: El agua de las lagunas se renderiza en color de lluvia real, nunca turquesa tropical; Personas solo como pareja diminuta de espaldas sin rostro; Coherencia de grado editorial con el set del carrusel D4\nLOCALE: es / market GLOBAL; adaptation mode native. Anti-masa honesta (una pareja, no gentio); agua de lluvia en color real; sin retratar residentes ni pescadores; comunidades de Maranhao con dignidad.\nPLACEMENT: instagram feed, 1080x1350; preserve safe zones from platform-spec:instagram-feed:2026-07-17.\nDISTINCTIVE ELEMENTS: Campo de dunas ondulado con lagunas en los pliegues; Pareja diminuta de espaldas para escala humana y gancho; Espacio negativo inferior para la franja de titular\nREFERENCE INSTRUCTIONS: No provider-visible references.\nDETERMINISTIC POST-COMPOSITION: logo, overlay_text, cta. Leave intentional negative space for those layers.",
+  "negative_constraints": [
+    "Agua turquesa tropical o caribena; el agua es de lluvia en color real oliva-verdosa/azul-gris",
+    "Bano dorado uniforme, golden hour wash, teal-and-orange, HDR",
+    "Rostros identificables; multitudes; retratos de residentes o pescadores",
+    "Cliches: otro planeta, Marte, paraiso magico, desierto que se inunda por magia",
+    "Texto, logos o marcas dentro del pixel generado",
+    "Do not render final logos, legal lines, prices, captions, CTA text or exact overlay copy inside the generated pixels.",
+    "Do not imitate a living artist, competitor campaign or third-party brand style.",
+    "Do not introduce products, people, claims or trademarks that are absent from the approved design and references."
+  ],
+  "parameters": {
+    "placement_id": "instagram-carousel-p1",
+    "width": 1080,
+    "height": 1350,
+    "quality_ref": "config:creative.image.quality",
+    "output_format": "png",
+    "max_attempts": 3,
+    "max_assets": 1
+  },
+  "references": [],
+  "request_hash": "sha256:b1ea7b615eda99e7c91efdb15994e5379318973681a18e03d2ed012ee54f501d"
+}

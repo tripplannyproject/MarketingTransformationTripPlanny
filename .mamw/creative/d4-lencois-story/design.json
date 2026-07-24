@@ -1,0 +1,127 @@
+{
+  "schema_version": "creative-design-v1",
+  "design_id": "d4-lencois-story",
+  "design_version": 1,
+  "status": "draft",
+  "scope": {
+    "organization_id": "tripplanny",
+    "brand_id": "tripplanny",
+    "market_ids": [
+      "GLOBAL"
+    ],
+    "account_scope": "social-account:tripplanny:instagram:tripplannyappen"
+  },
+  "lineage": {
+    "campaign_ref": "campaign:verano-continua-2026",
+    "work_item_ref": "azure:HU-468",
+    "brand_dna_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "storytelling_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "brief_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  },
+  "objective": {
+    "audience": "Viajeros hispanohablantes que arman su ruta por los Lencois Maranhenses y sueñan con un verano que sigue en otro hemisferio.",
+    "desired_change": "Sentir el verano que cambia de hemisferio y querer leer el blog para armar el viaje.",
+    "single_minded_proposition": "El verano no se acaba: cambia de hemisferio. Los Lencois te esperan.",
+    "proof": [
+      "Julio, en pleno invierno del norte, es la mejor ventana de los Lencois: lagunas de agua de lluvia llenas."
+    ],
+    "claims_allowed": [
+      "Hub 360: todo tu viaje en un solo lugar."
+    ],
+    "claims_forbidden": [
+      "Aguas turquesa tropicales u oasis",
+      "Paraiso escondido o lugar secreto",
+      "Playa vacia solo para ti"
+    ]
+  },
+  "concept": {
+    "insight": "Una pareja disfrutando el atardecer entre las dunas da calor humano y hace la Story menos plana.",
+    "central_idea": "Pareja de viajeros de espaldas disfrutando el atardecer sobre una duna con una laguna de agua de lluvia; emocional, calido, humano.",
+    "story_spine": "Fondo de Story vertical que sostiene la cita de plataforma y el titulo del blog, con espacio negativo central-inferior para el texto.",
+    "distinctive_elements": [
+      "Pareja de espaldas disfrutando el atardecer",
+      "Duna y laguna de agua de lluvia real",
+      "Amplio espacio negativo central-inferior para cita + chip"
+    ],
+    "avoid": [
+      "Agua turquesa tropical o caribena; el agua es de lluvia en color real oliva-verdosa/azul-gris",
+      "Bano dorado uniforme, teal-and-orange, HDR (calidez solo del sol bajo real)",
+      "Rostros identificables; multitudes; retratos de residentes o pescadores",
+      "Cliches: otro planeta, Marte, paraiso magico",
+      "Texto, logos o marcas dentro del pixel generado"
+    ]
+  },
+  "visual_system": {
+    "subject": "Una pareja de viajeros de espaldas, de pie o sentada junta sobre la cresta de una duna blanca, disfruta el atardecer mirando una laguna de agua de lluvia; pequena en cuadro, sin rostros.",
+    "scene": "Atardecer temprano suave de temporada seca en los Lencois Maranhenses; el sol bajo da calidez REAL a las crestas mientras la laguna queda fresca y fiel en color; dunas rodando al fondo, cielo de atardecer graduado con fidelidad.",
+    "composition": "Plano vertical alto; la pareja y la cresta de duna en el tercio superior-medio a un lado, la laguna y las dunas al fondo; amplia banda central-inferior de arena lisa y uniforme como espacio negativo para la cita y el chip del blog.",
+    "palette": [
+      "arena blanco-crema con calidez real de sol bajo",
+      "laguna oliva-verdosa y azul-gris real",
+      "cielo de atardecer graduado",
+      "petroleo #063F5C para composicion posterior",
+      "naranja #F07F0C para composicion posterior"
+    ],
+    "style": "Fotografia editorial documental de estilo fotoperiodistico, color real y fiel, calida pero honesta, grano de pelicula muy sutil, aspecto autentico sin retoque.",
+    "lighting": "Luz de atardecer temprano; calidez de sol bajo real con sombras frias y fieles; sin filtro dorado uniforme, sin teal-and-orange, sin HDR.",
+    "continuity": [
+      "Agua de lluvia en color real, nunca turquesa",
+      "Pareja de espaldas sin rostro; una pareja, no gentio",
+      "Coherencia editorial con los fondos v2 del carrusel D4"
+    ],
+    "deterministic_layers": [
+      "logo",
+      "overlay_text",
+      "cta"
+    ]
+  },
+  "copy_system": {
+    "voice_tone": "Cercano, calido, emocional pero honesto.",
+    "text_render_policy": "deterministic_only",
+    "locale_copy_refs": [
+      "copy:d4-lencois:story:es:v1"
+    ]
+  },
+  "placements": [
+    {
+      "placement_id": "instagram-story",
+      "platform": "instagram",
+      "surface": "story",
+      "width": 1080,
+      "height": 1920,
+      "safe_zones_ref": "platform-spec:instagram-story:2026-07-17"
+    }
+  ],
+  "locales": [
+    {
+      "locale": "es",
+      "market": "GLOBAL",
+      "adaptation_mode": "native",
+      "locale_profile_ref": "locale-profile:es:v1",
+      "market_dna_hash": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "native_review_required": false,
+      "visual_adaptation": "Anti-masa honesta (una pareja); agua de lluvia real; sin retratar residentes; calor humano sin cliches."
+    }
+  ],
+  "reference_manifest_ref": "reference-manifest:d4-lencois-story:v1",
+  "generation_policy": {
+    "provider_profile": "codex-images",
+    "capability": "generate_image",
+    "max_attempts": 3,
+    "max_assets": 1,
+    "currency": "USD",
+    "run_ceiling": 10,
+    "authority_ref": "budget-envelope:verano-continua-2026:v1",
+    "fallback": "deny"
+  },
+  "qa_rubric": {
+    "brand": "Paleta natural que armoniza con petroleo/naranja; espacio negativo central-inferior para la cita.",
+    "storytelling": "Fondo emocional que sostiene la cita de plataforma; menos plano gracias a la pareja.",
+    "originality": "No replica piezas historicas ni campanas externas.",
+    "reference_fidelity": "Escena sin referencias visibles al proveedor; el logo se compone en Canva.",
+    "rights": "Escena generada; pareja de espaldas sin rostro; derechos finales en QA (SR2).",
+    "locale": "Anti-masa honesta y agua de lluvia real; sin retratos de residentes.",
+    "accessibility": "Espacio negativo central-inferior y contraste permiten leer la cita.",
+    "platform": "1080x1920 story; sujeto y cita fuera de los bordes y de las zonas de UI."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "creative-provider-request-v1",
+  "request_id": "d4-lencois-p2-lagoa-pareja.es.instagram-carousel-p2.v1",
+  "design_ref": "design:d4-lencois-p2-lagoa-pareja:v1",
+  "design_hash": "sha256:19975d8365ffbe7410f4202e7b3b5239820b2805696bc2030ddb51e13409b5fe",
+  "reference_manifest_hash": "sha256:b867163c74ba6448ccfe20cdf664ce1ababa8d544820387bae647dbab68c730a",
+  "locale": "es",
+  "provider_profile": "codex-images",
+  "capability": "generate_image",
+  "budget": {
+    "currency": "USD",
+    "run_ceiling": 10,
+    "authority_ref": "budget-envelope:verano-continua-2026:v1"
+  },
+  "prompt": "OBJECTIVE: Mostrar Lagoa Azul y Bonita llenas en julio como parada disfrutable del hilo.\nAUDIENCE: Viajeros hispanohablantes que arman su ruta por los Lencois Maranhenses en Brasil y quieren vivirlos con calma y a buena hora.\nPROPOSITION: Lagoa Azul y Bonita, llenas justo en julio.\nCONCEPT: Duna alta que baja a una laguna a ultima hora de la tarde con una pareja sentada de espaldas mirando el agua.\nSTORY: Primera parada del hilo; sostiene el titular con cielo superior para el texto.\nSUBJECT: Una duna alta de arena blanca baja hacia una laguna de agua de lluvia clara; una pareja de viajeros sentada junta en la cresta, de espaldas, mira tranquila el agua, pequena en cuadro y sin rostros.\nSCENE: Ultima hora de la tarde de un dia despejado de temporada seca; plano medio intimo, camara a la altura de los ojos detras de la pareja; luz lateral suave que raspa la arena con sombras largas, calidez REAL de sol bajo, no un bano dorado saturado.\nCOMPOSITION: Plano vertical; pareja sentada y cresta de duna en la banda media, laguna en la parte media-baja; banda superior de cielo en calma (~tercio) como espacio negativo para el titular; franja limpia de arena al pie para el conector.\nPALETTE: arena blanco-crema calida por el sol bajo real, laguna oliva-verdosa y azul-gris real, cielo suave de tarde, petroleo #063F5C para composicion posterior, naranja #F07F0C para composicion posterior\nSTYLE: Fotografia editorial documental de estilo fotoperiodistico, color real y fiel con balance de blanco neutro, grano de pelicula muy sutil, aspecto autentico sin retoque; nada estilizado.\nLIGHTING: Luz lateral suave de tarde avanzada; sombras largas fieles; sin golden wash saturado, sin teal-and-orange, sin HDR.\nCONTINUITY: Agua de laguna en color de lluvia real, nunca turquesa tropical; Personas solo como pareja de espaldas sin rostro; Coherencia editorial con bg-p1 aceptado\nLOCALE: es / market GLOBAL; adaptation mode native. Anti-masa honesta (una pareja); agua de lluvia real; sin retratar residentes.\nPLACEMENT: instagram feed, 1080x1350; preserve safe zones from platform-spec:instagram-feed:2026-07-17.\nDISTINCTIVE ELEMENTS: Duna alta bajando a laguna de agua de lluvia; Pareja sentada de espaldas disfrutando la vista; Cielo superior limpio para el titular\nREFERENCE INSTRUCTIONS: No provider-visible references.\nDETERMINISTIC POST-COMPOSITION: logo, overlay_text, cta. Leave intentional negative space for those layers.",
+  "negative_constraints": [
+    "Agua turquesa tropical o caribena; el agua es de lluvia en color real oliva-verdosa/azul-gris",
+    "Bano dorado uniforme, golden hour wash, teal-and-orange, HDR",
+    "Rostros identificables; multitudes; retratos de residentes o pescadores",
+    "Cliches: otro planeta, Marte, paraiso magico, desierto que se inunda por magia",
+    "Texto, logos o marcas dentro del pixel generado",
+    "Do not render final logos, legal lines, prices, captions, CTA text or exact overlay copy inside the generated pixels.",
+    "Do not imitate a living artist, competitor campaign or third-party brand style.",
+    "Do not introduce products, people, claims or trademarks that are absent from the approved design and references."
+  ],
+  "parameters": {
+    "placement_id": "instagram-carousel-p2",
+    "width": 1080,
+    "height": 1350,
+    "quality_ref": "config:creative.image.quality",
+    "output_format": "png",
+    "max_attempts": 3,
+    "max_assets": 1
+  },
+  "references": [],
+  "request_hash": "sha256:138955e3ae7bdbfa259f12921452b6f75b46c6bcc2df9baeec2a5c7e07bc830e"
+}
