@@ -91,6 +91,26 @@
         "auth_env": "AZURE_DEVOPS_PAT",
         "secret_location": "manual_only"
       }
+    },
+    {
+      "id": "instagram-graph",
+      "provider": "Meta Instagram Graph",
+      "kind": "channel-publish",
+      "mode": "disabled",
+      "capabilities": ["channel.publish"],
+      "effect_ceiling": "R4",
+      "auth": {
+        "type": "access_token",
+        "auth_env": "META_IG_ACCESS_TOKEN",
+        "ig_business_id_env": "META_IG_BUSINESS_ID",
+        "secret_location": "manual_only"
+      },
+      "config": {
+        "network": "instagram",
+        "handle": "@tripplannyappen",
+        "api": "meta-content-publishing",
+        "note": "SCAFFOLD disabled 2026-07-24. NO publica. Para activar (owner, conscientemente): (1) cuenta IG Business vinculada a Página FB + App Meta con instagram_content_publish (App Review); (2) META_IG_ACCESS_TOKEN + META_IG_BUSINESS_ID en env (manual_only, nunca en chat); (3) subir effects.available_ceiling a R4; (4) QA M5 PASS + sign-off revisor NATIVO EN (SR4); (5) assets exportados + content-package. Publicar sigue por mamw channel prepare/confirm con firma humana."
+      }
     }
   ],
   "tracker": {
